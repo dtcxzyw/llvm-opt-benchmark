@@ -3034,23 +3034,7 @@ nospecials.exit.thread:                           ; preds = %.preheader, %.nospe
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 %18
   %58 = load i8, ptr %7, align 1, !tbaa !9
   %.not83 = icmp eq i8 %58, 94
-  br i1 %.not83, label %.split.us, label %.split.preheader
-
-.split.preheader:                                 ; preds = %nospecials.exit.thread
-  %59 = load i64, ptr %3, align 8, !tbaa !4
-  %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %0, ptr %60, align 8, !tbaa !27
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 200, ptr %61, align 8, !tbaa !29
-  store ptr %6, ptr %5, align 8, !tbaa !30
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 %59
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %62, ptr %63, align 8, !tbaa !31
-  %64 = getelementptr inbounds nuw i8, ptr %7, i64 %.pre88
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %64, ptr %65, align 8, !tbaa !32
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  br label %.split
+  br i1 %.not83, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %nospecials.exit.thread
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -3072,48 +3056,67 @@ nospecials.exit.thread:                           ; preds = %.preheader, %.nospe
   store i32 0, ptr %76, align 4, !tbaa !37
   %77 = call fastcc ptr @match(ptr noundef nonnull %5, ptr noundef %57, ptr noundef nonnull %67)
   %.not56.us = icmp eq ptr %77, null
-  br i1 %.not56.us, label %.split82, label %.split79.us
+  br i1 %.not56.us, label %.critedge, label %.split81.us
 
-.split:                                           ; preds = %.split.preheader, %89
-  %.047 = phi ptr [ %90, %89 ], [ %57, %.split.preheader ]
-  store i32 0, ptr %66, align 4, !tbaa !37
-  %78 = call fastcc ptr @match(ptr noundef nonnull %5, ptr noundef %.047, ptr noundef nonnull %7)
-  %.not56 = icmp eq ptr %78, null
-  br i1 %.not56, label %89, label %.split79.us
+.split:                                           ; preds = %nospecials.exit.thread
+  %70 = load i64, ptr %3, align 8, !tbaa !4
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %0, ptr %71, align 8, !tbaa !27
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i32 200, ptr %72, align 8, !tbaa !29
+  store ptr %6, ptr %5, align 8, !tbaa !30
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 %70
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %73, ptr %74, align 8, !tbaa !31
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 %.pre89
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %75, ptr %76, align 8, !tbaa !32
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i32 0, ptr %77, align 4, !tbaa !37
+  %78 = call fastcc ptr @match(ptr noundef nonnull %5, ptr noundef %57, ptr noundef nonnull %7)
+  %.not5683 = icmp eq ptr %78, null
+  br i1 %.not5683, label %.lr.ph, label %.split81.us
 
-.split79.us:                                      ; preds = %.split, %.split.us
-  %.us-phi = phi ptr [ %57, %.split.us ], [ %.047, %.split ]
-  %.us-phi80 = phi ptr [ %77, %.split.us ], [ %78, %.split ]
+.split81.us:                                      ; preds = %91, %.split, %.split.us
+  %.us-phi = phi ptr [ %57, %.split.us ], [ %57, %.split ], [ %92, %91 ]
+  %.us-phi82 = phi ptr [ %69, %.split.us ], [ %78, %.split ], [ %93, %91 ]
   br i1 %.not, label %87, label %79
 
-79:                                               ; preds = %.split79.us
+79:                                               ; preds = %.split81.us
   %80 = ptrtoint ptr %.us-phi to i64
   %81 = ptrtoint ptr %6 to i64
   %reass.sub = sub i64 %80, %81
   %82 = add i64 %reass.sub, 1
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %82) #12
-  %83 = ptrtoint ptr %.us-phi80 to i64
+  %83 = ptrtoint ptr %.us-phi82 to i64
   %84 = sub i64 %83, %81
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %84) #12
   %85 = call fastcc i32 @push_captures(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
   %86 = add nsw i32 %85, 2
   br label %.critedge59
 
-87:                                               ; preds = %.split79.us
-  %88 = call fastcc i32 @push_captures(ptr noundef nonnull %5, ptr noundef %.us-phi, ptr noundef nonnull %.us-phi80)
+87:                                               ; preds = %.split81.us
+  %88 = call fastcc i32 @push_captures(ptr noundef nonnull %5, ptr noundef %.us-phi, ptr noundef nonnull %.us-phi82)
   br label %.critedge59
 
-89:                                               ; preds = %.split
-  %90 = getelementptr inbounds nuw i8, ptr %.047, i64 1
-  %91 = load ptr, ptr %63, align 8, !tbaa !31
-  %92 = icmp ult ptr %.047, %91
-  br i1 %92, label %.split, label %.split82
+89:                                               ; preds = %.split, %91
+  %.04784 = phi ptr [ %92, %91 ], [ %57, %.split ]
+  %91 = load ptr, ptr %74, align 8, !tbaa !31
+  %92 = icmp ult ptr %.04784, %91
+  br i1 %92, label %.split82, label %.critedge
 
-.split82:                                         ; preds = %89, %.split.us
+.split82:                                         ; preds = %89
+  %92 = getelementptr inbounds nuw i8, ptr %.04784, i64 1
+  store i32 0, ptr %77, align 4, !tbaa !37
+  %93 = call fastcc ptr @match(ptr noundef nonnull %5, ptr noundef nonnull %92, ptr noundef nonnull %7)
+  %.not56 = icmp eq ptr %93, null
+  br i1 %.not56, label %.lr.ph, label %.split81.us
+
+.critedge:                                        ; preds = %.lr.ph, %.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
-.critedge:                                        ; preds = %47, %42, %36, %34, %.split82, %lmemfind.exit
+.critedge:                                        ; preds = %47, %42, %36, %34, %.critedge, %lmemfind.exit
   call void @lua_pushnil(ptr noundef %0) #12
   br label %93
 
@@ -3123,7 +3126,7 @@ nospecials.exit.thread:                           ; preds = %.preheader, %.nospe
   br label %93
 
 93:                                               ; preds = %lmemfind.exit.thread67, %.critedge59, %.critedge, %20
-  %.0 = phi i32 [ 1, %20 ], [ 1, %.critedge ], [ 2, %lmemfind.exit.thread67 ], [ %.3.ph, %.critedge59 ]
+  %.0 = phi i32 [ 1, %20 ], [ 1, %.critedge60 ], [ 2, %lmemfind.exit.thread69 ], [ %.3.ph, %.critedge61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

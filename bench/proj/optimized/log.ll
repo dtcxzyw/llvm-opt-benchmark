@@ -27,20 +27,14 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 define hidden noundef zeroext i1 @_Z13pj_log_activeP6pj_ctxi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4, !tbaa !8
-  %5 = icmp slt i32 %4, 0
+  %5 = icmp sgt i32 %4, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !38
-  %8 = icmp eq i32 %7, 0
-  %or.cond = select i1 %8, i1 %5, i1 false
-  br i1 %or.cond, label %11, label %9
-
-9:                                                ; preds = %2
+  %8 = icmp ne i32 %7, 0
+  %or.cond = select i1 %8, i1 true, i1 %5
   %spec.select = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
   %10 = icmp sle i32 %1, %spec.select
-  br label %11
-
-11:                                               ; preds = %9, %2
-  %.0 = phi i1 [ %10, %9 ], [ false, %2 ]
+  %.0 = select i1 %or.cond, i1 %10, i1 false
   ret i1 %.0
 }
 
@@ -243,7 +237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %56,
   call void @free(ptr noundef nonnull %16) #16
   br label %_Z13pj_log_activeP6pj_ctxi.exit.thread
 
-_Z13pj_log_activeP6pj_ctxi.exit.thread:           ; preds = %5, %62, %15
+_Z13pj_log_activeP6pj_ctxi.exit.thread:           ; preds = %62, %15, %5
   ret void
 }
 

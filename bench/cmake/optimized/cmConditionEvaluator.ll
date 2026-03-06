@@ -2960,18 +2960,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %29
   %34 = tail call noundef zeroext i1 @_ZNK20cmConditionEvaluator15GetBooleanValueER25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(33) %33)
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.11.024, i64 16
   %36 = tail call noundef zeroext i1 @_ZNK20cmConditionEvaluator15GetBooleanValueER25cmExpandedCommandArgument(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(33) %35)
-  br i1 %cond.i, label %37, label %39
-
-37:                                               ; preds = %32
-  %38 = and i1 %34, %36
-  br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt11logical_andJSt10logical_orEE4evalIbEEbiT_S5_.exit
-
-39:                                               ; preds = %32
-  %40 = or i1 %34, %36
-  br label %_ZN12_GLOBAL__N_115cmRt2CtSelectorISt11logical_andJSt10logical_orEE4evalIbEEbiT_S5_.exit
-
-_ZN12_GLOBAL__N_115cmRt2CtSelectorISt11logical_andJSt10logical_orEE4evalIbEEbiT_S5_.exit: ; preds = %37, %39
-  %.0.i = phi i1 [ %40, %39 ], [ %38, %37 ]
+  %36 = or i1 %33, %35
+  %37 = and i1 %33, %35
+  %spec.select = select i1 %cond.i, i1 %37, i1 %36
   store ptr %.sroa.010.023, ptr %5, align 8, !tbaa !80
   store ptr %.sroa.8.022, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !80
   store ptr %.sroa.11.024, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !80

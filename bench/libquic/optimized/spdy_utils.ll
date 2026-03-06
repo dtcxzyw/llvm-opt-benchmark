@@ -1532,7 +1532,7 @@ define noundef zeroext i1 @_ZN3net9SpdyUtils23CopyAndValidateTrailersERKNS_14Qui
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !67, !noalias !91
   %.not67 = icmp eq ptr %9, %11
-  br i1 %.not67, label %.thread45, label %.lr.ph
+  br i1 %.not67, label %.thread49, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1588,13 +1588,13 @@ define noundef zeroext i1 @_ZN3net9SpdyUtils23CopyAndValidateTrailersERKNS_14Qui
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.038.068, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !17
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %.thread49, label %41
+  br i1 %40, label %.thread, label %41
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %.sroa.038.068, align 8, !tbaa !14
   %43 = load i8, ptr %42, align 1, !tbaa !16
   %44 = icmp eq i8 %43, 58
-  br i1 %44, label %.thread49, label %45
+  br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %39
@@ -1695,9 +1695,9 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11cha
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit
 
 _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit.loopexit.split.loop.exit90, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit.loopexit.split.loop.exit92, %74, %80, %86
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i.i, %80 ], [ %spec.select.i.i.i.i.i, %86 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %74 ], [ %92, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit.loopexit.split.loop.exit92 ], [ %91, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit.loopexit.split.loop.exit90 ], [ %90, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i.i, %80 ], [ %spec.select.i.i.i.i.i, %86 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %74 ], [ %92, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit.loopexit.split.loop.exit98 ], [ %91, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit.loopexit.split.loop.exit96 ], [ %90, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not50 = icmp eq ptr %46, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
-  br i1 %.not50, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit.thread, label %141
+  br i1 %.not50, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit.thread, label %.thread
 
 _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit.thread: ; preds = %._crit_edge.i.i.i.i.i, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1784,7 +1784,7 @@ _ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_string
   %.sroa.0.0.copyload.i.i = load ptr, ptr %122, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not51 = icmp eq ptr %.sroa.0.0.copyload.i.i, %22
-  br i1 %.not51, label %123, label %141
+  br i1 %.not51, label %123, label %.thread
 
 123:                                              ; preds = %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread, %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.038.068, i64 32
@@ -1802,6 +1802,10 @@ _ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_string
   call void @_ZN3net15SpdyHeaderBlock16StringPieceProxyD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %7) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %132
+
+.thread:                                          ; preds = %37, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit, %41, %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %.loopexit
 
 132:                                              ; preds = %34, %131
   %.228 = phi i8 [ 1, %34 ], [ %.02671, %131 ]
@@ -1821,7 +1825,7 @@ _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %.sroa.11.1 = phi ptr [ %138, %135 ], [ %.sroa.11.069, %132 ]
   %.sroa.14.1 = phi ptr [ %136, %135 ], [ %.sroa.14.070, %132 ]
   %.not = icmp eq ptr %.sroa.038.1, %11
-  br i1 %.not, label %.thread45.loopexit, label %23
+  br i1 %.not, label %.loopexit, label %23
 
 139:                                              ; preds = %123
   %140 = landingpad { ptr, i32 }
@@ -1831,20 +1835,11 @@ _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %140
 
-.thread49:                                        ; preds = %37, %41
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread45
-
-141:                                              ; preds = %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit, %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread45
-
-.thread45.loopexit:                               ; preds = %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit
-  %142 = trunc nuw i8 %.228 to i1
-  br label %.thread45
-
-.thread45:                                        ; preds = %3, %.thread45.loopexit, %141, %.thread49
-  %.3 = phi i1 [ false, %141 ], [ false, %.thread49 ], [ false, %3 ], [ %142, %.thread45.loopexit ]
+.thread49:                                        ; preds = %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit, %3, %.thread
+  %.02656 = phi i8 [ %.02669, %.thread ], [ 0, %3 ], [ %.228, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit ]
+  %.not53 = phi i1 [ false, %.thread ], [ true, %3 ], [ true, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit ]
+  %141 = trunc nuw i8 %.02656 to i1
+  %.3 = select i1 %.not53, i1 %141, i1 false
   ret i1 %.3
 }
 

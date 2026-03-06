@@ -1540,7 +1540,7 @@ define void @_ZN6common10validation20validate_sha256_hash17hb20d4f9609c91bf7E(pt
   %9 = alloca { i64, [2 x i64] }, align 8
   %10 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   %11 = icmp eq i64 %2, 64
-  br i1 %11, label %.preheader, label %49
+  br i1 %11, label %.preheader, label %54
 
 .preheader:                                       ; preds = %3, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread.i"
   %.idx = phi i64 [ %.idx7, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread.i" ], [ 0, %3 ]
@@ -1607,16 +1607,17 @@ define void @_ZN6common10validation20validate_sha256_hash17hb20d4f9609c91bf7E(pt
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5250dd02f5adaefE.exit15.i.i.i", %25, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5250dd02f5adaefE.exit13.i.i.i"
   %.idx7 = phi i64 [ %.add10, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i" ], [ %.add9, %25 ], [ %.add8, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5250dd02f5adaefE.exit15.i.i.i" ], [ %.add, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5250dd02f5adaefE.exit13.i.i.i" ]
   %45 = phi i32 [ %44, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i" ], [ %26, %25 ], [ %34, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5250dd02f5adaefE.exit15.i.i.i" ], [ %23, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5250dd02f5adaefE.exit13.i.i.i" ]
-  %46 = add nsw i32 %45, -48
-  %.0.i.i.i.i = icmp ult i32 %46, 10
-  %47 = icmp samesign ugt i32 %45, 64
-  %48 = icmp samesign ugt i32 %45, 96
-  %spec.select.v.i.i.i.i = select i1 %48, i32 103, i32 71
-  %spec.select.i.i.i.i = icmp samesign ult i32 %45, %spec.select.v.i.i.i.i
-  %.04.i.i.i.i = select i1 %47, i1 %spec.select.i.i.i.i, i1 %.0.i.i.i.i
-  br i1 %.04.i.i.i.i, label %.preheader, label %54
+  %46 = icmp samesign ugt i32 %45, 64
+  %.0.i.i.i.i = icmp samesign ugt i32 %45, 96
+  %47 = icmp samesign ult i32 %45, 103
+  %48 = icmp samesign ult i32 %45, 71
+  %50 = add nsw i32 %45, -48
+  %spec.select.i.i.i.i = icmp ult i32 %50, 10
+  %.04.i.i.i.i = select i1 %46, i1 %49, i1 %spec.select.i.i.i.i
+  %53 = select i1 %.0.i.i.i.i, i1 %48, i1 %52
+  br i1 %53, label %.preheader, label %59
 
-49:                                               ; preds = %3
+54:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN9validator5types15ValidationError3new17h87c7a6e1b3a839faE(ptr noalias noundef nonnull sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 captures(none) dereferenceable(96) %10, ptr noalias noundef nonnull readonly align 1 @anon.f005d98d276bf586dad54212df0ce418.61, i64 noundef 19)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !242
@@ -1636,7 +1637,7 @@ define void @_ZN6common10validation20validate_sha256_hash17hb20d4f9609c91bf7E(pt
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h375ef14a78c8e200E"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %50, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4)
           to label %.noexc unwind label %65
 
-.noexc:                                           ; preds = %49
+.noexc:                                           ; preds = %54
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !242
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !242
   %51 = load i8, ptr %6, align 8, !range !254, !alias.scope !255, !noalias !242, !noundef !5
@@ -1645,7 +1646,7 @@ define void @_ZN6common10validation20validate_sha256_hash17hb20d4f9609c91bf7E(pt
 
 53:                                               ; preds = %.noexc
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfa4533408be41b38E.llvm.15447320245616749551"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %67 unwind label %65
+          to label %72 unwind label %65
 
 54:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1657,7 +1658,7 @@ define void @_ZN6common10validation20validate_sha256_hash17hb20d4f9609c91bf7E(pt
   store i64 7, ptr %56, align 8
   store i64 -9223372036854775808, ptr %7, align 8
   invoke void @_ZN9validator5types15ValidationError9add_param17h290f000929aec058E(ptr noalias noundef nonnull align 8 dereferenceable(96) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef readonly align 8 dereferenceable(16) @anon.f005d98d276bf586dad54212df0ce418.63)
-          to label %60 unwind label %58
+          to label %65 unwind label %58
 
 57:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i", %.preheader
   store i64 -9223372036854775807, ptr %0, align 8
@@ -1667,7 +1668,7 @@ define void @_ZN6common10validation20validate_sha256_hash17hb20d4f9609c91bf7E(pt
   %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$validator..types..ValidationError$GT$17h746c5b373e4f632aE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %8) #14
-          to label %64 unwind label %62
+          to label %69 unwind label %62
 
 60:                                               ; preds = %54
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1685,14 +1686,14 @@ define void @_ZN6common10validation20validate_sha256_hash17hb20d4f9609c91bf7E(pt
   unreachable
 
 64:                                               ; preds = %65, %58
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %66, %65 ]
+  %.pn = phi { ptr, i32 } [ %59, %63 ], [ %66, %70 ]
   resume { ptr, i32 } %.pn
 
-65:                                               ; preds = %53, %49, %67
+65:                                               ; preds = %53, %54, %67
   %66 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$validator..types..ValidationError$GT$17h746c5b373e4f632aE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %10) #14
-          to label %64 unwind label %62
+          to label %69 unwind label %62
 
 67:                                               ; preds = %.noexc, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !242
@@ -1703,7 +1704,7 @@ define void @_ZN6common10validation20validate_sha256_hash17hb20d4f9609c91bf7E(pt
   store i64 15, ptr %69, align 8
   store i64 -9223372036854775808, ptr %9, align 8
   invoke void @_ZN9validator5types15ValidationError9add_param17h3bfe4e2448f6001cE(ptr noalias noundef nonnull align 8 dereferenceable(96) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.f005d98d276bf586dad54212df0ce418.66)
-          to label %70 unwind label %65
+          to label %75 unwind label %65
 
 70:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

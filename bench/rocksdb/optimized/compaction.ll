@@ -7373,8 +7373,8 @@ _ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE2atEm.exit.i: ; preds = %55, %127
   br i1 %.not.i.i32.i, label %_ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE2atEm.exit33.i, label %.invoke
 
 .invoke:                                          ; preds = %_ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE2atEm.exit35.i, %94, %76
-  %83 = phi ptr [ @.str.54, %94 ], [ @.str.54, %76 ], [ @.str.55, %_ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE2atEm.exit35.i ]
-  %84 = phi i64 [ %103, %94 ], [ %82, %76 ], [ %109, %_ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE2atEm.exit35.i ]
+  %83 = phi ptr [ @.str.54, %94 ], [ @.str.54, %76 ], [ @.str.55, %_ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE2atEm.exit34.i ]
+  %84 = phi i64 [ %103, %94 ], [ %82, %76 ], [ %109, %_ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE2atEm.exit34.i ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull %83, i64 noundef %.03051.i, i64 noundef %84) #36
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -7438,7 +7438,7 @@ _ZNKSt6vectorIbSaIbEE2atEm.exit.i:                ; preds = %_ZNKSt6vectorIPN7ro
   br label %125
 
 125:                                              ; preds = %_ZNKSt6vectorIbSaIbEE2atEm.exit.i, %_ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE2atEm.exit33.i
-  %.0.i = phi i32 [ %93, %_ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE2atEm.exit33.i ], [ %124, %_ZNKSt6vectorIbSaIbEE2atEm.exit.i ]
+  %.0.i = phi i32 [ %93, %_ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE2atEm.exit32.i ], [ %124, %_ZNKSt6vectorIbSaIbEE2atEm.exit.i ]
   %126 = icmp sgt i32 %.0.i, -1
   %.not.i = icmp slt i32 %.0.i, %64
   %or.cond.i = select i1 %126, i1 %.not.i, i1 false
@@ -7975,12 +7975,10 @@ define noundef zeroext i1 @_ZNK7rocksdb10Compaction24ShouldFormSubcompactionsEv(
   %38 = load i8, ptr %37, align 2, !range !448
   %39 = trunc nuw i8 %38 to i1
   %or.cond = select i1 %36, i1 true, i1 %39
-  br i1 %or.cond, label %40, label %52
-
-40:                                               ; preds = %33
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %42 = load i32, ptr %41, align 4, !tbaa !483
-  %43 = icmp sgt i32 %42, 0
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp sgt i32 %41, 0
+  %43 = select i1 %or.cond, i1 %42, i1 false
   br label %52
 
 44:                                               ; preds = %30
@@ -7993,8 +7991,8 @@ define noundef zeroext i1 @_ZNK7rocksdb10Compaction24ShouldFormSubcompactionsEv(
   %51 = select i1 %47, i1 %50, i1 false
   br label %52
 
-52:                                               ; preds = %30, %40, %33, %26, %5, %1, %44, %22
-  %.0 = phi i1 [ %43, %40 ], [ false, %1 ], [ %25, %22 ], [ false, %5 ], [ false, %26 ], [ %51, %44 ], [ false, %33 ], [ false, %30 ]
+52:                                               ; preds = %30, %26, %5, %1, %44, %33, %22
+  %.0 = phi i1 [ false, %26 ], [ false, %1 ], [ %25, %22 ], [ false, %5 ], [ %43, %33 ], [ %51, %44 ], [ false, %30 ]
   ret i1 %.0
 }
 

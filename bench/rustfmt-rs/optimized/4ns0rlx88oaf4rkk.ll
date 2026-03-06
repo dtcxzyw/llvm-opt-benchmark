@@ -2254,16 +2254,10 @@ define hidden noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$f
 12:                                               ; preds = %2
   %13 = load ptr, ptr %5, align 8, !noalias !291
   %.not.i = icmp eq ptr %13, null
-  br i1 %6, label %14, label %15
+  %brmerge.i = select i1 %6, i1 true, i1 %.not.i
+  br i1 %brmerge.i, label %_ZN3std2io5Write9write_fmt17h1a0fddc8e90c4b89E.exit, label %14
 
 14:                                               ; preds = %12
-  %spec.select.i = select i1 %.not.i, ptr @anon.7b1732ea94d172e7ee709babd0ab4782.38.llvm.6776338100628702967, ptr %13
-  br label %_ZN3std2io5Write9write_fmt17h1a0fddc8e90c4b89E.exit
-
-15:                                               ; preds = %12
-  br i1 %.not.i, label %_ZN3std2io5Write9write_fmt17h1a0fddc8e90c4b89E.exit, label %16
-
-16:                                               ; preds = %15
   call void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17hafaa038e5596e7d6E.llvm.17249484671449717553"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5), !noalias !300
   br label %_ZN3std2io5Write9write_fmt17h1a0fddc8e90c4b89E.exit
 
@@ -2276,10 +2270,11 @@ define hidden noundef ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$f
 "_ZN4core3ptr88drop_in_place$LT$std..io..Write..write_fmt..Adapter$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hdb8ed6725bd9d5e5E.exit.i": ; preds = %11, %7
   resume { ptr, i32 } %8
 
-_ZN3std2io5Write9write_fmt17h1a0fddc8e90c4b89E.exit: ; preds = %14, %15, %16
-  %.08.i = phi ptr [ %spec.select.i, %14 ], [ null, %16 ], [ null, %15 ]
+_ZN3std2io5Write9write_fmt17h1a0fddc8e90c4b89E.exit: ; preds = %12, %14
+  %anon.7b1732ea94d172e7ee709babd0ab4782.38.llvm.6776338100628702967..i = select i1 %.not.i, ptr @anon.7b1732ea94d172e7ee709babd0ab4782.38.llvm.6776338100628702967, ptr %13
+  %.0.i = select i1 %6, ptr %anon.7b1732ea94d172e7ee709babd0ab4782.38.llvm.6776338100628702967..i, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !291
-  ret ptr %.08.i
+  ret ptr %.0.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

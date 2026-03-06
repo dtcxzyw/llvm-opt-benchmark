@@ -328,10 +328,11 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %103 = add nsw i32 %102, -48
   %.0.i.i.i.i.i.i.i = icmp ult i32 %103, 10
   %104 = icmp samesign ugt i32 %102, 64
-  %105 = icmp samesign ugt i32 %102, 96
-  %spec.select.v.i.i.i.i.i.i.i = select i1 %105, i32 103, i32 71
-  %spec.select.i.i.i.i.i.i.i = icmp samesign ult i32 %102, %spec.select.v.i.i.i.i.i.i.i
-  %.04.i.i.i.i.i.i.i = select i1 %104, i1 %spec.select.i.i.i.i.i.i.i, i1 %.0.i.i.i.i.i.i.i
+  %105 = icmp samesign ult i32 %102, 71
+  %spec.select.v.i.i.i.i.i.i.i = select i1 %104, i1 %105, i1 %.0.i.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i.i = icmp samesign ugt i32 %102, 96
+  %107 = icmp samesign ult i32 %102, 103
+  %.04.i.i.i.i.i.i.i = select i1 %106, i1 %107, i1 %.03.i.i.i.i.i.i.i
   br i1 %.04.i.i.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h75bc9ba5151398d4E.exit.i.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he36914b2f6153cfdE.exit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h75bc9ba5151398d4E.exit.i.i.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i.i11"

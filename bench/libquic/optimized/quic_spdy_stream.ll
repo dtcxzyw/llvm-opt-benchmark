@@ -657,8 +657,8 @@ _ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit: ; preds = %1, %8
 _ZNK3net14QuicSpdyStream23FinishedReadingTrailersEv.exit: ; preds = %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit, %20, %24, %28
   %.0.i = phi i1 [ true, %20 ], [ false, %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit ], [ false, %24 ], [ %31, %28 ]
   %or.cond = and i1 %14, %16
-  %spec.select = select i1 %or.cond, i1 %.0.i, i1 false
-  ret i1 %spec.select
+  %32 = and i1 %or.cond, %.0.i
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -721,15 +721,14 @@ define noundef zeroext i1 @_ZNK3net14QuicSpdyStream23FinishedReadingTrailersEv(p
 define noundef zeroext i1 @_ZNK3net14QuicSpdyStream14HasBytesToReadEv(ptr noundef nonnull align 8 dereferenceable(664) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load i64, ptr %2, align 8, !tbaa !88
-  %4 = icmp ne i64 %3, 0
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = tail call noundef zeroext i1 @_ZNK3net19QuicStreamSequencer14HasBytesToReadEv(ptr noundef nonnull align 8 dereferenceable(169) %5)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %8 = load i64, ptr %7, align 8, !tbaa !88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = tail call noundef zeroext i1 @_ZNK3net19QuicStreamSequencer14HasBytesToReadEv(ptr noundef nonnull align 8 dereferenceable(169) %4)
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %7 = load i64, ptr %6, align 8, !tbaa !88
+  %8 = or i64 %7, %3
   %9 = icmp ne i64 %8, 0
-  %or.cond = or i1 %6, %4
-  %spec.select = select i1 %or.cond, i1 true, i1 %9
-  ret i1 %spec.select
+  %or.cond = or i1 %5, %9
+  ret i1 %or.cond
 }
 
 declare noundef zeroext i1 @_ZNK3net19QuicStreamSequencer14HasBytesToReadEv(ptr noundef nonnull align 8 dereferenceable(169)) local_unnamed_addr #1

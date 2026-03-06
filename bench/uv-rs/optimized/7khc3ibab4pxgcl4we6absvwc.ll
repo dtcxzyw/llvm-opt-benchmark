@@ -90,14 +90,15 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread": ; preds = %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit14.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit"
   %43 = phi ptr [ %34, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit" ], [ %8, %21 ], [ %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit14.i.i" ], [ %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i" ]
   %44 = phi i32 [ %42, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit" ], [ %22, %21 ], [ %31, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit14.i.i" ], [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i" ]
-  %45 = add nsw i32 %44, -48
-  %.sroa.0.0.i.i = icmp ult i32 %45, 10
-  %46 = icmp samesign ugt i32 %44, 64
-  %47 = icmp samesign ugt i32 %44, 96
-  %spec.select.v.i.i = select i1 %47, i32 103, i32 71
-  %spec.select.i.i = icmp samesign ult i32 %44, %spec.select.v.i.i
-  %.sroa.02.0.i.i = select i1 %46, i1 %spec.select.i.i, i1 %.sroa.0.0.i.i
-  br i1 %.sroa.02.0.i.i, label %4, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread6"
+  %45 = icmp samesign ugt i32 %44, 64
+  %.sroa.0.0.i.i = icmp samesign ugt i32 %44, 96
+  %46 = icmp samesign ult i32 %44, 103
+  %47 = icmp samesign ult i32 %44, 71
+  %49 = add nsw i32 %44, -48
+  %spec.select.i.i = icmp ult i32 %49, 10
+  %.sroa.02.0.i.i = select i1 %45, i1 %.sroa.0.0.i.i.i, i1 %50
+  %52 = select i1 %.sroa.0.0.i.i, i1 %47, i1 %51
+  br i1 %52, label %4, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread6"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread6": ; preds = %4, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread"
   %48 = phi i1 [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit" ], [ false, %4 ]
@@ -205,14 +206,15 @@ define void @_ZN12uv_git_types9reference12GitReference8from_rev17h120cb67da58921
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit14.i.i.i.i", %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i.i.i"
   %51 = phi ptr [ %42, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i" ], [ %16, %29 ], [ %32, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit14.i.i.i.i" ], [ %22, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i.i.i" ]
   %52 = phi i32 [ %50, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i" ], [ %30, %29 ], [ %39, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit14.i.i.i.i" ], [ %27, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i.i.i" ]
-  %53 = add nsw i32 %52, -48
-  %.sroa.0.0.i.i.i.i = icmp ult i32 %53, 10
-  %54 = icmp samesign ugt i32 %52, 64
-  %55 = icmp samesign ugt i32 %52, 96
-  %spec.select.v.i.i.i.i = select i1 %55, i32 103, i32 71
-  %spec.select.i.i.i.i = icmp samesign ult i32 %52, %spec.select.v.i.i.i.i
-  %.sroa.02.0.i.i.i.i = select i1 %54, i1 %spec.select.i.i.i.i, i1 %.sroa.0.0.i.i.i.i
-  br i1 %.sroa.02.0.i.i.i.i, label %12, label %.thread
+  %53 = icmp samesign ugt i32 %52, 64
+  %.sroa.0.0.i.i.i.i = icmp samesign ugt i32 %52, 96
+  %54 = icmp samesign ult i32 %52, 103
+  %55 = icmp samesign ult i32 %52, 71
+  %57 = add nsw i32 %spec.select.i.i.i, -48
+  %spec.select.i.i.i.i = icmp ult i32 %57, 10
+  %.sroa.02.0.i.i.i.i = select i1 %53, i1 %56, i1 %spec.select.i.i.i.i
+  %60 = select i1 %.sroa.0.0.i.i.i.i, i1 %55, i1 %59
+  br i1 %60, label %12, label %.thread
 
 .thread:                                          ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i", %12, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i", %8, %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit"
   %.sink = phi i64 [ 4, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit" ], [ 2, %8 ], [ 2, %2 ], [ 3, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i" ], [ 3, %12 ], [ 2, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ]
@@ -464,14 +466,15 @@ define hidden noundef zeroext i1 @_ZN12uv_git_types9reference22looks_like_commit
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit14.i.i.i", %23, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i.i"
   %45 = phi ptr [ %36, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i" ], [ %10, %23 ], [ %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit14.i.i.i" ], [ %16, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i.i" ]
   %46 = phi i32 [ %44, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i" ], [ %24, %23 ], [ %33, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit14.i.i.i" ], [ %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i.i" ]
-  %47 = add nsw i32 %46, -48
-  %.sroa.0.0.i.i.i = icmp ult i32 %47, 10
-  %48 = icmp samesign ugt i32 %46, 64
-  %49 = icmp samesign ugt i32 %46, 96
-  %spec.select.v.i.i.i = select i1 %49, i32 103, i32 71
-  %spec.select.i.i.i = icmp samesign ult i32 %46, %spec.select.v.i.i.i
-  %.sroa.02.0.i.i.i = select i1 %48, i1 %spec.select.i.i.i, i1 %.sroa.0.0.i.i.i
-  br i1 %.sroa.02.0.i.i.i, label %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364.exit
+  %47 = icmp samesign ugt i32 %46, 64
+  %.sroa.0.0.i.i.i = icmp samesign ugt i32 %46, 96
+  %48 = icmp samesign ult i32 %46, 103
+  %49 = icmp samesign ult i32 %46, 71
+  %.sroa.02.0.i.i = add nsw i32 %46, -48
+  %spec.select.i.i.i = icmp ult i32 %.sroa.02.0.i.i, 10
+  %.sroa.02.0.i.i.i = select i1 %47, i1 %spec.select.i.i, i1 %52
+  %54 = select i1 %.sroa.0.0.i.i.i, i1 %49, i1 %53
+  br i1 %54, label %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i", %6, %2
   %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %6 ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i" ]

@@ -6728,20 +6728,18 @@ define dso_local void @php_date_initialize_from_ts_long(ptr noundef captures(non
 define dso_local noundef zeroext i1 @php_date_initialize_from_ts_double(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = tail call double @llvm.trunc.f64(double %1)
   %4 = fcmp uno double %3, 0.000000e+00
-  br i1 %4, label %.critedge, label %5, !prof !134
+  %5 = fcmp oge double %3, 0x43E0000000000000
+  %6 = fcmp olt double %3, 0xC3E0000000000000
+  %7 = or i1 %5, %6
+  %8 = or i1 %4, %7
+  br i1 %8, label %9, label %11, !prof !134
 
 5:                                                ; preds = %2
-  %6 = fcmp oge double %3, 0x43E0000000000000
-  %7 = fcmp olt double %3, 0xC3E0000000000000
-  %8 = or i1 %6, %7
-  br i1 %8, label %.critedge, label %10, !prof !134
+  %10 = load ptr, ptr @date_ce_date_range_error, align 8, !tbaa !10
+  tail call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %10, i32 noundef 1, ptr noundef nonnull @.str.41, i64 noundef -9223372036854775808, i64 noundef 9223372036854775807, double noundef %1) #27
+  br label %37
 
-.critedge:                                        ; preds = %2, %5
-  %9 = load ptr, ptr @date_ce_date_range_error, align 8, !tbaa !10
-  tail call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %9, i32 noundef 1, ptr noundef nonnull @.str.41, i64 noundef -9223372036854775808, i64 noundef 9223372036854775807, double noundef %1) #27
-  br label %36
-
-10:                                               ; preds = %5
+10:                                               ; preds = %2
   %11 = fptosi double %3 to i64
   %12 = tail call double @fmod(double noundef %1, double noundef 1.000000e+00) #27, !tbaa !81
   %13 = fmul double %12, 1.000000e+06
@@ -6776,23 +6774,23 @@ define dso_local noundef zeroext i1 @php_date_initialize_from_ts_double(ptr noun
   br label %29
 
 29:                                               ; preds = %.thread, %26, %20
-  %.119 = phi i64 [ %27, %26 ], [ %11, %20 ], [ %19, %.thread ]
-  %.1 = phi i32 [ %28, %26 ], [ %15, %20 ], [ 0, %.thread ]
+  %.119 = phi i64 [ %27, %27 ], [ %11, %21 ], [ %19, %.thread ]
+  %.1 = phi i32 [ %28, %27 ], [ %15, %21 ], [ 0, %.thread ]
   %30 = tail call ptr @timelib_time_ctor() #27
   store ptr %30, ptr %0, align 8, !tbaa !92
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 232
   store i32 1, ptr %31, align 8, !tbaa !102
   tail call void @timelib_unixtime2gmt(ptr noundef %30, i64 noundef %.119) #27
-  %32 = load ptr, ptr %0, align 8, !tbaa !92
-  tail call void @timelib_update_ts(ptr noundef %32, ptr noundef null) #27
   %33 = load ptr, ptr %0, align 8, !tbaa !92
-  %34 = sext i32 %.1 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  store i64 %34, ptr %35, align 8, !tbaa !121
-  br label %36
+  tail call void @timelib_update_ts(ptr noundef %33, ptr noundef null) #26
+  %34 = load ptr, ptr %0, align 8, !tbaa !92
+  %35 = sext i32 %.1 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  store i64 %35, ptr %36, align 8, !tbaa !121
+  br label %37
 
-36:                                               ; preds = %29, %24, %.critedge
-  %.020 = phi i1 [ false, %.critedge ], [ false, %24 ], [ true, %29 ]
+36:                                               ; preds = %29, %24, %9
+  %.020 = phi i1 [ false, %9 ], [ false, %25 ], [ true, %30 ]
   ret i1 %.020
 }
 

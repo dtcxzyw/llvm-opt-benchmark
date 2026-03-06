@@ -20851,7 +20851,11 @@ _ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_16BitVectorExtractEEERKT_v.e
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11: ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_16BitVectorExtractEEERKT_v.exit9, %26, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %36 = icmp ugt i32 %.sroa.02.0.copyload, %.sroa.0.0.copyload
-  br i1 %36, label %44, label %41
+  %37 = icmp eq i32 %.sroa.02.0.copyload, %.sroa.0.0.copyload
+  %38 = icmp ugt i32 %.sroa.64.0.copyload, %.sroa.6.0.copyload
+  %spec.select = select i1 %37, i1 %38, i1 false
+  %.0 = select i1 %36, i1 true, i1 %spec.select
+  ret i1 %.0
 
 37:                                               ; preds = %3
   %38 = landingpad { ptr, i32 }
@@ -20867,18 +20871,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11: ; preds = %_ZNK4cvc58internal1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
-41:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11
-  %42 = icmp eq i32 %.sroa.02.0.copyload, %.sroa.0.0.copyload
-  %43 = icmp ugt i32 %.sroa.64.0.copyload, %.sroa.6.0.copyload
-  %spec.select = select i1 %42, i1 %43, i1 false
-  br label %44
-
-44:                                               ; preds = %41, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11
-  %.0 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11 ], [ %spec.select, %41 ]
-  ret i1 %.0
-
 45:                                               ; preds = %39, %37
-  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %40, %41 ], [ %38, %39 ]
   resume { ptr, i32 } %.pn
 }
 

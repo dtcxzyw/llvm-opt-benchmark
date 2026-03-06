@@ -1677,11 +1677,11 @@ define i32 @dt_view_manager_button_pressed(ptr noundef readonly captures(none) %
   br i1 %.not34, label %31, label %29
 
 29:                                               ; preds = %.critedge
-  %30 = tail call i32 %28(ptr noundef nonnull %9, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #20
+  %30 = tail call i32 %26(ptr noundef nonnull %9, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #20
   br label %31
 
 31:                                               ; preds = %29, %._crit_edge, %.critedge, %7
-  %.0 = phi i32 [ 0, %7 ], [ 1, %._crit_edge ], [ %30, %29 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 0, %7 ], [ 1, %.critedge ], [ %30, %27 ], [ 0, %.critedge43 ]
   ret i32 %.0
 }
 
@@ -2119,28 +2119,18 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %10
   %175 = icmp slt i32 %39, 31
   %176 = icmp slt i32 %41, 31
   %or.cond8 = select i1 %175, i1 %176, i1 false
-  br i1 %or.cond8, label %179, label %177
+  %177 = load i32, ptr %8, align 8
+  %.not133 = icmp eq i32 %37, %177
+  %.not136 = select i1 %or.cond8, i1 true, i1 %.not133
+  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !181
+  call void @dt_mipmap_cache_release_with_caller(ptr noundef %178, ptr noundef nonnull %8, ptr noundef nonnull @.str.1, i32 noundef 882) #20
+  br i1 %.not125, label %180, label %179
 
-177:                                              ; preds = %.thread142
-  %178 = load i32, ptr %8, align 8, !tbaa !195
-  %.not133 = icmp eq i32 %37, %178
-  %.str.21..str.30 = select i1 %.not133, ptr @.str.21, ptr @.str.30
-  %.140 = select i1 %.not133, i32 0, i32 2
-  br label %179
-
-179:                                              ; preds = %177, %.thread142
-  %.not136 = phi i1 [ true, %.thread142 ], [ %.not133, %177 ]
-  %180 = phi ptr [ @.str.21, %.thread142 ], [ %.str.21..str.30, %177 ]
-  %.0109 = phi i32 [ 0, %.thread142 ], [ %.140, %177 ]
-  %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !181
-  call void @dt_mipmap_cache_release_with_caller(ptr noundef %181, ptr noundef nonnull %8, ptr noundef nonnull @.str.1, i32 noundef 882) #20
-  br i1 %.not125, label %183, label %182
-
-182:                                              ; preds = %179
+179:; preds = %.thread142
   call void @free(ptr noundef nonnull %86) #20
   br label %183
 
-183:                                              ; preds = %182, %179
+183:                                              ; preds = %179, %.thread142
   %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %185 = and i32 %184, 1040
   %or.cond141.not = icmp eq i32 %185, 1040
@@ -2151,14 +2141,14 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %10
   %187 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #20
   %188 = load i64, ptr %6, align 8, !tbaa !176
   %189 = add nsw i64 %188, -1290608000
+  %187 = sitofp i64 %186 to double
+  %188 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %189 = load i64, ptr %188, align 8, !tbaa !178
   %190 = sitofp i64 %189 to double
-  %191 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %192 = load i64, ptr %191, align 8, !tbaa !178
-  %193 = sitofp i64 %192 to double
-  %194 = fmul reassoc nnan nsz arcp contract afn double %193, 0x3EB0C6F7A0B5ED8D
+  %191 = fmul reassoc nnan nsz arcp contract afn double %190, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %195 = fsub reassoc nsz arcp contract afn double %190, %20
-  %196 = fadd reassoc nsz arcp contract afn double %195, %194
+  %195 = fsub reassoc nsz arcp contract afn double %187, %20
+  %196 = fadd reassoc nsz arcp contract afn double %195, %191
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.27, i32 noundef %72, i32 noundef %75, double noundef %196) #20
   br label %197
 
@@ -2172,11 +2162,11 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %10
   br i1 %.not137, label %202, label %201
 
 201:                                              ; preds = %198
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.28, i32 noundef %0, ptr noundef nonnull %.not130145, ptr noundef nonnull %180, ptr noundef nonnull @.str.21) #20
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.28, i32 noundef %0, ptr noundef nonnull %.not130145, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.21) #20
   br label %202
 
 202:                                              ; preds = %197, %201, %198, %54
-  %.0 = phi i32 [ 1, %54 ], [ %.0109, %198 ], [ %.0109, %201 ], [ %.0109, %197 ]
+  %.0 = phi i32 [ 1, %54 ], [ 2, %195 ], [ 2, %198 ], [ 0, %194 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

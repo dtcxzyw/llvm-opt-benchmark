@@ -5278,43 +5278,24 @@ _ZN9Stockfish12_GLOBAL__N_17TBTableILNS0_6TBTypeE0EEC2Ev.exit.i.i: ; preds = %7
   %.not12.i.i = icmp eq i32 %63, 0
   %.sroa.gep27.i.i = getelementptr inbounds nuw i8, ptr %4, i64 340
   %.sroa.gep.val29.i.i = load i32, ptr %.sroa.gep27.i.i, align 4
-  br i1 %.not12.i.i, label %.thread36.i.i, label %66
-
-.thread36.i.i:                                    ; preds = %61
-  %64 = trunc i32 %.sroa.gep.val29.i.i to i8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  store i8 %64, ptr %65, align 2
-  br label %_ZNSt15__new_allocatorIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEEE9constructIS4_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPT_DpOT0_.exit
-
-66:                                               ; preds = %61
-  %.not13.i.i = icmp ne i32 %.sroa.gep.val29.i.i, 0
-  %67 = icmp sge i32 %63, %.sroa.gep.val29.i.i
-  %spec.select.i.i = and i1 %.not13.i.i, %67
-  %cond.fr26.i.i = freeze i1 %spec.select.i.i
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  br i1 %cond.fr26.i.i, label %69, label %71
-
-69:                                               ; preds = %66
-  %70 = trunc i32 %.sroa.gep.val29.i.i to i8
-  store i8 %70, ptr %68, align 2
-  br label %_ZNSt15__new_allocatorIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEEE9constructIS4_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPT_DpOT0_.exit
-
-71:                                               ; preds = %66
-  %72 = trunc i32 %63 to i8
-  store i8 %72, ptr %68, align 2
-  br label %_ZNSt15__new_allocatorIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEEE9constructIS4_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPT_DpOT0_.exit
-
-_ZNSt15__new_allocatorIN9Stockfish12_GLOBAL__N_17TBTableILNS1_6TBTypeE0EEEE9constructIS4_JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPT_DpOT0_.exit: ; preds = %.thread36.i.i, %69, %71
-  %73 = phi i32 [ %.sroa.gep.val29.i.i, %71 ], [ 0, %.thread36.i.i ], [ %63, %69 ]
-  %74 = trunc i32 %73 to i8
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 55
-  store i8 %74, ptr %75, align 1
-  %76 = call noundef nonnull align 8 dereferenceable(865) ptr @_ZN9Stockfish8Position3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ColorEPNS_9StateInfoE(ptr noundef nonnull align 8 dereferenceable(865) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 1, ptr noundef nonnull %3) #24
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 848
-  %78 = load ptr, ptr %77, align 8
-  %79 = load i64, ptr %78, align 64
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %79, ptr %80, align 8
+  %.not13.i.i = icmp ne i32 %64, 0
+  %65 = icmp sge i32 %62, %64
+  %spec.select.i.i = and i1 %.not13.i.i, %65
+  %66 = select i1 %.not12.i.i, i1 true, i1 %spec.select.i.i
+  %67 = select i1 %66, i32 %64, i32 %62
+  %68 = trunc i32 %67 to i8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 54
+  store i8 %68, ptr %69, align 2
+  %70 = select i1 %66, i32 %62, i32 %64
+  %71 = trunc i32 %70 to i8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 55
+  store i8 %71, ptr %72, align 1
+  %73 = call noundef nonnull align 8 dereferenceable(865) ptr @_ZN9Stockfish8Position3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ColorEPNS_9StateInfoE(ptr noundef nonnull align 8 dereferenceable(865) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 1, ptr noundef nonnull %3) #24
+  %68 = getelementptr inbounds nuw i8, ptr %73, i64 848
+  %75 = load ptr, ptr %74, align 8
+  %76 = load i64, ptr %75, align 64
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %76, ptr %77, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

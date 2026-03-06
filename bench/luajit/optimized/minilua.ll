@@ -43642,7 +43642,7 @@ luaV_tonumber.exit.i:                             ; preds = %23, %luaO_str2d.exi
   unreachable
 
 luaL_optinteger.exit.thread:                      ; preds = %luaL_checklstring.exit62, %lua_type.exit.i, %23, %luaO_str2d.exit.i.i, %luaO_str2d.exit.thread14.i.i
-  %.ph = phi i64 [ 1, %luaL_checklstring.exit62 ], [ 0, %23 ], [ 1, %lua_type.exit.i ], [ 0, %luaO_str2d.exit.i.i ], [ 0, %luaO_str2d.exit.thread14.i.i ]
+  %.ph = phi i64 [ 1, %luaL_checklstring.exit64 ], [ 0, %23 ], [ 1, %lua_type.exit.i ], [ 0, %luaO_str2d.exit.i.i ], [ 0, %luaO_str2d.exit.thread14.i.i ]
   %52 = load i64, ptr %4, align 8, !tbaa !111
   br label %56
 
@@ -43674,7 +43674,7 @@ luaL_optinteger.exit:                             ; preds = %20
   %.luaO_nilobject_.i.i = select i1 %.not28.i.i, ptr %64, ptr @luaO_nilobject_
   %66 = getelementptr inbounds nuw i8, ptr %.luaO_nilobject_.i.i, i64 8
   %67 = load i32, ptr %66, align 8, !tbaa !69
-  switch i32 %67, label %lua_toboolean.exit.thread70 [
+  switch i32 %67, label %lua_toboolean.exit.thread72 [
     i32 0, label %lua_toboolean.exit.thread
     i32 1, label %lua_toboolean.exit
   ]
@@ -43734,7 +43734,7 @@ lua_toboolean.exit.thread70:                      ; preds = %62, %lua_toboolean.
   br i1 %.not.i63, label %.critedge, label %83, !llvm.loop !407
 
 lmemfind.exit.thread74:                           ; preds = %85, %lua_toboolean.exit.thread70
-  %.0.i6477 = phi ptr [ %71, %lua_toboolean.exit.thread70 ], [ %84, %85 ]
+  %.0.i6477 = phi ptr [ %71, %lua_toboolean.exit.thread72 ], [ %84, %85 ]
   %92 = ptrtoint ptr %.0.i6477 to i64
   %93 = ptrtoint ptr %7 to i64
   %94 = sub i64 %92, %93
@@ -43771,82 +43771,85 @@ lmemfind.exit.thread74:                           ; preds = %85, %lua_toboolean.
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %109, ptr %110, align 8, !tbaa !400
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  br i1 %.not95, label %.split.us, label %.split
-
-.split.us:                                        ; preds = %105
   store i32 0, ptr %111, align 8, !tbaa !401
   %112 = call fastcc ptr @match(ptr noundef %6, ptr noundef nonnull %107, ptr noundef nonnull %spec.select58)
   %.not55.us = icmp eq ptr %112, null
-  br i1 %.not55.us, label %.split92, label %.split89.us
+  br i1 %.not57, label %.split, label %.split, !llvm.loop !408
 
-.split:                                           ; preds = %105, %133
-  %.045 = phi ptr [ %134, %133 ], [ %107, %105 ]
+.split:                                           ; preds = %105
+  br i1 %.not55.us, label %131, label %.split91.us
+
+.split:                                           ; preds = %105
+  br i1 %.not55.us, label %.lr.ph, label %.split91.us
+
+.split91.us:                                      ; preds = %134, %.split, %.split.us
+  %.us-phi = phi ptr [ %107, %.split.us ], [ %107, %.split ], [ %135, %134 ]
+  %.us-phi92 = phi ptr [ %112, %.split.us ], [ %112, %.split ], [ %136, %134 ]
+  br i1 %.not, label %130, label %113
+
+113:                                              ; preds = %.split91.us
+  %114 = ptrtoint ptr %.us-phi to i64
+  %115 = ptrtoint ptr %7 to i64
+  %reass.sub = sub i64 %114, %115
+  %116 = add i64 %reass.sub, 1
+  %117 = load ptr, ptr %14, align 8, !tbaa !62
+  %118 = sitofp i64 %116 to double
+  store double %118, ptr %117, align 8, !tbaa !46
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i32 3, ptr %119, align 8, !tbaa !69
+  %120 = load ptr, ptr %14, align 8, !tbaa !62
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  store ptr %121, ptr %14, align 8, !tbaa !62
+  %122 = ptrtoint ptr %.us-phi92 to i64
+  %123 = sub i64 %122, %115
+  %124 = sitofp i64 %123 to double
+  store double %124, ptr %121, align 8, !tbaa !46
+  %125 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  store i32 3, ptr %125, align 8, !tbaa !69
+  %126 = load ptr, ptr %14, align 8, !tbaa !62
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
+  store ptr %127, ptr %14, align 8, !tbaa !62
+  %128 = call fastcc i32 @push_captures(ptr noundef %6, ptr noundef null, ptr noundef null)
+  %129 = add nsw i32 %128, 2
+  br label %.critedge62
+
+130:                                              ; preds = %.split91.us
+  %131 = call fastcc i32 @push_captures(ptr noundef %6, ptr noundef nonnull %.us-phi, ptr noundef nonnull %.us-phi92)
+  br label %.critedge62
+
+.lr.ph:                                           ; preds = %.split, %134
+  %.04594 = phi ptr [ %135, %134 ], [ %107, %.split ]
+  %132 = load ptr, ptr %110, align 8, !tbaa !400
+  %133 = icmp ult ptr %.04594, %132
+  br i1 %133, label %134, label %.critedge
+
+134:                                              ; preds = %.lr.ph
+  %135 = getelementptr inbounds nuw i8, ptr %.04594, i64 1
   store i32 0, ptr %111, align 8, !tbaa !401
-  %113 = call fastcc ptr @match(ptr noundef %6, ptr noundef %.045, ptr noundef nonnull %spec.select58)
+  %113 = call fastcc ptr @match(ptr noundef %6, ptr noundef nonnull %135, ptr noundef nonnull %spec.select58)
   %.not55 = icmp eq ptr %113, null
-  br i1 %.not55, label %133, label %.split89.us
+  br i1 %.not55, label %.lr.ph, label %.split91.us
 
-.split89.us:                                      ; preds = %.split, %.split.us
-  %.us-phi = phi ptr [ %107, %.split.us ], [ %.045, %.split ]
-  %.us-phi90 = phi ptr [ %112, %.split.us ], [ %113, %.split ]
-  br i1 %.not, label %131, label %114
-
-114:                                              ; preds = %.split89.us
-  %115 = ptrtoint ptr %.us-phi to i64
-  %116 = ptrtoint ptr %7 to i64
-  %reass.sub = sub i64 %115, %116
-  %117 = add i64 %reass.sub, 1
-  %118 = load ptr, ptr %14, align 8, !tbaa !62
-  %119 = sitofp i64 %117 to double
-  store double %119, ptr %118, align 8, !tbaa !46
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  store i32 3, ptr %120, align 8, !tbaa !69
-  %121 = load ptr, ptr %14, align 8, !tbaa !62
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  store ptr %122, ptr %14, align 8, !tbaa !62
-  %123 = ptrtoint ptr %.us-phi90 to i64
-  %124 = sub i64 %123, %116
-  %125 = sitofp i64 %124 to double
-  store double %125, ptr %122, align 8, !tbaa !46
-  %126 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  store i32 3, ptr %126, align 8, !tbaa !69
-  %127 = load ptr, ptr %14, align 8, !tbaa !62
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  store ptr %128, ptr %14, align 8, !tbaa !62
-  %129 = call fastcc i32 @push_captures(ptr noundef %6, ptr noundef null, ptr noundef null)
-  %130 = add nsw i32 %129, 2
-  br label %.critedge60
-
-131:                                              ; preds = %.split89.us
-  %132 = call fastcc i32 @push_captures(ptr noundef %6, ptr noundef %.us-phi, ptr noundef nonnull %.us-phi90)
-  br label %.critedge60
-
-133:                                              ; preds = %.split
-  %134 = getelementptr inbounds nuw i8, ptr %.045, i64 1
-  %135 = load ptr, ptr %110, align 8, !tbaa !400
-  %136 = icmp ult ptr %.045, %135
-  br i1 %136, label %.split, label %.split92, !llvm.loop !408
-
-.split92:                                         ; preds = %133, %.split.us
+131:                                              ; preds = %.lr.ph, %.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load ptr, ptr %14, align 8, !tbaa !62
   br label %.critedge
 
-.critedge:                                        ; preds = %88, %83, %77, %75, %.split92
-  %137 = phi ptr [ %.pre, %.split92 ], [ %65, %77 ], [ %65, %75 ], [ %65, %83 ], [ %65, %88 ]
+.critedge:                                        ; preds = %88, %83, %77, %75, %.critedge
+  %137 = phi ptr [ %.pre, %.critedge ], [ %65, %77 ], [ %65, %75 ], [ %65, %83 ], [ %65, %88 ]
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i32 0, ptr %138, align 8, !tbaa !69
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store ptr %139, ptr %14, align 8, !tbaa !62
   br label %140
 
-.critedge60:                                      ; preds = %131, %114
-  %.3.ph = phi i32 [ %132, %131 ], [ %130, %114 ]
+.critedge60:                                      ; preds = %130, %113
+  %.3.ph = phi i32 [ %131, %130 ], [ %129, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %140
 
 140:                                              ; preds = %lmemfind.exit.thread74, %.critedge60, %.critedge
-  %.1 = phi i32 [ 1, %.critedge ], [ 2, %lmemfind.exit.thread74 ], [ %.3.ph, %.critedge60 ]
+  %.1 = phi i32 [ 1, %.critedge60 ], [ 2, %lmemfind.exit.thread76 ], [ %.3.ph, %.critedge62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1

@@ -243,15 +243,10 @@ lean_nat_eq.exit:                                 ; preds = %37
 57:                                               ; preds = %54, %lean_nat_eq.exit
   %58 = icmp eq i8 %41, 0
   %.not = icmp eq i8 %47, 0
-  br i1 %58, label %59, label %60
+  %60 = xor i1 %58, %59
+  br i1 %60, label %65, label %61
 
 59:                                               ; preds = %57
-  br i1 %.not, label %61, label %65
-
-60:                                               ; preds = %57
-  br i1 %.not, label %65, label %61
-
-61:                                               ; preds = %59, %60
   %62 = icmp eq i8 %43, 0
   br i1 %62, label %63, label %65
 
@@ -260,8 +255,8 @@ lean_nat_eq.exit:                                 ; preds = %37
   %.44 = zext i1 %64 to i8
   br label %65
 
-65:                                               ; preds = %54, %59, %lean_obj_tag.exit54, %lean_nat_eq.exit, %60, %63, %61, %lean_obj_tag.exit51, %lean_obj_tag.exit48
-  %.0 = phi i8 [ %.41, %lean_obj_tag.exit51 ], [ %49, %61 ], [ %., %lean_obj_tag.exit48 ], [ 0, %60 ], [ 0, %lean_nat_eq.exit ], [ %.44, %63 ], [ 0, %lean_obj_tag.exit54 ], [ 0, %59 ], [ 0, %54 ]
+65:                                               ; preds = %54, %lean_obj_tag.exit54, %lean_nat_eq.exit, %57, %63, %61, %lean_obj_tag.exit51, %lean_obj_tag.exit48
+  %.0 = phi i8 [ %.41, %lean_obj_tag.exit51 ], [ %49, %61 ], [ %., %lean_obj_tag.exit48 ], [ 0, %57 ], [ 0, %lean_nat_eq.exit ], [ %.44, %63 ], [ 0, %lean_obj_tag.exit54 ], [ 0, %54 ]
   ret i8 %.0
 }
 
@@ -381,15 +376,10 @@ lean_nat_eq.exit.i:                               ; preds = %37
 57:                                               ; preds = %lean_nat_eq.exit.i, %54
   %58 = icmp eq i8 %41, 0
   %.not.i8 = icmp eq i8 %47, 0
-  br i1 %58, label %59, label %60
+  %60 = xor i1 %58, %59
+  br i1 %60, label %l_Lean_Meta_Grind_beqSplitStatus____x40_Lean_Meta_Tactic_Grind_Split___hyg_44_.exit, label %61
 
 59:                                               ; preds = %57
-  br i1 %.not.i8, label %61, label %l_Lean_Meta_Grind_beqSplitStatus____x40_Lean_Meta_Tactic_Grind_Split___hyg_44_.exit
-
-60:                                               ; preds = %57
-  br i1 %.not.i8, label %l_Lean_Meta_Grind_beqSplitStatus____x40_Lean_Meta_Tactic_Grind_Split___hyg_44_.exit, label %61
-
-61:                                               ; preds = %60, %59
   %62 = icmp eq i8 %43, 0
   br i1 %62, label %63, label %l_Lean_Meta_Grind_beqSplitStatus____x40_Lean_Meta_Tactic_Grind_Split___hyg_44_.exit
 
@@ -398,8 +388,8 @@ lean_nat_eq.exit.i:                               ; preds = %37
   %.44.i = zext i1 %64 to i8
   br label %l_Lean_Meta_Grind_beqSplitStatus____x40_Lean_Meta_Tactic_Grind_Split___hyg_44_.exit
 
-l_Lean_Meta_Grind_beqSplitStatus____x40_Lean_Meta_Tactic_Grind_Split___hyg_44_.exit: ; preds = %lean_obj_tag.exit48.i, %lean_obj_tag.exit51.i, %lean_obj_tag.exit54.i, %54, %lean_nat_eq.exit.i, %59, %60, %61, %63
-  %.0.i = phi i8 [ %.41.i, %lean_obj_tag.exit51.i ], [ %49, %61 ], [ %..i, %lean_obj_tag.exit48.i ], [ 0, %60 ], [ 0, %lean_nat_eq.exit.i ], [ %.44.i, %63 ], [ 0, %lean_obj_tag.exit54.i ], [ 0, %59 ], [ 0, %54 ]
+l_Lean_Meta_Grind_beqSplitStatus____x40_Lean_Meta_Tactic_Grind_Split___hyg_44_.exit: ; preds = %lean_obj_tag.exit48.i, %lean_obj_tag.exit51.i, %lean_obj_tag.exit54.i, %54, %lean_nat_eq.exit.i, %57, %61, %63
+  %.0.i = phi i8 [ %.41.i, %lean_obj_tag.exit51.i ], [ %49, %61 ], [ %..i, %lean_obj_tag.exit48.i ], [ 0, %57 ], [ 0, %lean_nat_eq.exit.i ], [ %.44.i, %63 ], [ 0, %lean_obj_tag.exit54.i ], [ 0, %54 ]
   br i1 %12, label %lean_dec.exit, label %65
 
 65:                                               ; preds = %l_Lean_Meta_Grind_beqSplitStatus____x40_Lean_Meta_Tactic_Grind_Split___hyg_44_.exit

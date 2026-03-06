@@ -539,18 +539,15 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   call void @_ZN9quinn_udp3imp27set_socket_option_supported17hf25646a1e17ea1b3E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 0, i32 noundef 10, i32 noundef 3)
   %114 = load i8, ptr %7, align 8, !range !8, !noundef !5
   %115 = trunc nuw i8 %114 to i1
-  br i1 %115, label %116, label %119
-
-116:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf7c05e80c761017bE.exit"
-  %117 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %118 = load ptr, ptr %117, align 8, !nonnull !5, !noundef !5
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %117 = load ptr, ptr %116, align 8, !nonnull !5
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %119 = load i8, ptr %118, align 1, !range !8
+  %120 = xor i8 %119, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %131
+  br i1 %115, label %130, label %121
 
 119:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf7c05e80c761017bE.exit"
-  %120 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %121 = load i8, ptr %120, align 1, !range !8, !noundef !5
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %33, label %125, label %122
 
 122:                                              ; preds = %119
@@ -561,10 +558,9 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   br i1 %124, label %128, label %132
 
 125:                                              ; preds = %119
-  %126 = xor i8 %121, 1
-  %127 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 0, i32 noundef 8, i32 noundef 1)
-  %.not154 = icmp eq ptr %127, null
-  br i1 %.not154, label %.thread183, label %131
+  %126 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 0, i32 noundef 8, i32 noundef 1)
+  %.not154 = icmp eq ptr %126, null
+  br i1 %.not154, label %.thread179, label %130
 
 128:                                              ; preds = %122
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -572,15 +568,15 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %131
 
-131:                                              ; preds = %36, %25, %2, %149, %147, %132, %125, %128, %116
-  %.sink = phi ptr [ %148, %147 ], [ %137, %132 ], [ %127, %125 ], [ %153, %149 ], [ %130, %128 ], [ %118, %116 ], [ %29, %25 ], [ %24, %2 ], [ %40, %36 ]
+131:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf7c05e80c761017bE.exit", %36, %25, %2, %149, %147, %132, %125, %128
+  %.sink = phi ptr [ %148, %146 ], [ %137, %131 ], [ %126, %125 ], [ %153, %148 ], [ %130, %127 ], [ %40, %36 ], [ %29, %25 ], [ %24, %2 ], [ %117, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf7c05e80c761017bE.exit" ]
   store ptr %.sink, ptr %0, align 8
   br label %158
 
 132:                                              ; preds = %122
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %134 = load i8, ptr %133, align 1, !range !8, !noundef !5
-  %135 = and i8 %134, %121
+  %135 = and i8 %134, %119
   %136 = xor i8 %135, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %137 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 49, i32 noundef 1)
@@ -588,7 +584,7 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   br i1 %.not156, label %147, label %131
 
 .thread183:                                       ; preds = %149, %125
-  %.sroa.090.1 = phi i8 [ %126, %125 ], [ %157, %149 ]
+  %.sroa.090.1 = phi i8 [ %120, %125 ], [ %157, %148 ]
   %138 = call { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
   %139 = extractvalue { i64, i32 } %138, 0
   %140 = extractvalue { i64, i32 } %138, 1
@@ -636,7 +632,7 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   br i1 %151, label %131, label %.thread183
 
 158:                                              ; preds = %.thread183, %131
-  %.sroa.090.1.sink = phi i8 [ %.sroa.090.1, %.thread183 ], [ 2, %131 ]
+  %.sroa.090.1.sink = phi i8 [ %.sroa.090.1, %.thread179 ], [ 2, %130 ]
   %.sroa.778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 %.sroa.090.1.sink, ptr %.sroa.778.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %23)

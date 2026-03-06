@@ -577,8 +577,10 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %trunc.i.i = trunc nuw i64 %2 to i1
   %10 = tail call double @llvm.sqrt.f64(double %3)
-  %narrow.i.i.i.i = fcmp ogt double %3, 0.000000e+00
-  %narrow.i.i.not73 = select i1 %trunc.i.i, i1 %narrow.i.i.i.i, i1 false
+  %narrow.i.i.i.i = fcmp ule double %3, 0.000000e+00
+  %narrow.i.i.not73 = select i1 %trunc.i.i, double %10, double undef
+  %not.trunc.i.i = xor i1 %trunc.i.i, true
+  %narrow.i.i = select i1 %not.trunc.i.i, i1 true, i1 %narrow.i.i.i.i
   br label %15
 
 11:                                               ; preds = %13
@@ -614,10 +616,10 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   %20 = getelementptr [8 x i8], ptr %19, i64 %.sroa.015.062
   %21 = load double, ptr %20, align 8, !alias.scope !77, !noundef !4
   %22 = tail call double @llvm.sqrt.f64(double %21)
-  %narrow.i = fcmp ogt double %21, 0.000000e+00
-  %brmerge = select i1 %narrow.i, i1 true, i1 %narrow.i.i.not73
-  %.mux = select i1 %narrow.i, double %22, double %10
-  br i1 %brmerge, label %.thread, label %38
+  %narrow.i = fcmp ule double %21, 0.000000e+00
+  %brmerge = select i1 %narrow.i, i1 %narrow.i.i, i1 false
+  %.mux = select i1 %narrow.i, double %.sroa.3.0.i.i, double %22
+  br i1 %brmerge, label %39, label %25
 
 23:                                               ; preds = %26
   %24 = landingpad { ptr, i32 }
@@ -648,7 +650,7 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   br i1 %.not.i, label %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit", label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %27, %.preheader.us.i
-  %.sroa.05.012.us.i = phi i64 [ %34, %.preheader.us.i ], [ 0, %27 ]
+  %.sroa.05.012.us.i = phi i64 [ %34, %.preheader.us.i ], [ 0, %28 ]
   %34 = add nuw i64 %.sroa.05.012.us.i, 1
   %35 = getelementptr [8 x i8], ptr %33, i64 %.sroa.05.012.us.i
   %36 = load double, ptr %35, align 8, !alias.scope !98, !noalias !101, !noundef !4
@@ -721,7 +723,7 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   br i1 %.not.i.i, label %"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %57, %.lr.ph.i.i
-  %.sroa.06.012.i.i = phi i64 [ %62, %.lr.ph.i.i ], [ 0, %57 ]
+  %.sroa.06.012.i.i = phi i64 [ %62, %.lr.ph.i.i ], [ 0, %58 ]
   %62 = add nuw i64 %.sroa.06.012.i.i, 1
   %63 = getelementptr inbounds [8 x i8], ptr %61, i64 %.sroa.06.012.i.i
   %64 = getelementptr inbounds [8 x i8], ptr %51, i64 %.sroa.06.012.i.i
@@ -741,9 +743,9 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   resume { ptr, i32 } %.pn
 
 70:                                               ; preds = %11, %23, %55
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %56, %55 ], [ %12, %11 ]
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %56, %56 ], [ %12, %11 ]
   invoke void @"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1) #23
-          to label %69 unwind label %71
+          to label %70 unwind label %71
 
 71:                                               ; preds = %70
   %72 = landingpad { ptr, i32 }

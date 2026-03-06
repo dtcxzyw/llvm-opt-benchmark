@@ -262,21 +262,21 @@ define range(i32 0, 2) i32 @right_of(ptr noundef readonly captures(none) %0, ptr
 
 13:                                               ; preds = %2
   %14 = icmp eq i8 %12, 0
-  br i1 %14, label %99, label %16
+  br i1 %14, label %97, label %16
 
 .critedge:                                        ; preds = %2
   %15 = icmp eq i8 %12, 1
-  br i1 %15, label %99, label %.thread
+  br i1 %15, label %97, label %.thread
 
 16:                                               ; preds = %13
   %17 = load double, ptr %4, align 8, !tbaa !26
   %18 = fcmp oeq double %17, 1.000000e+00
-  br i1 %18, label %.critedge66, label %79
+  br i1 %18, label %.critedge66, label %77
 
 .thread:                                          ; preds = %.critedge
   %19 = load double, ptr %4, align 8, !tbaa !26
   %20 = fcmp oeq double %19, 1.000000e+00
-  br i1 %20, label %21, label %79
+  br i1 %20, label %21, label %77
 
 21:                                               ; preds = %.thread
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -308,9 +308,9 @@ define range(i32 0, 2) i32 @right_of(ptr noundef readonly captures(none) %0, ptr
   %43 = phi double [ %35, %.critedge66 ], [ %26, %21 ]
   %44 = fmul double %42, %41
   %45 = fcmp ult double %43, %44
-  br i1 %45, label %58, label %96
+  br i1 %45, label %56, label %94
 
-46:                                               ; preds = %21, %.critedge66
+46:                                               ; preds = %.critedge66, %21
   %47 = phi double [ %38, %.critedge66 ], [ %29, %21 ]
   %48 = phi double [ %36, %.critedge66 ], [ %27, %21 ]
   %49 = phi double [ %35, %.critedge66 ], [ %26, %21 ]
@@ -318,69 +318,64 @@ define range(i32 0, 2) i32 @right_of(ptr noundef readonly captures(none) %0, ptr
   %51 = tail call double @llvm.fmuladd.f64(double %50, double %47, double %8)
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = load double, ptr %52, align 8, !tbaa !29
-  %54 = fcmp ule double %51, %53
+  %54 = fcmp ogt double %51, %53
   %55 = fcmp olt double %47, 0.000000e+00
-  br i1 %55, label %56, label %57
+  %.1.in = xor i1 %55, %54
+  br i1 %.1.in, label %56, label %94
 
-56:                                               ; preds = %46
-  br i1 %54, label %58, label %96
+56:; preds = %40, %46
+  %57 = phi double [ %41, %40 ], [ %47, %46 ]
+  %58 = phi double [ %43, %40 ], [ %49, %46 ]
+  %59 = phi double [ %42, %40 ], [ %48, %46 ]
+  %60 = load ptr, ptr %5, align 8, !tbaa !25
+  %61 = load double, ptr %60, align 8, !tbaa !34
+  %62 = fsub double %9, %61
+  %63 = fneg double %58
+  %64 = fmul double %58, %63
+  %65 = tail call double @llvm.fmuladd.f64(double %59, double %59, double %64)
+  %66 = fmul double %65, %57
+  %67 = fmul double %58, %62
+  %68 = fmul double %59, 2.000000e+00
+  %69 = fdiv double %68, %62
+  %70 = fadd double %69, 1.000000e+00
+  %71 = tail call double @llvm.fmuladd.f64(double %57, double %57, double %70)
+  %69 = fmul double %67, %71
+  %73 = fcmp olt double %66, %72
+  %74 = fcmp olt double %57, 0.000000e+00
+  br i1 %74, label %75, label %94
 
-57:                                               ; preds = %46
-  br i1 %54, label %96, label %58
+75:; preds = %56
+  %76 = xor i1 %73, true
+  br label %94
 
-58:                                               ; preds = %56, %40, %57
-  %59 = phi double [ %41, %40 ], [ %47, %57 ], [ %47, %56 ]
-  %60 = phi double [ %43, %40 ], [ %49, %57 ], [ %49, %56 ]
-  %61 = phi double [ %42, %40 ], [ %48, %57 ], [ %48, %56 ]
-  %62 = load ptr, ptr %5, align 8, !tbaa !25
-  %63 = load double, ptr %62, align 8, !tbaa !34
-  %64 = fsub double %9, %63
-  %65 = fneg double %60
-  %66 = fmul double %60, %65
-  %67 = tail call double @llvm.fmuladd.f64(double %61, double %61, double %66)
-  %68 = fmul double %67, %59
-  %69 = fmul double %60, %64
-  %70 = fmul double %61, 2.000000e+00
-  %71 = fdiv double %70, %64
-  %72 = fadd double %71, 1.000000e+00
-  %73 = tail call double @llvm.fmuladd.f64(double %59, double %59, double %72)
-  %74 = fmul double %69, %73
-  %75 = fcmp olt double %68, %74
-  %76 = fcmp olt double %59, 0.000000e+00
-  br i1 %76, label %77, label %96
+77:                                               ; preds = %.thread, %16
+  %78 = phi double [ %19, %.thread ], [ %17, %16 ]
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %80 = load double, ptr %79, align 8, !tbaa !29
+  %81 = fneg double %78
+  %82 = tail call double @llvm.fmuladd.f64(double %81, double %8, double %80)
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %84 = load double, ptr %83, align 8, !tbaa !37
+  %85 = fsub double %84, %82
+  %86 = fsub double %8, %9
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %88 = load double, ptr %87, align 8, !tbaa !30
+  %89 = fsub double %82, %88
+  %90 = fmul double %85, %85
+  %91 = fmul double %89, %89
+  %92 = tail call double @llvm.fmuladd.f64(double %86, double %86, double %91)
+  %93 = fcmp ogt double %90, %92
+  br label %94
 
-77:                                               ; preds = %58
-  %78 = xor i1 %75, true
-  br label %96
+94:; preds = %40, %46, %75, %56, %77
+  %.2.shrunk = phi i1 [ false, %46 ], [ %76, %75 ], [ %73, %56 ], [ %93, %77 ], [ true, %40 ]
+  %95 = icmp ne i8 %12, 0
+  %.v = xor i1 %.2.shrunk, %95
+  %96 = zext i1 %.v to i32
+  br label %97
 
-79:                                               ; preds = %.thread, %16
-  %80 = phi double [ %19, %.thread ], [ %17, %16 ]
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %82 = load double, ptr %81, align 8, !tbaa !29
-  %83 = fneg double %80
-  %84 = tail call double @llvm.fmuladd.f64(double %83, double %8, double %82)
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %86 = load double, ptr %85, align 8, !tbaa !37
-  %87 = fsub double %86, %84
-  %88 = fsub double %8, %9
-  %89 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %90 = load double, ptr %89, align 8, !tbaa !30
-  %91 = fsub double %84, %90
-  %92 = fmul double %87, %87
-  %93 = fmul double %91, %91
-  %94 = tail call double @llvm.fmuladd.f64(double %88, double %88, double %93)
-  %95 = fcmp ogt double %92, %94
-  br label %96
-
-96:                                               ; preds = %56, %40, %57, %77, %58, %79
-  %.2.shrunk = phi i1 [ false, %57 ], [ %78, %77 ], [ %75, %58 ], [ %95, %79 ], [ true, %40 ], [ false, %56 ]
-  %97 = icmp ne i8 %12, 0
-  %.v = xor i1 %.2.shrunk, %97
-  %98 = zext i1 %.v to i32
-  br label %99
-
-99:                                               ; preds = %.critedge, %13, %96
-  %.0 = phi i32 [ 1, %13 ], [ %98, %96 ], [ 0, %.critedge ]
+97:; preds = %.critedge, %13, %94
+  %.0 = phi i32 [ 1, %13 ], [ %96, %94 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 

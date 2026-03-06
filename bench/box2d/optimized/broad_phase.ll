@@ -521,24 +521,18 @@ define hidden zeroext i1 @b2BroadPhase_TestOverlap(ptr noundef %0, i32 noundef %
   %17 = extractvalue { <2 x float>, <2 x float> } %15, 1
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %16, i64 0
   %.sroa.32.8.vec.extract.i = extractelement <2 x float> %12, i64 0
-  %18 = fcmp ogt float %.sroa.0.0.vec.extract.i, %.sroa.32.8.vec.extract.i
-  %19 = fcmp ogt <2 x float> %16, %12
+  %18 = fcmp ule float %.sroa.0.0.vec.extract.i, %.sroa.32.8.vec.extract.i
+  %19 = fcmp ule <2 x float> %16, %12
   %20 = extractelement <2 x i1> %19, i64 1
-  %or.cond.i = select i1 %18, i1 true, i1 %20
+  %or.cond.i = select i1 %18, i1 %20, i1 false
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %11, i64 0
   %.sroa.3.8.vec.extract.i = extractelement <2 x float> %17, i64 0
-  %21 = fcmp ogt float %.sroa.01.0.vec.extract.i, %.sroa.3.8.vec.extract.i
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %21
-  br i1 %or.cond3.i, label %b2AABB_Overlaps.exit, label %22
-
-22:                                               ; preds = %3
-  %23 = fcmp ule <2 x float> %11, %17
-  %24 = extractelement <2 x i1> %23, i64 1
-  br label %b2AABB_Overlaps.exit
-
-b2AABB_Overlaps.exit:                             ; preds = %3, %22
-  %25 = phi i1 [ false, %3 ], [ %24, %22 ]
-  ret i1 %25
+  %21 = fcmp ule float %.sroa.01.0.vec.extract.i, %.sroa.3.8.vec.extract.i
+  %or.cond3.i = select i1 %or.cond.i, i1 %21, i1 false
+  %22 = fcmp ule <2 x float> %11, %17
+  %23 = extractelement <2 x i1> %22, i64 1
+  %24 = select i1 %or.cond3.i, i1 %23, i1 false
+  ret i1 %24
 }
 
 declare { <2 x float>, <2 x float> } @b2DynamicTree_GetAABB(ptr noundef, i32 noundef) local_unnamed_addr #1

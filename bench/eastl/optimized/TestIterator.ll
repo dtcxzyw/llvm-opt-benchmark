@@ -1892,20 +1892,14 @@ invoke.cont290:                                   ; preds = %invoke.cont290.loop
   %sub.ptr.sub.i365 = sub i64 %sub.ptr.lhs.cast.i363, %sub.ptr.rhs.cast.i364
   %cmp296 = icmp eq i64 %sub.ptr.sub.i360.pre-phi, %sub.ptr.sub.i365
   %or.cond = select i1 %cmp296, i1 %cmp298, i1 false
-  br i1 %or.cond, label %land.rhs299, label %land.end302
-
-land.rhs299:                                      ; preds = %invoke.cont290
   %122 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %add300 = add nsw i64 %108, 3
   %cmp301 = icmp eq i64 %122, %add300
-  br label %land.end302
-
-land.end302:                                      ; preds = %land.rhs299, %invoke.cont290
-  %123 = phi i1 [ %cmp301, %land.rhs299 ], [ false, %invoke.cont290 ]
+  %123 = select i1 %or.cond, i1 %cmp301, i1 false
   %call304 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %123, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 315, ptr noundef nonnull @.str.40)
           to label %invoke.cont303 unwind label %lpad256.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont303:                                   ; preds = %land.end302
+invoke.cont303:                                   ; preds = %invoke.cont290
   %124 = load ptr, ptr %v3, align 8
   %125 = load ptr, ptr %mpEnd.i362, align 8
   %cmp.not7.i.i.i368 = icmp eq ptr %124, %125
@@ -2268,7 +2262,7 @@ lpad256.loopexit.split-lp.loopexit:               ; preds = %if.else.i.i.i.i.i.i
           cleanup
   br label %lpad256
 
-lpad256.loopexit.split-lp.loopexit.split-lp:      ; preds = %if.then.i311, %if.then.i303, %invoke.cont255, %land.end302, %land.end278
+lpad256.loopexit.split-lp.loopexit.split-lp:      ; preds = %if.then.i311, %if.then.i303, %invoke.cont255, %invoke.cont290, %land.end278
   %lpad.loopexit.split-lp1286 = landingpad { ptr, i32 }
           cleanup
   br label %lpad256

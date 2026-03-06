@@ -7865,7 +7865,7 @@ common.resume:                                    ; preds = %184, %225, %_ZNSt7_
   br label %48
 
 48:                                               ; preds = %._crit_edge.i, %.lr.ph28.i
-  %indvars.iv48.i = phi i64 [ 0, %.lr.ph28.i ], [ %58, %._crit_edge.i ]
+  %indvars.iv48.i = phi i64 [ 0, %.lr.ph27.i ], [ %58, %._crit_edge.i ]
   %49 = getelementptr inbounds nuw [96 x i8], ptr %.lcssa81, i64 %indvars.iv48.i
   %50 = load ptr, ptr %49, align 8, !tbaa !129
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -7887,7 +7887,7 @@ common.resume:                                    ; preds = %184, %225, %_ZNSt7_
   br i1 %exitcond51.not.i, label %_ZN3gmxL29checkInputConsistencyIntervalERKNS_9AwhParamsEP14WarningHandler.exit, label %48, !llvm.loop !208
 
 60:                                               ; preds = %_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %132 ]
   %61 = getelementptr inbounds nuw [64 x i8], ptr %50, i64 %indvars.iv.i
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !28
@@ -7959,39 +7959,36 @@ _ZN3gmxL28intervalIsInPeriodicIntervalEddd.exit.thread6.i: ; preds = %83
 
 _ZN3gmxL28intervalIsInPeriodicIntervalEddd.exit.thread.i: ; preds = %83, %82
   %97 = fcmp ogt double %69, 0.000000e+00
-  br i1 %97, label %98, label %_ZN3gmxL17valueIsInIntervalEdddd.exit.i
+  br i1 %97, label %98, label %104
 
 98:                                               ; preds = %_ZN3gmxL28intervalIsInPeriodicIntervalEddd.exit.thread.i
   %99 = fcmp olt double %65, %67
-  br i1 %99, label %100, label %104
+  %100 = fcmp oge double %71, %65
+  br i1 %99, label %101, label %_ZN3gmxL17valueIsInIntervalEdddd.exit.i
 
 100:                                              ; preds = %98
-  %101 = fcmp oge double %71, %65
   %102 = fcmp ole double %71, %67
-  %103 = and i1 %101, %102
-  br i1 %103, label %_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i, label %116
+  %103 = and i1 %100, %102
+  br i1 %103, label %_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i, label %115
 
-104:                                              ; preds = %98
-  %105 = fcmp ult double %71, %65
-  %106 = fmul nnan double %69, 5.000000e-01
-  %107 = fcmp ugt double %71, %106
-  %or.cond.i.i = select i1 %105, i1 true, i1 %107
-  br i1 %or.cond.i.i, label %108, label %_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i
+104:                                              ; preds = %_ZN3gmxL28intervalIsInPeriodicIntervalEddd.exit.thread.i
+  %105 = fcmp oge double %71, %65
+  %106 = fcmp ole double %71, %67
+  %107 = and i1 %105, %106
+  br i1 %107, label %132, label %115
 
-108:                                              ; preds = %104
-  %109 = fmul nnan double %69, -5.000000e-01
-  %110 = fcmp oge double %71, %109
-  %111 = fcmp ole double %71, %67
-  %112 = and i1 %110, %111
-  br i1 %112, label %_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i, label %116
+_ZN3gmxL17valueIsInIntervalEdddd.exit.i:          ; preds = %98
+  %108 = fmul nnan double %69, 5.000000e-01
+  %109 = fcmp ole double %71, %108
+  %or.cond.not.i.i = select i1 %100, i1 %109, i1 false
+  %110 = fmul nnan double %69, -5.000000e-01
+  %111 = fcmp oge double %71, %110
+  %112 = fcmp ole double %71, %67
+  %113 = and i1 %111, %112
+  %114 = select i1 %or.cond.not.i.i, i1 true, i1 %113
+  br i1 %114, label %132, label %115
 
-_ZN3gmxL17valueIsInIntervalEdddd.exit.i:          ; preds = %_ZN3gmxL28intervalIsInPeriodicIntervalEddd.exit.thread.i
-  %113 = fcmp oge double %71, %65
-  %114 = fcmp ole double %71, %67
-  %115 = and i1 %113, %114
-  br i1 %115, label %_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i, label %116
-
-116:                                              ; preds = %_ZN3gmxL17valueIsInIntervalEdddd.exit.i, %108, %100
+115:; preds = %_ZN3gmxL17valueIsInIntervalEdddd.exit.i, %104, %101
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %117 = add nsw i32 %63, 1
   %118 = trunc i64 %indvars.iv.i to i32
@@ -8000,9 +7997,9 @@ _ZN3gmxL17valueIsInIntervalEdddd.exit.i:          ; preds = %_ZN3gmxL28intervalI
   %120 = load ptr, ptr %16, align 8, !tbaa !4
   %121 = load i64, ptr %46, align 8, !tbaa !15
   invoke void @_ZN14WarningHandler10addWarningESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %9, i64 %121, ptr %120)
-          to label %122 unwind label %127
+          to label %121 unwind label %127
 
-122:                                              ; preds = %116
+122:                                              ; preds = %115
   %123 = load ptr, ptr %16, align 8, !tbaa !4
   %124 = icmp eq ptr %123, %47
   br i1 %124, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -8017,7 +8014,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %122
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i
 
-127:                                              ; preds = %116
+127:                                              ; preds = %115
   %128 = landingpad { ptr, i32 }
           cleanup
   %129 = load ptr, ptr %16, align 8, !tbaa !4
@@ -8034,7 +8031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69.i: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.resume
 
-_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i:   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZN3gmxL17valueIsInIntervalEdddd.exit.i, %108, %104, %100
+_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i:   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZN3gmxL17valueIsInIntervalEdddd.exit.i, %104, %100
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %56
   br i1 %exitcond.not.i, label %._crit_edge.i, label %60, !llvm.loop !211

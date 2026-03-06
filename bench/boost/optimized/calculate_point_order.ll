@@ -144016,16 +144016,14 @@ _ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit: ; preds 
   %.sroa.speculated = select i1 %67, double %65, double %61
   %68 = fcmp ogt double %.sroa.speculated34, 0x400921FB54442D18
   %69 = fcmp olt double %.sroa.speculated, 0x400921FB54442D18
-  %or.cond27 = and i1 %68, %69
-  br i1 %or.cond27, label %70, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit.thread
-
-70:                                               ; preds = %57
-  %71 = fsub double %.sroa.speculated34, %.sroa.speculated
-  %72 = fcmp ogt double %71, 0x400921FB54442D18
+  %or.cond27 = select i1 %68, i1 %69, i1 false
+  %70 = fsub double %.sroa.speculated34, %.sroa.speculated
+  %71 = fcmp ogt double %70, 0x400921FB54442D18
+  %72 = select i1 %or.cond27, i1 %71, i1 false
   br label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit.thread
 
-_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit.thread: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i, %34, %_ZN5boost8geometry13get_as_radianILm0ENS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEENS0_18fp_coordinate_typeIT0_E4typeERKSA_.exit29, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i, %57, %70, %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit
-  %.0 = phi i1 [ false, %57 ], [ true, %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit ], [ %72, %70 ], [ true, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i ], [ true, %_ZN5boost8geometry13get_as_radianILm0ENS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEENS0_18fp_coordinate_typeIT0_E4typeERKSA_.exit29 ], [ true, %34 ], [ true, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i ]
+_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit.thread: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i, %34, %_ZN5boost8geometry13get_as_radianILm0ENS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEENS0_18fp_coordinate_typeIT0_E4typeERKSA_.exit29, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i, %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit, %57
+  %.0 = phi i1 [ %72, %57 ], [ true, %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit ], [ true, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i ], [ true, %_ZN5boost8geometry13get_as_radianILm0ENS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEENS0_18fp_coordinate_typeIT0_E4typeERKSA_.exit29 ], [ true, %34 ], [ true, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i ]
   ret i1 %.0
 }
 

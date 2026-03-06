@@ -6297,15 +6297,13 @@ rb_enc_asciicompat.exit30:                        ; preds = %12
   %19 = getelementptr i8, ptr %0, i64 %18
   %20 = call i64 @rb_str_coderange_scan_restartable(ptr noundef nonnull %0, ptr noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %4) #22
   %.not24 = icmp eq i64 %20, %18
-  br i1 %.not24, label %21, label %.critedge
-
-21:                                               ; preds = %17
-  %22 = load i32, ptr %4, align 4, !tbaa !58
-  %.not25 = icmp eq i32 %22, 1048576
+  %21 = load i32, ptr %4, align 4
+  %.not25 = icmp eq i32 %21, 1048576
+  %cond = select i1 %.not24, i1 %.not25, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not25, label %23, label %rb_enc_asciicompat.exit.thread
+  br i1 %cond, label %23, label %rb_enc_asciicompat.exit.thread
 
-23:                                               ; preds = %15, %21, %3
+23:                                               ; preds = %15, %17, %3
   %24 = inttoptr i64 %7 to ptr
   %25 = load i64, ptr %24, align 8, !tbaa !61, !noalias !203
   %26 = and i64 %25, 8192
@@ -6318,19 +6316,15 @@ rb_enc_asciicompat.exit30:                        ; preds = %12
   br label %RSTRING_PTR.exit
 
 RSTRING_PTR.exit:                                 ; preds = %23, %28
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %28 ], [ %27, %23 ]
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %27 ], [ %27, %22 ]
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !44
   %31 = call fastcc i32 @fnmatch(ptr noundef %0, ptr noundef %2, ptr noundef %.sroa.2.0.i, i32 noundef %30)
   %32 = xor i32 %31, 1
   br label %rb_enc_asciicompat.exit.thread
 
-.critedge:                                        ; preds = %17
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %rb_enc_asciicompat.exit.thread
-
-rb_enc_asciicompat.exit.thread:                   ; preds = %12, %9, %.critedge, %rb_enc_asciicompat.exit30, %rb_enc_asciicompat.exit, %21, %RSTRING_PTR.exit
-  %.0 = phi i32 [ %32, %RSTRING_PTR.exit ], [ 1, %21 ], [ 1, %rb_enc_asciicompat.exit ], [ 1, %rb_enc_asciicompat.exit30 ], [ 1, %.critedge ], [ 1, %9 ], [ 1, %12 ]
+rb_enc_asciicompat.exit.thread:                   ; preds = %12, %9, %rb_enc_asciicompat.exit30, %rb_enc_asciicompat.exit, %17, %RSTRING_PTR.exit
+  %.0 = phi i32 [ %32, %RSTRING_PTR.exit ], [ 1, %17 ], [ 1, %rb_enc_asciicompat.exit ], [ 1, %rb_enc_asciicompat.exit30 ], [ 1, %9 ], [ 1, %12 ]
   ret i32 %.0
 }
 

@@ -3751,21 +3751,16 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17hc2d90a09b5dd3347E(ptr no
 11:                                               ; preds = %2
   %12 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %5, label %13, label %14
+  %brmerge = select i1 %5, i1 true, i1 %.not
+  br i1 %brmerge, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h17e84e379379c9c9E.llvm.9832446184049035033.exit", label %13
 
-13:                                               ; preds = %11
+13:                                               ; preds = %11, %13
   %spec.select = select i1 %.not, ptr @anon.8554c8e21b8cbc9380508c54347b7519.17.llvm.9832446184049035033, ptr %12
-  br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h17e84e379379c9c9E.llvm.9832446184049035033.exit"
-
-"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h17e84e379379c9c9E.llvm.9832446184049035033.exit": ; preds = %13, %15, %14
-  %.08 = phi ptr [ %spec.select, %13 ], [ null, %15 ], [ null, %14 ]
+  %.0 = select i1 %5, ptr %anon.8554c8e21b8cbc9380508c54347b7519.17.llvm.9832446184049035033., ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %.08
+  ret ptr %.0
 
-14:                                               ; preds = %11
-  br i1 %.not, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h17e84e379379c9c9E.llvm.9832446184049035033.exit", label %15
-
-15:                                               ; preds = %14
+15:                                               ; preds = %11
   call void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17hfb21484add2ebffaE.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h17e84e379379c9c9E.llvm.9832446184049035033.exit"
 

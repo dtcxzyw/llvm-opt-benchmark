@@ -6635,14 +6635,11 @@ define internal fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_112DAccelSchemel
   %37 = tail call noundef zeroext i1 @_ZN3ue214buildDvermMaskERKNS_8flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEEPhS9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef null, ptr noundef null)
   %38 = tail call noundef zeroext i1 @_ZN3ue214buildDvermMaskERKNS_8flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEEPhS9_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef null, ptr noundef null)
   %39 = xor i1 %37, %38
-  br i1 %39, label %.thread, label %42
-
-.thread:                                          ; preds = %36
   %40 = xor i1 %38, true
   %41 = and i1 %37, %40
-  br label %_ZNK3ue29CharReachltERKS0_.exit48
+  br i1 %39, label %_ZNK3ue29CharReachltERKS0_.exit48, label %42
 
-42:                                               ; preds = %36, %35
+42:                                               ; preds = %35, %36
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6738,8 +6735,8 @@ _ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit.thread: ; preds =
   %or.cond.i.i.i = select i1 %86, i1 true, i1 %.not.i.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i, label %_ZNK3ue29CharReachltERKS0_.exit48, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !457
 
-_ZNK3ue29CharReachltERKS0_.exit48:                ; preds = %69, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairIhhEEEbRKT_S7_.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %85, %.thread, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit.thread, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit, %56, %50, %48, %42, %33
-  %.0 = phi i1 [ %34, %33 ], [ %41, %.thread ], [ true, %42 ], [ false, %48 ], [ true, %50 ], [ false, %56 ], [ true, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit ], [ false, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit.thread ], [ %84, %.lr.ph.i.i.i.i.i.i.i.i ], [ %84, %85 ], [ true, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairIhhEEEbRKT_S7_.exit.i.i.i.i ], [ true, %69 ]
+_ZNK3ue29CharReachltERKS0_.exit48:                ; preds = %69, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairIhhEEEbRKT_S7_.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %85, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit.thread, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit, %56, %50, %48, %42, %36, %33
+  %.0 = phi i1 [ %34, %33 ], [ %41, %36 ], [ true, %42 ], [ false, %48 ], [ true, %50 ], [ false, %56 ], [ true, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit ], [ false, %_ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit.thread ], [ %84, %.lr.ph.i.i.i.i.i.i.i.i ], [ %84, %85 ], [ true, %_ZNK5boost9intrusive14algo_pred_lessclISt4pairIhhEEEbRKT_S7_.exit.i.i.i.i ], [ true, %69 ]
   ret i1 %.0
 }
 
@@ -8215,8 +8212,8 @@ _ZNK3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEltERKS6_.exit.thread.i29.i.i: ;
   br label %.lr.ph.i.i.i.i43.i.i
 
 .lr.ph.i.i.i.i43.i.i:                             ; preds = %289, %.lr.ph.i.i.preheader.i.i41.i.i
-  %.sroa.02.0.i.i.i44.i.i = phi ptr [ %291, %289 ], [ %251, %.lr.ph.i.i.preheader.i.i41.i.i ]
-  %275 = phi ptr [ %290, %289 ], [ %253, %.lr.ph.i.i.preheader.i.i41.i.i ]
+  %.sroa.02.0.i.i.i44.i.i = phi ptr [ %291, %289 ], [ %251, %.lr.ph.i.i.preheader.i.i40.i.i ]
+  %275 = phi ptr [ %290, %289 ], [ %253, %.lr.ph.i.i.preheader.i.i40.i.i ]
   %276 = icmp eq ptr %.sroa.02.0.i.i.i44.i.i, %274
   br i1 %276, label %.lr.ph.i.i.i.i.i.i.i.i.i30.i.i.preheader, label %277
 

@@ -35,16 +35,18 @@ define ptr @Cudd_SubsetHeavyBranch(ptr noundef initializes((448, 452)) %0, ptr n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %6
 
-6:                                                ; preds = %6, %4
+6:                                                ; preds = %10, %4
   store i32 0, ptr %5, align 8, !tbaa !3
   %7 = tail call ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3)
   %8 = load i32, ptr %5, align 8, !tbaa !3
-  %9 = icmp ne i32 %8, 1
-  %.b = load i1, ptr @memOut, align 4
-  %.not6 = select i1 %9, i1 true, i1 %.b
-  br i1 %.not6, label %10, label %6, !llvm.loop !24
+  %9 = icmp eq i32 %8, 1
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %6
+  %.b = load i1, ptr @memOut, align 4
+  br i1 %.b, label %.critedge, label %6, !llvm.loop !24
+
+.critedge:                                        ; preds = %6, %10
   ret ptr %7
 }
 
@@ -668,16 +670,18 @@ define ptr @Cudd_SupersetHeavyBranch(ptr noundef initializes((448, 452)) %0, ptr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %9
 
-9:                                                ; preds = %9, %4
+9:                                                ; preds = %13, %4
   store i32 0, ptr %8, align 8, !tbaa !3
   %10 = tail call ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %7, i32 noundef %2, i32 noundef %3)
   %11 = load i32, ptr %8, align 8, !tbaa !3
-  %12 = icmp ne i32 %11, 1
-  %.b = load i1, ptr @memOut, align 4
-  %.not8 = select i1 %12, i1 true, i1 %.b
-  br i1 %.not8, label %13, label %9, !llvm.loop !57
+  %12 = icmp eq i32 %11, 1
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %9
+  %.b = load i1, ptr @memOut, align 4
+  br i1 %.b, label %.critedge, label %9, !llvm.loop !57
+
+.critedge:                                        ; preds = %9, %13
   %14 = ptrtoint ptr %10 to i64
   %15 = icmp ne ptr %10, null
   %16 = zext i1 %15 to i64

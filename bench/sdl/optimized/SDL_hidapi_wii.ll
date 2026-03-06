@@ -57,16 +57,10 @@ define internal zeroext i1 @HIDAPI_DriverWii_IsEnabled() #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef zeroext i1 @HIDAPI_DriverWii_IsSupportedDevice(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 zeroext %5, i32 %6, i32 %7, i32 %8, i32 %9) #1 {
   %11 = icmp eq i16 %3, 1406
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %10
   %switch.selectcmp.case1 = icmp eq i16 %4, 816
   %switch.selectcmp.case2 = icmp eq i16 %4, 774
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  br label %13
-
-13:                                               ; preds = %10, %12
-  %.0 = phi i1 [ %switch.selectcmp, %12 ], [ false, %10 ]
+  %.0 = and i1 %11, %switch.selectcmp
   ret i1 %.0
 }
 

@@ -67291,16 +67291,10 @@ define noundef zeroext i1 @_ZN14polars_parquet5arrow5write17StatisticsOptions7is
   %8 = load i8, ptr %7, align 1, !range !1167
   %9 = trunc nuw i8 %8 to i1
   %or.cond5 = select i1 %or.cond, i1 %9, i1 false
-  br i1 %or.cond5, label %10, label %14
-
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %12 = load i8, ptr %11, align 1, !range !1167, !noundef !12
-  %13 = trunc nuw i8 %12 to i1
-  br label %14
-
-14:                                               ; preds = %1, %10
-  %.sroa.0.0 = phi i1 [ %13, %10 ], [ false, %1 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %11 = load i8, ptr %10, align 1, !range !1167
+  %12 = trunc nuw i8 %11 to i1
+  %.sroa.0.0 = select i1 %or.cond5, i1 %12, i1 false
   ret i1 %.sroa.0.0
 }
 

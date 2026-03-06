@@ -3076,27 +3076,22 @@ define dso_local noundef zeroext i1 @_ZNK4Luau13CountMismatcheqERKS0_(ptr nounde
   br i1 %5, label %6, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i8, ptr %7, align 8, !tbaa !95, !range !50, !noundef !51
-  %9 = trunc nuw i8 %8 to i1
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load i8, ptr %10, align 8, !tbaa !95, !range !50, !noundef !51
-  %12 = icmp eq i8 %8, %11
-  %brmerge.not.i = and i1 %12, %9
-  br i1 %brmerge.not.i, label %13, label %_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit
-
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !46
-  %17 = load i64, ptr %14, align 8, !tbaa !46
-  %18 = icmp eq i64 %16, %17
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load i8, ptr %9, align 8, !tbaa !95, !range !50, !noundef !51
+  %11 = trunc nuw i8 %10 to i1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = load i8, ptr %12, align 8, !tbaa !95, !range !50, !noundef !51
+  %14 = icmp eq i8 %10, %13
+  %brmerge.not.i = and i1 %14, %11
+  %15 = load i64, ptr %7, align 8
+  %16 = load i64, ptr %8, align 8
+  %17 = icmp eq i64 %15, %16
+  %18 = select i1 %brmerge.not.i, i1 %17, i1 %14
   br i1 %18, label %19, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit: ; preds = %6
-  br i1 %12, label %19, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-
-19:                                               ; preds = %13, %_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !96
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3133,8 +3128,8 @@ _ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3std
   %44 = icmp eq i32 %bcmp.i, 0
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %41, %39, %31, %13, %25, %19, %_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %2
-  %45 = phi i1 [ false, %25 ], [ false, %19 ], [ false, %_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit ], [ false, %2 ], [ false, %13 ], [ false, %31 ], [ %44, %41 ], [ true, %39 ]
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %41, %39, %31, %25, %_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %6, %2
+  %45 = phi i1 [ false, %25 ], [ false, %19 ], [ false, %6 ], [ false, %2 ], [ false, %31 ], [ %44, %41 ], [ true, %39 ]
   ret i1 %45
 }
 
@@ -44491,27 +44486,22 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7VariantIJNS_12TypeMis
   br i1 %5, label %6, label %_ZNK4Luau13CountMismatcheqERKS0_.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i8, ptr %7, align 8, !tbaa !95, !range !50, !noundef !51
-  %9 = trunc nuw i8 %8 to i1
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load i8, ptr %10, align 8, !tbaa !95, !range !50, !noundef !51
-  %12 = icmp eq i8 %8, %11
-  %brmerge.not.i.i = and i1 %12, %9
-  br i1 %brmerge.not.i.i, label %13, label %_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i
-
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !46
-  %17 = load i64, ptr %14, align 8, !tbaa !46
-  %18 = icmp eq i64 %16, %17
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load i8, ptr %9, align 8, !tbaa !95, !range !50, !noundef !51
+  %11 = trunc nuw i8 %10 to i1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = load i8, ptr %12, align 8, !tbaa !95, !range !50, !noundef !51
+  %14 = icmp eq i8 %10, %13
+  %brmerge.not.i.i = and i1 %14, %11
+  %15 = load i64, ptr %7, align 8
+  %16 = load i64, ptr %8, align 8
+  %17 = icmp eq i64 %15, %16
+  %18 = select i1 %brmerge.not.i.i, i1 %17, i1 %14
   br i1 %18, label %19, label %_ZNK4Luau13CountMismatcheqERKS0_.exit
 
 _ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i: ; preds = %6
-  br i1 %12, label %19, label %_ZNK4Luau13CountMismatcheqERKS0_.exit
-
-19:                                               ; preds = %_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i, %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !96
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -44548,8 +44538,8 @@ _ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3std
   %44 = icmp eq i32 %bcmp.i.i, 0
   br label %_ZNK4Luau13CountMismatcheqERKS0_.exit
 
-_ZNK4Luau13CountMismatcheqERKS0_.exit:            ; preds = %2, %13, %_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i, %19, %25, %31, %39, %41
-  %45 = phi i1 [ false, %25 ], [ false, %19 ], [ false, %_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i ], [ false, %2 ], [ false, %13 ], [ false, %31 ], [ %44, %41 ], [ true, %39 ]
+_ZNK4Luau13CountMismatcheqERKS0_.exit:            ; preds = %2, %6, %_ZSteqImmENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.i, %25, %31, %39, %41
+  %45 = phi i1 [ false, %25 ], [ false, %19 ], [ false, %6 ], [ false, %2 ], [ false, %31 ], [ %44, %41 ], [ true, %39 ]
   ret i1 %45
 }
 

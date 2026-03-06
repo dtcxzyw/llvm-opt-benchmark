@@ -6033,22 +6033,15 @@ declare void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_tr
 define noundef zeroext i1 @_ZNK10open_spiel9laser_tag13LaserTagState10IsTerminalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
-  %4 = icmp sgt i32 %3, -1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load i32, ptr %5, align 8
-  %.not = icmp sge i32 %6, %3
-  %or.cond.not4 = select i1 %4, i1 %.not, i1 false
-  br i1 %4, label %11, label %7
-
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load i32, ptr %8, align 8
-  %10 = icmp sgt i32 %9, 0
-  br label %11
-
-11:                                               ; preds = %1, %7
-  %12 = phi i1 [ %or.cond.not4, %1 ], [ %10, %7 ]
-  ret i1 %12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %5 = load i32, ptr %4, align 8
+  %.not = icmp sge i32 %5, %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp sgt i32 %7, 0
+  %9 = icmp slt i32 %3, 0
+  %10 = select i1 %9, i1 %8, i1 %.not
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress uwtable

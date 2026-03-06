@@ -16524,35 +16524,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %31, %
   %44 = icmp ult ptr %.pn57.lcssa, %.0.lcssa
   br i1 %44, label %.lr.ph83, label %sub_063
 
-.lr.ph83:                                         ; preds = %43, %_Z10cv_isalnumc.exit
-  %.14082 = phi ptr [ %54, %_Z10cv_isalnumc.exit ], [ %.039, %43 ]
-  %.14681 = phi ptr [ %45, %_Z10cv_isalnumc.exit ], [ %.pn57.lcssa, %43 ]
+.lr.ph83:                                         ; preds = %43, %.lr.ph83
+  %.14082 = phi ptr [ %54, %.lr.ph83 ], [ %.039, %43 ]
+  %.14681 = phi ptr [ %45, %.lr.ph83 ], [ %.pn57.lcssa, %43 ]
   %45 = getelementptr inbounds nuw i8, ptr %.14681, i64 1
   %46 = load i8, ptr %.14681, align 1, !tbaa !5
   %47 = add i8 %46, -48
   %or.cond.i = icmp ult i8 %47, 10
-  %48 = add i8 %46, -97
-  %or.cond5.i = icmp ult i8 %48, 26
-  %or.cond11.i = or i1 %or.cond.i, %or.cond5.i
-  br i1 %or.cond11.i, label %_Z10cv_isalnumc.exit, label %49
-
-49:                                               ; preds = %.lr.ph83
-  %50 = add i8 %46, -65
-  %51 = icmp ult i8 %50, 26
-  br label %_Z10cv_isalnumc.exit
-
-_Z10cv_isalnumc.exit:                             ; preds = %.lr.ph83, %49
-  %52 = phi i1 [ %51, %49 ], [ true, %.lr.ph83 ]
-  %53 = icmp eq i8 %46, 45
-  %or.cond.not = or i1 %53, %52
+  %48 = and i8 %46, -33
+  %49 = add i8 %48, -65
+  %50 = icmp ult i8 %49, 26
+  %51 = or i1 %or.cond.i, %50
+  %52 = icmp eq i8 %46, 45
+  %or.cond.not = or i1 %52, %51
   %spec.store.select = select i1 %or.cond.not, i8 %46, i8 95
   %54 = getelementptr inbounds nuw i8, ptr %.14082, i64 1
   store i8 %spec.store.select, ptr %.14082, align 1, !tbaa !5
   %exitcond.not = icmp eq ptr %45, %.0.lcssa
   br i1 %exitcond.not, label %sub_063, label %.lr.ph83, !llvm.loop !364
 
-sub_063:                                          ; preds = %_Z10cv_isalnumc.exit, %43
-  %.140.lcssa = phi ptr [ %.039, %43 ], [ %54, %_Z10cv_isalnumc.exit ]
+sub_063:                                          ; preds = %.lr.ph83, %43
+  %.140.lcssa = phi ptr [ %.039, %43 ], [ %54, %.lr.ph83 ]
   store i8 0, ptr %.140.lcssa, align 1, !tbaa !5
   %55 = load ptr, ptr %4, align 8, !tbaa !360
   %56 = load i8, ptr %55, align 1
@@ -16590,7 +16582,7 @@ sub_063:                                          ; preds = %_Z10cv_isalnumc.exi
 
 ._crit_edge.i.i:                                  ; preds = %.noexc58, %.tail62.thread
   %66 = phi ptr [ %64, %.noexc58 ], [ %61, %.tail62.thread ]
-  switch i64 %62, label %69 [
+  switch i64 %62, label %68 [
     i64 1, label %67
     i64 0, label %70
   ]
@@ -16632,7 +16624,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %77, %70
   br label %80
 
 80:                                               ; preds = %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %79, %78 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %79, %77 ]
   %81 = load ptr, ptr %4, align 8, !tbaa !360
   %.not.i.i60 = icmp eq ptr %81, %12
   %82 = icmp eq ptr %81, null

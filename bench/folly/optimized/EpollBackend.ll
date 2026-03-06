@@ -2480,28 +2480,31 @@ define void @_ZN5folly12EpollBackend13updateTimerFdEv(ptr noundef nonnull align 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8, !tbaa !106
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %14
+  br i1 %.not, label %12, label %.thread
 
 .thread:                                          ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %12 = load i8, ptr %11, align 8, !tbaa !105, !range !40, !noundef !41
-  %13 = icmp eq i8 %12, 0
-  br i1 %13, label %51, label %21
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %11 = load i64, ptr %10, align 8, !tbaa !44
+  br label %12
 
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !44
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %19 = load i8, ptr %18, align 8, !tbaa !105, !range !40, !noundef !41
-  %.not58 = icmp ne i8 %19, 0
-  %.sroa.0.0.copyload.i2.i.i = load i64, ptr %17, align 8
-  %20 = icmp eq i64 %16, %.sroa.0.0.copyload.i2.i.i
-  %or.cond = select i1 %.not58, i1 %20, i1 false
-  br i1 %or.cond, label %51, label %_ZSteqINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEES8_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalISA_ERKSJ_ISD_E.exit
+12:; preds = %.thread, %1
+  %.sroa.039.0 = phi i64 [ undef, %1 ], [ %11, %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRS8_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS9_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESD_ISt6__and_IJSt9is_scalarIS8_ESE_IS8_NSt5decayISH_E4typeEEEEESt16is_constructibleIS8_JSH_EESt13is_assignableISB_SH_EEERS9_E4typeEOSH_.exit ]
+  %.sroa.7.0 = phi i8 [ 0, %1 ], [ 1, %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRS8_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS9_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESD_ISt6__and_IJSt9is_scalarIS8_ESE_IS8_NSt5decayISH_E4typeEEEEESt16is_constructibleIS8_JSH_EESt13is_assignableISB_SH_EEERS9_E4typeEOSH_.exit ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = trunc nuw i8 %.sroa.7.0 to i1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %16 = load i8, ptr %15, align 8, !tbaa !105, !range !40, !noundef !41
+  %17 = icmp eq i8 %.sroa.7.0, %16
+  %brmerge.not.i = and i1 %17, %14
+  %.sroa.0.0.copyload.i2.i.i = load i64, ptr %13, align 8
+  %20 = icmp eq i64 %.sroa.039.0, %.sroa.0.0.copyload.i2.i.i
+  %or.cond = select i1 %brmerge.not.i, i1 %20, i1 %17
+  br i1 %or.cond, label %50, label %21
 
-21:                                               ; preds = %.thread
+21:                                               ; preds = %12
+  br i1 %14, label %31, label %21
+
+21:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2532,7 +2535,7 @@ define void @_ZN5folly12EpollBackend13updateTimerFdEv(ptr noundef nonnull align 
 
 .critedge23:                                      ; preds = %21, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %48
+  br label %49
 
 29:                                               ; preds = %27, %25
   %30 = landingpad { ptr, i32 }
@@ -2542,9 +2545,9 @@ define void @_ZN5folly12EpollBackend13updateTimerFdEv(ptr noundef nonnull align 
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %52
 
-_ZSteqINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEES8_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalISA_ERKSJ_ISD_E.exit: ; preds = %14
+_ZSteqINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEES8_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalISA_ERKSJ_ISD_E.exit: ; preds = %20
   %31 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %32 = sub nsw i64 %16, %31
+  %32 = sub nsw i64 %.sroa.039.0, %31
   %33 = sdiv i64 %32, 1000
   %spec.select = tail call i64 @llvm.smax.i64(i64 %33, i64 1000)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2571,7 +2574,7 @@ _ZSteqINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str, i32 noundef 517, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %44 unwind label %46
+          to label %45 unwind label %46
 
 44:                                               ; preds = %42
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @.str.21, i64 noundef 65)
@@ -2584,7 +2587,7 @@ _ZSteqINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1
 
 .critedge26:                                      ; preds = %_ZSteqINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEES8_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalISA_ERKSJ_ISD_E.exit, %.critedge25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %48
+  br label %49
 
 46:                                               ; preds = %44, %42
   %47 = landingpad { ptr, i32 }
@@ -2592,22 +2595,18 @@ _ZSteqINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1
   call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %52
-
-48:                                               ; preds = %.critedge26, %.critedge23
-  %49 = phi ptr [ %18, %.critedge26 ], [ %11, %.critedge23 ]
-  %50 = phi ptr [ %17, %.critedge26 ], [ %10, %.critedge23 ]
-  %.sroa.7.0464756 = phi i8 [ 1, %.critedge26 ], [ 0, %.critedge23 ]
-  %.sroa.039.0454855 = phi i64 [ %16, %.critedge26 ], [ undef, %.critedge23 ]
-  store i64 %.sroa.039.0454855, ptr %50, align 8
-  store i8 %.sroa.7.0464756, ptr %49, align 8
   br label %51
 
-51:                                               ; preds = %14, %.thread, %48
+51:                                               ; preds = %.critedge26, %.critedge23
+  store i64 %.sroa.039.0, ptr %13, align 8
+  store i8 %.sroa.7.0, ptr %15, align 8
+  br label %50
+
+50:                                               ; preds = %12, %49
   ret void
 
 52:                                               ; preds = %46, %29
-  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %30, %29 ]
+  %.pn = phi { ptr, i32 } [ %47, %47 ], [ %30, %29 ]
   resume { ptr, i32 } %.pn
 }
 

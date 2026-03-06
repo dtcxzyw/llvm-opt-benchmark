@@ -241,7 +241,7 @@ define weak_odr dso_local noundef signext i16 @_ZN3igl8copyleft4cgal8orient2DIdE
 
 32:                                               ; preds = %3
   %33 = fcmp oeq double %.157.i.i.i, 0.000000e+00
-  br i1 %33, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread11, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit
+  br i1 %33, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread11, label %42
 
 _ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread11: ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -252,40 +252,29 @@ _ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exi
 
 34:                                               ; preds = %3
   %35 = fcmp olt double %.155.i.i.i, 0x5FB317E5EF3AB327
-  br i1 %35, label %36, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit
+  br i1 %35, label %36, label %42
 
 36:                                               ; preds = %34
   %37 = fmul double %.157.i.i.i, 0x3CD0028010000004
   %38 = fmul double %.155.i.i.i, %37
-  %39 = fcmp ogt double %23, %38
-  br i1 %39, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread, label %40
+  %39 = fcmp ule double %23, %38
+  %40 = fneg double %38
+  %41 = fcmp uge double %23, %40
+  %cond1.i.i.i = and i1 %39, %41
+  %.2.i.i.i = select i1 %39, i32 -1, i32 1
+  br i1 %cond1.i.i.i, label %42, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit
 
-_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread: ; preds = %36
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %47
-
-40:                                               ; preds = %36
-  %41 = fneg double %38
-  %42 = fcmp uge double %23, %41
-  br i1 %42, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread9
-
-_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread9: ; preds = %40
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %47
-
-_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit: ; preds = %32, %34, %40
+42: ; preds = %36, %34, %32
   %43 = call noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEENS_4SignEDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  br label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit
+
+_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit: ; preds = %36, %42
+  %.3.i.i.i = phi i32 [ %43, %42 ], [ %.2.i.i.i, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %switch.tableidx = add i32 %43, 1
+  %switch.tableidx = add i32 %.3.i.i.i, 1
   %44 = icmp ult i32 %switch.tableidx, 3
   br i1 %44, label %switch.lookup, label %45
 
@@ -300,8 +289,8 @@ switch.lookup:                                    ; preds = %_ZN4CGAL11orientati
   %switch.offset = add nsw i16 %switch.idx.cast, -1
   br label %47
 
-47:                                               ; preds = %switch.lookup, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread11, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread9
-  %.0 = phi i16 [ 0, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread11 ], [ -1, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread9 ], [ %switch.offset, %switch.lookup ], [ 1, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread ]
+47:                                               ; preds = %switch.lookup, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread
+  %.0 = phi i16 [ 0, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread ], [ %switch.offset, %switch.lookup ]
   ret i16 %.0
 }
 

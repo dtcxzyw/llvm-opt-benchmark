@@ -3110,17 +3110,17 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %21
   %24 = load i32, ptr %23, align 8, !tbaa !97
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  switch i32 %24, label %79 [
+  switch i32 %24, label %78 [
     i32 0, label %26
     i32 1, label %30
     i32 2, label %38
     i32 3, label %46
     i32 4, label %58
-    i32 5, label %71
+    i32 5, label %70
   ]
 
-common.ret319:                                    ; preds = %14, %tailrecurse._crit_edge, %30, %38, %46, %58, %36, %.lr.ph195, %44, %.lr.ph188, %53, %.lr.ph181, %.lr.ph172, %65, %70, %71, %26
-  %common.ret319.op = phi i32 [ %switch.select117, %26 ], [ 1, %65 ], [ 1, %58 ], [ 0, %tailrecurse._crit_edge ], [ %spec.select135, %14 ], [ %.995, %53 ], [ 2, %46 ], [ %spec.select, %36 ], [ 1, %30 ], [ %spec.select112, %44 ], [ 2, %38 ], [ 2, %.lr.ph195 ], [ 1, %.lr.ph188 ], [ 0, %.lr.ph181 ], [ 0, %.lr.ph172 ], [ 2, %70 ], [ 0, %71 ]
+common.ret319:                                    ; preds = %14, %tailrecurse._crit_edge, %30, %38, %46, %58, %36, %.lr.ph195, %44, %.lr.ph188, %53, %.lr.ph181, %65, %.lr.ph172, %70, %26
+  %common.ret319.op = phi i32 [ %switch.select117, %26 ], [ 1, %65 ], [ 2, %46 ], [ 0, %tailrecurse._crit_edge ], [ %spec.select133, %14 ], [ %spec.select112, %44 ], [ 1, %58 ], [ 0, %.lr.ph178 ], [ 1, %30 ], [ %spec.select, %36 ], [ 2, %38 ], [ 2, %.lr.ph192 ], [ 1, %.lr.ph185 ], [ %.995, %53 ], [ %.13, %.lr.ph171 ], [ 0, %70 ]
   ret i32 %common.ret319.op
 
 26:                                               ; preds = %19
@@ -3212,37 +3212,38 @@ common.ret319:                                    ; preds = %14, %tailrecurse._c
   %.not136170 = icmp eq ptr %62, %64
   br i1 %.not136170, label %common.ret319, label %.lr.ph172
 
-65:                                               ; preds = %70
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0171, i64 4
+65:                                               ; preds = %.lr.ph171
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0169, i64 4
   %.not136 = icmp eq ptr %66, %64
   br i1 %.not136, label %common.ret319, label %.lr.ph172
 
 .lr.ph172:                                        ; preds = %58, %65
-  %.sroa.0118.0171 = phi ptr [ %66, %65 ], [ %62, %58 ]
-  %67 = load i32, ptr %.sroa.0118.0171, align 4, !tbaa !78
+  %.sroa.0118.0171 = phi i32 [ %.13, %65 ], [ undef, %58 ]
+  %.sroa.0118.0169 = phi ptr [ %66, %65 ], [ %62, %58 ]
+  %67 = load i32, ptr %.sroa.0118.0169, align 4, !tbaa !78
   %68 = tail call noundef i32 @_ZNK5ezSAT4evalEiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(284) %0, i32 noundef %67, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %69 = add i32 %68, -3
-  %or.cond14 = icmp ult i32 %69, -2
-  br i1 %or.cond14, label %common.ret319, label %70
-
-70:                                               ; preds = %.lr.ph172
+  %69 = add i32 %68, -1
+  %or.cond14 = icmp ult i32 %69, 2
   %.not = icmp eq i32 %68, %61
-  br i1 %.not, label %65, label %common.ret319
+  %.11. = select i1 %.not, i32 %.11170, i32 2
+  %cond1 = and i1 %.not, %or.cond14
+  %.13 = select i1 %or.cond14, i32 %.11., i32 0
+  br i1 %cond1, label %65, label %common.ret316
 
-71:                                               ; preds = %19
-  %72 = load ptr, ptr %25, align 8, !tbaa !69
-  %73 = load i32, ptr %72, align 4, !tbaa !78
-  %74 = tail call noundef i32 @_ZNK5ezSAT4evalEiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(284) %0, i32 noundef %73, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  switch i32 %74, label %common.ret319 [
-    i32 1, label %75
+70:; preds = %19
+  %71 = load ptr, ptr %25, align 8, !tbaa !69
+  %72 = load i32, ptr %71, align 4, !tbaa !78
+  %73 = tail call noundef i32 @_ZNK5ezSAT4evalEiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(284) %0, i32 noundef %72, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  switch i32 %73, label %common.ret316 [
+    i32 1, label %74
     i32 2, label %tailrecurse.backedge
   ]
 
-75:                                               ; preds = %71
+75:                                               ; preds = %70
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %71, %75
-  %.sink259 = phi i64 [ 4, %75 ], [ 8, %71 ]
+tailrecurse.backedge:                             ; preds = %70, %75
+  %.sink259 = phi i64 [ 4, %74 ], [ 8, %70 ]
   %76 = load ptr, ptr %25, align 8, !tbaa !69
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %.sink259
   %.tr140.be = load i32, ptr %77, align 4, !tbaa !78

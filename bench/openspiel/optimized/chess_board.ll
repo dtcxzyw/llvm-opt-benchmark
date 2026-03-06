@@ -600,7 +600,7 @@ define noundef zeroext i1 @_ZN10open_spiel5chess15IsMoveCharacterEc(i8 noundef s
   %or.cond11 = icmp ult i8 %3, 26
   %4 = add i8 %0, -48
   %5 = icmp ult i8 %4, 10
-  %6 = or i1 %or.cond11, %5
+  %6 = or i1 %5, %or.cond11
   ret i1 %6
 }
 
@@ -7536,12 +7536,10 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard21HasSufficientMate
   %61 = load i32, ptr %60, align 4
   %62 = icmp sgt i32 %61, 0
   %or.cond8 = select i1 %59, i1 true, i1 %62
-  br i1 %or.cond8, label %.loopexit, label %63
-
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp sgt i32 %65, 0
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp sgt i32 %64, 0
+  %66 = select i1 %or.cond8, i1 true, i1 %65
   br label %.loopexit
 
 67:                                               ; preds = %51
@@ -7580,8 +7578,8 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard21HasSufficientMate
   %92 = select i1 %86, i1 %91, i1 false
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %22, %22, %69, %58, %63, %53, %._crit_edge46, %1, %.thread55, %76
-  %.0 = phi i1 [ %92, %.thread55 ], [ true, %1 ], [ true, %69 ], [ true, %._crit_edge46 ], [ true, %53 ], [ true, %58 ], [ %81, %76 ], [ %66, %63 ], [ true, %22 ], [ true, %22 ], [ true, %22 ]
+.loopexit:                                        ; preds = %22, %22, %22, %69, %53, %._crit_edge46, %1, %.thread55, %76, %58
+  %.0 = phi i1 [ %92, %.thread55 ], [ true, %1 ], [ true, %69 ], [ true, %._crit_edge46 ], [ %66, %58 ], [ true, %53 ], [ %81, %76 ], [ true, %22 ], [ true, %22 ], [ true, %22 ]
   ret i1 %.0
 }
 

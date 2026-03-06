@@ -2229,8 +2229,9 @@ _ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i: 
 
 .critedge.i:                                      ; preds = %51
   %52 = icmp samesign ult i64 %spec.select.i, %.sroa.07.0.i.i
-  %spec.select.i.i1 = select i1 %.not3238.i, i1 %.not.i, i1 %52
-  %.sroa.0.0.sroa.speculated.i.i = select i1 %spec.select.i.i1, i64 %spec.select.i, i64 %.sroa.07.0.i.i
+  %spec.select.i.i.i = or i1 %52, %.not3238.i
+  %.sroa.0.0.i.i.i.i = and i1 %.not.i, %spec.select.i.i.i
+  %.sroa.0.0.sroa.speculated.i.i = select i1 %.sroa.0.0.i.i.i.i, i64 5, i64 %.sroa.07.0.i.i
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit"
 
 53:                                               ; preds = %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i

@@ -2394,7 +2394,7 @@ _ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.ex
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 362
   %12 = load i8, ptr %11, align 2, !range !116, !alias.scope !171, !noalias !174, !noundef !3
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit.thread, label %14
+  br i1 %13, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit, label %14
 
 14:                                               ; preds = %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !176
@@ -2422,11 +2422,11 @@ _ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.ex
   %25 = icmp ult i64 %24, 576460752303423488
   tail call void @llvm.assume(i1 %25)
   %26 = icmp eq i64 %24, 0
-  br i1 %26, label %28, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit.thread
+  br i1 %26, label %28, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
 
 27:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !176
-  br label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit.thread
+  br label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -2434,7 +2434,7 @@ _ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.ex
   %31 = icmp ult i64 %30, 576460752303423488
   tail call void @llvm.assume(i1 %31)
   %32 = icmp eq i64 %30, 0
-  br i1 %32, label %33, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit.thread
+  br i1 %32, label %33, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
 
 33:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !176
@@ -2455,14 +2455,14 @@ _ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.ex
 
 40:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !176
-  br label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit.thread
+  br label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
 
 41:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !176
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %43 = load i64, ptr %42, align 8, !alias.scope !171, !noalias !174, !noundef !3
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit.thread
+  br i1 %44, label %45, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -2470,7 +2470,7 @@ _ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.ex
   %48 = icmp ult i64 %47, 192153584101141163
   call void @llvm.assume(i1 %48)
   %49 = icmp eq i64 %47, 0
-  br i1 %49, label %50, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit.thread
+  br i1 %49, label %50, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -2478,7 +2478,7 @@ _ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.ex
   %53 = icmp ult i64 %52, 1152921504606846976
   call void @llvm.assume(i1 %53)
   %54 = icmp eq i64 %52, 0
-  br i1 %54, label %55, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit.thread
+  br i1 %54, label %55, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 363
@@ -2488,7 +2488,7 @@ _ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.ex
   %60 = load i8, ptr %59, align 4, !range !116, !alias.scope !171, !noalias !174
   %61 = trunc nuw i8 %60 to i1
   %or.cond.i = select i1 %58, i1 true, i1 %61
-  br i1 %or.cond.i, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit.thread, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
+  br i1 %or.cond.i, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
 
 _ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit: ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -2496,20 +2496,18 @@ _ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.ex
   %64 = icmp ult i64 %63, 288230376151711744
   call void @llvm.assume(i1 %64)
   %65 = icmp ne i64 %63, 0
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 732
-  %67 = load i8, ptr %66, align 4, !range !116
-  %68 = trunc nuw i8 %67 to i1
-  %or.cond = select i1 %65, i1 true, i1 %68
-  br i1 %or.cond, label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit.thread, label %69
+  br label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
 
-69:                                               ; preds = %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit
+_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit:; preds = %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit, %22, %27, %28, %40, %41, %45, %50, %55, %62
+  %.sroa.0.0.i3 = phi i1 [ %65, %62 ], [ true, %50 ], [ true, %45 ], [ true, %41 ], [ true, %28 ], [ true, %22 ], [ true, %55 ], [ true, %40 ], [ true, %27 ], [ true, %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit ]
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 732
+  %68 = load i8, ptr %67, align 4, !range !116
+  %69 = trunc nuw i8 %68 to i1
+  %or.cond = select i1 %.sroa.0.0.i3, i1 true, i1 %69
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 733
-  %71 = load i8, ptr %70, align 1, !range !116, !noundef !3
+  %71 = load i8, ptr %70, align 1, !range !116
   %72 = trunc nuw i8 %71 to i1
-  br label %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit.thread
-
-_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit.thread: ; preds = %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit, %27, %40, %55, %22, %28, %41, %45, %50, %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit, %69
-  %.sroa.0.0 = phi i1 [ %72, %69 ], [ true, %_ZN11quinn_proto10connection6spaces11Retransmits8is_empty17h3848b9d9b58aef7fE.exit ], [ true, %50 ], [ true, %45 ], [ true, %41 ], [ true, %28 ], [ true, %22 ], [ true, %55 ], [ true, %40 ], [ true, %27 ], [ true, %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit ]
+  %.sroa.0.0 = select i1 %or.cond, i1 true, i1 %72
   %73 = insertvalue { i1, i1 } poison, i1 %.sroa.0.0.i, 0
   %74 = insertvalue { i1, i1 } %73, i1 %.sroa.0.0, 1
   ret { i1, i1 } %74

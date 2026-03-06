@@ -417,21 +417,18 @@ default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys
   unreachable
 
 "_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread": ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30", %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us", %16, %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
-  %.016 = phi i1 [ %.04.i, %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit" ], [ true, %16 ], [ true, %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us" ], [ true, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30" ]
+  %.016 = phi i1 [ %.04.i, %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit" ], [ true, %16 ], [ true, %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us" ], [ true, %33 ]
   ret i1 %.016
 
 "_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit": ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.preheader", %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30"
   %26 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hcaf082b521a24e93E()
   %.fca.0.extract = extractvalue { i64, i32 } %26, 0
-  %27 = icmp slt i64 %.fca.0.extract, %1
-  br i1 %27, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30", label %28
-
-28:                                               ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
   %.fca.1.extract = extractvalue { i64, i32 } %26, 1
-  %29 = icmp ne i64 %.fca.0.extract, %1
+  %29 = icmp eq i64 %.fca.0.extract, %1
   %switch = icmp uge i32 %.fca.1.extract, %2
-  %or.cond = select i1 %29, i1 true, i1 %switch
-  br i1 %or.cond, label %.critedge, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30"
+  %switch30 = icmp sge i64 %.fca.0.extract, %1
+  %switch = select i1 %29, i1 %switch, i1 %switch30
+  br i1 %switch, label %.critedge, label %33
 
 .split35.us:                                      ; preds = %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30", %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.us"
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -447,7 +444,7 @@ default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.17.llvm.6090777742988092048) #15
   unreachable
 
-.critedge:                                        ; preds = %28
+.critedge:                                        ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$6remove17h7699c1d76d7f3459E.llvm.6090777742988092048"(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i1 noundef zeroext false)
@@ -455,7 +452,7 @@ default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys
   %35 = icmp eq i8 %34, 4
   br i1 %35, label %38, label %39
 
-"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30": ; preds = %28, %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
+"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread30": ; preds = %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit"
   %36 = tail call noundef zeroext i1 @_ZN7parking6Parker13park_deadline17hcc76ef234181dafeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, i64 noundef %1, i32 noundef %2)
   %37 = tail call noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %17, ptr noundef nonnull align 8 %0, i64 noundef %4, ptr noundef nonnull %5), !range !34
   switch i8 %37, label %default.unreachable [
@@ -473,7 +470,7 @@ default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   %40 = load i8, ptr %11, align 8, !range !115, !alias.scope !112, !noundef !4
-  switch i8 %40, label %52 [
+  switch i8 %40, label %50 [
     i8 1, label %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
     i8 3, label %41
   ]
@@ -490,7 +487,7 @@ default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %45, align 8, !noalias !112
   invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c645e1ab9ea8f5aeef2ce74ed8e1943d.4) #15
-          to label %46 unwind label %48, !noalias !112
+          to label %44 unwind label %48, !noalias !112
 
 46:                                               ; preds = %41
   unreachable
@@ -502,7 +499,7 @@ default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys
   %49 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17hb7087cd532a83203E.llvm.6090777742988092048"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #17
-          to label %47 unwind label %50
+          to label %45 unwind label %50
 
 50:                                               ; preds = %48
   %51 = landingpad { ptr, i32 }
@@ -529,7 +526,7 @@ default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys
   %58 = load ptr, ptr %57, align 8, !noalias !129, !nonnull !4, !noundef !4
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %60 = load ptr, ptr %59, align 8, !alias.scope !129, !noundef !4
-  tail call void %58(ptr noundef %60), !noalias !129
+  tail call void %56(ptr noundef %60), !noalias !129
   br label %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
 
 61:                                               ; preds = %53
@@ -548,7 +545,7 @@ default.unreachable:                              ; preds = %"_ZN72_$LT$std..sys
   br label %"_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit"
 
 "_ZN14event_listener14State$LT$T$GT$8notified17hd89941df63ef94a1E.exit": ; preds = %39, %52, %56, %61, %66
-  %.04.i = phi i1 [ false, %66 ], [ true, %39 ], [ false, %52 ], [ false, %56 ], [ false, %61 ]
+  %.04.i = phi i1 [ false, %64 ], [ true, %37 ], [ false, %50 ], [ false, %54 ], [ false, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN14event_listener23RegisterResult$LT$T$GT$8notified17ha80f136e0241d8bcE.llvm.6090777742988092048.exit.thread"
 }

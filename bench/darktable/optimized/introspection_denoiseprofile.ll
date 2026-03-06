@@ -4779,7 +4779,7 @@ dt_iop_denoiseprofile_get_auto_profile.exit:      ; preds = %136, %113, %127, %1
   %184 = getelementptr inbounds nuw i8, ptr %8, i64 2288
   %185 = load ptr, ptr %184, align 16, !tbaa !254
   %186 = icmp eq ptr %1, %185
-  br i1 %186, label %187, label %217
+  br i1 %186, label %187, label %214
 
 187:                                              ; preds = %183, %.thread92, %179
   %188 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -4804,21 +4804,20 @@ dt_iop_denoiseprofile_get_auto_profile.exit:      ; preds = %136, %113, %127, %1
   %204 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %205 = load ptr, ptr %204, align 8, !tbaa !297
   %206 = load i32, ptr %199, align 4, !tbaa !123
-  %207 = icmp ne i32 %206, 0
+  %207 = icmp eq i32 %206, 0
   %208 = xor i1 %spec.select, true
-  %209 = and i1 %207, %208
-  %210 = zext i1 %209 to i32
-  call void @gtk_widget_set_visible(ptr noundef %205, i32 noundef %210) #21
+  %208 = zext i1 %207 to i32
+  %209 = select i1 %207, i32 0, i32 %208
+  call void @gtk_widget_set_visible(ptr noundef %205, i32 noundef %209) #21
   %211 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %212 = load ptr, ptr %211, align 16, !tbaa !298
   %213 = load i32, ptr %199, align 4, !tbaa !123
-  %214 = icmp ne i32 %213, 0
-  %215 = and i1 %214, %208
-  %216 = zext i1 %215 to i32
-  call void @gtk_widget_set_visible(ptr noundef %212, i32 noundef %216) #21
-  br label %217
+  %214 = icmp eq i32 %213, 0
+  %213 = select i1 %214, i32 0, i32 %208
+  call void @gtk_widget_set_visible(ptr noundef %211, i32 noundef %213) #21
+  br label %214
 
-217:                                              ; preds = %187, %183
+214:                                              ; preds = %187, %183
   ret void
 }
 

@@ -10160,31 +10160,22 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt15RealisticCamera25Int
   %61 = fcmp ogt float %20, 0.000000e+00
   %62 = fcmp olt float %0, 0.000000e+00
   %63 = xor i1 %62, %61
-  br i1 %63, label %64, label %66
-
-64:                                               ; preds = %60
+  %64 = fcmp olt float %.0122, %.0121
   %65 = fcmp olt float %.0121, %.0122
-  br label %68
+  %.sink = select i1 %63, i1 %65, i1 %64
+  %66 = select i1 %.sink, float %.0121, float %.0122
+  store float %66, ptr %3, align 4, !tbaa !6
+  %67 = fcmp uge float %66, 0.000000e+00
+  br i1 %67, label %68, label %_ZN4pbrt9QuadraticEfffPfS0_.exit
 
-66:                                               ; preds = %60
-  %67 = fcmp olt float %.0122, %.0121
-  br label %68
-
-68:                                               ; preds = %66, %64
-  %.sink = phi i1 [ %67, %66 ], [ %65, %64 ]
-  %69 = select i1 %.sink, float %.0121, float %.0122
-  store float %69, ptr %3, align 4, !tbaa !6
-  %70 = fcmp uge float %69, 0.000000e+00
-  br i1 %70, label %71, label %_ZN4pbrt9QuadraticEfffPfS0_.exit
-
-71:                                               ; preds = %68
+71:                                               ; preds = %60
   %.sroa.038.0.copyload = load <2 x float>, ptr %12, align 4
   %.sroa.239.0.copyload = load float, ptr %19, align 4, !tbaa !6
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.038.0.copyload, i64 0
-  %72 = fmul float %69, %.sroa.0.0.vec.extract.i
+  %72 = fmul float %66, %.sroa.0.0.vec.extract.i
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.038.0.copyload, i64 1
-  %73 = fmul float %69, %.sroa.0.4.vec.extract.i
-  %74 = fmul float %69, %.sroa.239.0.copyload
+  %73 = fmul float %66, %.sroa.0.4.vec.extract.i
+  %74 = fmul float %66, %.sroa.239.0.copyload
   %75 = fadd float %6, %72
   %76 = fadd float %8, %73
   %77 = fadd float %11, %74
@@ -10232,8 +10223,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt15RealisticCamera25Int
   store float %.pn.i, ptr %.sroa.5.0..sroa_idx, align 4
   br label %_ZN4pbrt9QuadraticEfffPfS0_.exit
 
-_ZN4pbrt9QuadraticEfffPfS0_.exit:                 ; preds = %42, %37, %71, %68
-  %.0 = phi i1 [ true, %71 ], [ false, %68 ], [ false, %37 ], [ false, %42 ]
+_ZN4pbrt9QuadraticEfffPfS0_.exit:                 ; preds = %42, %37, %71, %60
+  %.0 = phi i1 [ true, %68 ], [ false, %60 ], [ false, %37 ], [ false, %42 ]
   ret i1 %.0
 }
 

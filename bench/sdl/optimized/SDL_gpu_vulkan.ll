@@ -27085,14 +27085,12 @@ VULKAN_INTERNAL_VerifySwapPresentMode.exit.thread: ; preds = %82, %VULKAN_INTERN
 
 171:                                              ; preds = %169
   %172 = and i32 %160, 4
-  %.not268 = icmp eq i32 %172, 0
-  br i1 %.not268, label %173, label %175
+  %173 = and i32 %160, 12
+  %brmerge.not = icmp eq i32 %173, 0
+  %.mux = sub nuw nsw i32 8, %172
+  br i1 %brmerge.not, label %174, label %175
 
 173:                                              ; preds = %171
-  %.not269 = icmp eq i32 %161, 0
-  br i1 %.not269, label %174, label %175
-
-174:                                              ; preds = %173
   call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 9, ptr noundef nonnull @.str.222) #12
   %.pre = load i32, ptr %41, align 8
   %.pre327 = load i32, ptr %44, align 4
@@ -27104,13 +27102,13 @@ VULKAN_INTERNAL_VerifySwapPresentMode.exit.thread: ; preds = %82, %VULKAN_INTERN
   %.pre332 = load i32, ptr %.phi.trans.insert331, align 4
   br label %175
 
-175:                                              ; preds = %173, %171, %169, %174, %132
-  %176 = phi i32 [ %77, %132 ], [ %.pre332, %174 ], [ %77, %169 ], [ %77, %171 ], [ %77, %173 ]
-  %177 = phi i32 [ %151, %132 ], [ %.pre329, %174 ], [ %151, %169 ], [ %151, %171 ], [ %151, %173 ]
-  %178 = phi i32 [ %142, %132 ], [ %.pre328, %174 ], [ %142, %169 ], [ %142, %171 ], [ %142, %173 ]
-  %179 = phi i32 [ %43, %132 ], [ %.pre327, %174 ], [ %43, %169 ], [ %43, %171 ], [ %43, %173 ]
-  %180 = phi i32 [ %72, %132 ], [ %.pre, %174 ], [ %72, %169 ], [ %72, %171 ], [ %72, %173 ]
-  %.1245 = phi i32 [ %.0244, %132 ], [ %.0244, %174 ], [ 2, %169 ], [ 4, %171 ], [ 8, %173 ]
+175:                                              ; preds = %171, %169, %174, %132
+  %176 = phi i32 [ %77, %132 ], [ %.pre332, %174 ], [ %77, %169 ], [ %77, %171 ]
+  %177 = phi i32 [ %151, %132 ], [ %.pre329, %174 ], [ %151, %169 ], [ %151, %171 ]
+  %178 = phi i32 [ %142, %132 ], [ %.pre328, %174 ], [ %142, %169 ], [ %142, %171 ]
+  %179 = phi i32 [ %43, %132 ], [ %.pre327, %174 ], [ %43, %169 ], [ %43, %171 ]
+  %180 = phi i32 [ %72, %132 ], [ %.pre, %174 ], [ %72, %169 ], [ %72, %171 ]
+  %.1245 = phi i32 [ %.0244, %132 ], [ %.0244, %174 ], [ 2, %169 ], [ %.mux, %171 ]
   store i32 1000001000, ptr %3, align 8
   %181 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %181, align 8

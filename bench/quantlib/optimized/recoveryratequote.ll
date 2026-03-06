@@ -454,16 +454,14 @@ invoke.cont:
   store i32 %seniority, ptr %seniority_, align 8, !tbaa !38
   %recoveryRate_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %value, ptr %recoveryRate_, align 8, !tbaa !13
-  %cmp = fcmp oeq double %value, 0x47EFFFFFE0000000
-  br i1 %cmp, label %do.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %invoke.cont
+  %cmp = fcmp une double %value, 0x47EFFFFFE0000000
   %cmp3 = fcmp ult double %value, 0.000000e+00
   %cmp4 = fcmp ugt double %value, 1.000000e+00
   %.not = or i1 %cmp3, %cmp4
-  br i1 %.not, label %if.then, label %do.end
+  %lnot = and i1 %cmp, %.not
+  br i1 %lnot, label %if.then, label %do.end
 
-if.then:                                          ; preds = %lor.rhs
+if.then:                                          ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream)
   %call1.i10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, ptr noundef nonnull @.str.2, i64 noundef 41)
@@ -594,7 +592,7 @@ ehcleanup32:                                      ; preds = %if.then.i.i19, %ehc
   call void @llvm.lifetime.end.p0(ptr nonnull %_ql_msg_stream)
   resume { ptr, i32 } %.pn.pn.pn.pn
 
-do.end:                                           ; preds = %invoke.cont, %lor.rhs
+do.end:                                           ; preds = %invoke.cont
   ret void
 
 unreachable:                                      ; preds = %invoke.cont22
@@ -627,16 +625,14 @@ invoke.cont:
   store i32 %seniority, ptr %seniority_, align 8, !tbaa !38
   %recoveryRate_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %value, ptr %recoveryRate_, align 8, !tbaa !13
-  %cmp = fcmp oeq double %value, 0x47EFFFFFE0000000
-  br i1 %cmp, label %do.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %invoke.cont
+  %cmp = fcmp une double %value, 0x47EFFFFFE0000000
   %cmp2 = fcmp ult double %value, 0.000000e+00
   %cmp3 = fcmp ugt double %value, 1.000000e+00
   %.not = or i1 %cmp2, %cmp3
-  br i1 %.not, label %if.then, label %do.end
+  %lnot = and i1 %cmp, %.not
+  br i1 %lnot, label %if.then, label %do.end
 
-if.then:                                          ; preds = %lor.rhs
+if.then:                                          ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream)
           to label %invoke.cont5 unwind label %lpad4
@@ -780,7 +776,7 @@ ehcleanup32:                                      ; preds = %ehcleanup31, %lpad4
   call void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #18
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
-do.end:                                           ; preds = %invoke.cont, %lor.rhs
+do.end:                                           ; preds = %invoke.cont
   ret void
 
 unreachable:                                      ; preds = %invoke.cont21

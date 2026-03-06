@@ -108,16 +108,10 @@ define hidden noundef zeroext i1 @_ZN4lean27is_sub_script_alnum_unicodeEj(i32 no
   %3 = add i32 %0, -8336
   %or.cond3 = icmp ult i32 %3, 13
   %or.cond9 = or i1 %or.cond, %or.cond3
-  br i1 %or.cond9, label %7, label %4
-
-4:                                                ; preds = %1
-  %5 = add i32 %0, -7522
-  %6 = icmp ult i32 %5, 9
-  br label %7
-
-7:                                                ; preds = %1, %4
-  %8 = phi i1 [ %6, %4 ], [ true, %1 ]
-  ret i1 %8
+  %4 = add i32 %0, -7522
+  %5 = icmp ult i32 %4, 9
+  %6 = or i1 %5, %or.cond9
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -207,7 +201,7 @@ switch.early.test:                                ; preds = %2
   br i1 %or.cond5.i, label %switch.early.test.i, label %13
 
 switch.early.test.i:                              ; preds = %11
-  switch i32 %8, label %_ZN4lean27is_sub_script_alnum_unicodeEj.exit [
+  switch i32 %8, label %_ZN4lean22is_letter_like_unicodeEj.exit.thread [
     i32 931, label %13
     i32 928, label %13
   ]
@@ -232,12 +226,10 @@ switch.early.test.i:                              ; preds = %11
   %21 = add i32 %8, -8336
   %or.cond3.i14 = icmp ult i32 %21, 13
   %or.cond9.i = or i1 %or.cond.i13, %or.cond3.i14
-  br i1 %or.cond9.i, label %_ZN4lean27is_sub_script_alnum_unicodeEj.exit, label %22
-
-22:                                               ; preds = %19
-  %23 = add i32 %8, -7522
-  %24 = icmp ult i32 %23, 9
-  br label %_ZN4lean27is_sub_script_alnum_unicodeEj.exit
+  %22 = add i32 %8, -7522
+  %23 = icmp ult i32 %22, 9
+  %24 = or i1 %23, %or.cond9.i
+  br label %_ZN4lean22is_letter_like_unicodeEj.exit.thread
 
 switch.hole_check:                                ; preds = %switch.early.test
   %switch.maskindex = zext nneg i8 %switch.tableidx to i64
@@ -245,8 +237,8 @@ switch.hole_check:                                ; preds = %switch.early.test
   %switch.lobit = trunc i64 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZN4lean27is_sub_script_alnum_unicodeEj.exit, label %7
 
-_ZN4lean27is_sub_script_alnum_unicodeEj.exit:     ; preds = %switch.hole_check, %switch.early.test.i, %13, %7, %22, %19, %2
-  %.0 = phi i1 [ %24, %22 ], [ true, %switch.early.test.i ], [ true, %19 ], [ true, %2 ], [ true, %13 ], [ true, %7 ], [ true, %switch.hole_check ]
+_ZN4lean27is_sub_script_alnum_unicodeEj.exit:     ; preds = %switch.hole_check, %switch.early.test.i, %13, %7, %2, %19
+  %.0 = phi i1 [ true, %7 ], [ true, %switch.early.test.i ], [ %24, %19 ], [ true, %2 ], [ true, %13 ], [ true, %switch.hole_check ]
   ret i1 %.0
 }
 
@@ -4782,7 +4774,7 @@ switch.early.test.i.i.i60:                        ; preds = %129
   %or.cond89 = or i1 %141, %or.cond9.i.i.i
   br i1 %or.cond89, label %_ZN4lean10is_id_restEPKcS1_.exit.thread, label %switch.lookup
 
-_ZN4lean10is_id_restEPKcS1_.exit.thread:          ; preds = %131, %.noexc61, %.lr.ph, %137, %switch.early.test.i.i.i60
+_ZN4lean10is_id_restEPKcS1_.exit.thread:          ; preds = %131, %.noexc61, %.lr.ph, %switch.early.test.i.i.i60, %137
   br label %switch.lookup
 
 switch.hole_check:                                ; preds = %switch.early.test.i.i
@@ -4792,7 +4784,7 @@ switch.hole_check:                                ; preds = %switch.early.test.i
   br i1 %switch.lobit, label %switch.lookup, label %125
 
 switch.lookup:                                    ; preds = %switch.hole_check, %137, %_ZN4lean10is_id_restEPKcS1_.exit.thread
-  %142 = phi i1 [ false, %_ZN4lean10is_id_restEPKcS1_.exit.thread ], [ true, %137 ], [ false, %switch.hole_check ]
+  %142 = phi i1 [ false, %_ZN4lean10is_id_restEPKcS1_.exit.thread ], [ true, %_ZN4lean10is_id_restEPKcS1_.exit ], [ false, %switch.hole_check ]
   %143 = load ptr, ptr %8, align 8, !tbaa !59
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 %.097
   %145 = load i8, ptr %144, align 1, !tbaa !3
@@ -4850,7 +4842,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZStl
   br label %202
 
 168:                                              ; preds = %.loopexit94, %.loopexit.split-lp, %106
-  %.pn38 = phi { ptr, i32 } [ %107, %106 ], [ %lpad.loopexit, %.loopexit94 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn38 = phi { ptr, i32 } [ %107, %106 ], [ %lpad.loopexit, %.loopexit91 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %169 = load ptr, ptr %8, align 8, !tbaa !59
   %170 = icmp eq ptr %169, %68
   br i1 %170, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69

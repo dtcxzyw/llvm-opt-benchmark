@@ -1942,7 +1942,7 @@ list_length.exit4:                                ; preds = %list_length.exit, %
 declare i32 @list_int_cmp(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal noundef i32 @cmp_list_len_contents_asc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal i32 @cmp_list_len_contents_asc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %list_length.exit.i.thread, label %list_length.exit.i
@@ -1988,8 +1988,9 @@ cmp_list_len_asc.exit.thread.thread:              ; preds = %list_length.exit.i.
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %23
 
-23:                                               ; preds = %39, %.preheader.split.split
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.preheader.split.split ]
+23:                                               ; preds = %34, %.preheader.split.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.preheader.split.split ]
+  %.0 = phi i32 [ %.2, %34 ], [ undef, %.preheader.split.split ]
   %24 = icmp slt i64 %indvars.iv, %22
   br i1 %24, label %25, label %28
 
@@ -2015,15 +2016,15 @@ cmp_list_len_asc.exit.thread.thread:              ; preds = %list_length.exit.i.
   %36 = load i32, ptr %29, align 8
   %37 = load i32, ptr %35, align 8
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.thread43, label %39
-
-39:                                               ; preds = %34
-  %.not = icmp slt i32 %36, %37
+  %.not47 = icmp slt i32 %36, %37
+  %..0 = select i1 %.not47, i32 -1, i32 %.0
+  %cond2 = icmp eq i32 %36, %37
+  %.2 = select i1 %38, i32 1, i32 %..0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not, label %.thread43, label %23, !llvm.loop !17
+  br i1 %cond2, label %23, label %.thread43, !llvm.loop !17
 
-.thread43:                                        ; preds = %28, %30, %34, %39, %cmp_list_len_asc.exit.thread.thread, %cmp_list_len_asc.exit, %list_length.exit.i.thread, %cmp_list_len_asc.exit.thread
-  %.3 = phi i32 [ %8, %cmp_list_len_asc.exit ], [ 0, %list_length.exit.i.thread ], [ %11, %cmp_list_len_asc.exit.thread ], [ %15, %cmp_list_len_asc.exit.thread.thread ], [ -1, %39 ], [ 1, %34 ], [ %11, %28 ], [ %11, %30 ]
+.thread43:                                        ; preds = %28, %30, %34, %cmp_list_len_asc.exit.thread.thread, %cmp_list_len_asc.exit, %list_length.exit.i.thread, %cmp_list_len_asc.exit.thread
+  %.3 = phi i32 [ %8, %cmp_list_len_asc.exit ], [ 0, %list_length.exit.i.thread ], [ %11, %cmp_list_len_asc.exit.thread ], [ %15, %cmp_list_len_asc.exit.thread.thread ], [ %.2, %34 ], [ %11, %30 ], [ %11, %28 ]
   ret i32 %.3
 }
 

@@ -2462,16 +2462,10 @@ define internal noundef zeroext i1 @dissect_cgmr_parameter(ptr noundef %0, ptr r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define internal noundef zeroext i1 @check_cgsn(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
-  br i1 %3, label %4, label %5
-
-4:                                                ; preds = %2
   %switch.selectcmp.case1 = icmp eq i16 %1, 15679
   %switch.selectcmp.case2 = icmp eq i16 %1, 13
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  br label %5
-
-5:                                                ; preds = %2, %4
-  %.0 = phi i1 [ %switch.selectcmp, %4 ], [ false, %2 ]
+  %.0 = and i1 %3, %switch.selectcmp
   ret i1 %.0
 }
 
@@ -2588,16 +2582,10 @@ check_chld.exit.thread48:                         ; preds = %13, %check_chld.exi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define internal noundef zeroext i1 @check_chup(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
-  br i1 %3, label %4, label %5
-
-4:                                                ; preds = %2
   %switch.selectcmp.case1 = icmp eq i16 %1, 15679
   %switch.selectcmp.case2 = icmp eq i16 %1, 13
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  br label %5
-
-5:                                                ; preds = %2, %4
-  %.0 = phi i1 [ %switch.selectcmp, %4 ], [ false, %2 ]
+  %.0 = and i1 %3, %switch.selectcmp
   ret i1 %.0
 }
 
@@ -2792,16 +2780,10 @@ check_cind.exit:                                  ; preds = %13, %13, %14
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define internal noundef zeroext i1 @check_clac(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
-  br i1 %3, label %4, label %5
-
-4:                                                ; preds = %2
   %switch.selectcmp.case1 = icmp eq i16 %1, 15679
   %switch.selectcmp.case2 = icmp eq i16 %1, 13
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  br label %5
-
-5:                                                ; preds = %2, %4
-  %.0 = phi i1 [ %switch.selectcmp, %4 ], [ false, %2 ]
+  %.0 = and i1 %3, %switch.selectcmp
   ret i1 %.0
 }
 
@@ -4524,16 +4506,10 @@ define internal noundef zeroext i1 @dissect_csq_parameter(ptr noundef %0, ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define internal noundef zeroext i1 @check_csupi(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
-  br i1 %3, label %4, label %5
-
-4:                                                ; preds = %2
   %switch.selectcmp.case1 = icmp eq i16 %1, 15679
   %switch.selectcmp.case2 = icmp eq i16 %1, 13
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  br label %5
-
-5:                                                ; preds = %2, %4
-  %.0 = phi i1 [ %switch.selectcmp, %4 ], [ false, %2 ]
+  %.0 = and i1 %3, %switch.selectcmp
   ret i1 %.0
 }
 
@@ -4660,16 +4636,10 @@ define internal noundef zeroext i1 @dissect_gmr_parameter(ptr noundef %0, ptr re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define internal noundef zeroext i1 @check_gsn(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
-  br i1 %3, label %4, label %5
-
-4:                                                ; preds = %2
   %switch.selectcmp.case1 = icmp eq i16 %1, 15679
   %switch.selectcmp.case2 = icmp eq i16 %1, 13
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  br label %5
-
-5:                                                ; preds = %2, %4
-  %.0 = phi i1 [ %switch.selectcmp, %4 ], [ false, %2 ]
+  %.0 = and i1 %3, %switch.selectcmp
   ret i1 %.0
 }
 

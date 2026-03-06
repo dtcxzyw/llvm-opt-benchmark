@@ -6270,10 +6270,10 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i, %29
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i: ; preds = %34, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i
   %.sroa.0.1.i.i = phi i32 [ %33, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i ], [ %.sroa.0.07.i.i, %34 ]
   %36 = load atomic i64, ptr %13 monotonic, align 8
-  %.not.i.i.i = icmp eq i64 %36, 0
-  %.not.i6.i = icmp ne ptr %27, null
-  %.not4.i.i = or i1 %.not.i6.i, %.not.i.i.i
-  br i1 %.not4.i.i, label %_ZN3tbb6detail2r15arena17get_critical_taskERjl.exit, label %21, !llvm.loop !323
+  %.not.i.i.i = icmp ne i64 %36, 0
+  %.not.i6.i = icmp eq ptr %27, null
+  %or.cond.i.i = and i1 %.not.i6.i, %.not.i.i.i
+  br i1 %or.cond.i.i, label %21, label %_ZN3tbb6detail2r15arena17get_critical_taskERjl.exit, !llvm.loop !323
 
 _ZN3tbb6detail2r15arena17get_critical_taskERjl.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i, %16
   %.0.i = phi ptr [ %17, %16 ], [ %27, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i ]
@@ -6620,10 +6620,10 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %83, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
   %.sroa.0.1.i.i.i = phi i32 [ %82, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.07.i.i.i, %83 ]
   %85 = load atomic i64, ptr %18 monotonic, align 8
-  %.not.i.i.i.i = icmp eq i64 %85, 0
-  %.not.i4.i.i = icmp ne ptr %76, null
-  %.not4.i.i.i = or i1 %.not.i4.i.i, %.not.i.i.i.i
-  br i1 %.not4.i.i.i, label %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit, label %.lr.ph.i.i.i, !llvm.loop !329
+  %.not.i.i.i.i = icmp ne i64 %85, 0
+  %.not.i4.i.i = icmp eq ptr %76, null
+  %or.cond.i.i.i = and i1 %.not.i4.i.i, %.not.i.i.i.i
+  br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit, !llvm.loop !329
 
 _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit.thread: ; preds = %63, %67, %69
   store ptr null, ptr %9, align 8, !tbaa !196
@@ -6631,8 +6631,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
 
 _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
   store ptr %76, ptr %9, align 8, !tbaa !196
-  %.not52 = icmp eq ptr %76, null
-  br i1 %.not52, label %86, label %.thread
+  br i1 %.not.i4.i.i, label %86, label %.thread
 
 86:                                               ; preds = %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit.thread, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit
   br i1 %or.cond, label %87, label %152
@@ -6700,14 +6699,13 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i91: ; preds = %.lr.ph.i.i.i.i.i9
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i86: ; preds = %115, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i91
   %.sroa.0.1.i.i.i87 = phi i32 [ %114, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i91 ], [ %.sroa.0.07.i.i.i85, %115 ]
   %117 = load atomic i64, ptr %97 monotonic, align 8
-  %.not.i.i.i.i88 = icmp eq i64 %117, 0
-  %.not.i6.i.i = icmp ne ptr %108, null
-  %.not4.i.i.i89 = or i1 %.not.i6.i.i, %.not.i.i.i.i88
-  br i1 %.not4.i.i.i89, label %_ZN3tbb6detail2r15arena17get_critical_taskERjl.exit.i, label %102, !llvm.loop !323
+  %.not.i.i.i.i88 = icmp ne i64 %117, 0
+  %.not.i6.i.i = icmp eq ptr %108, null
+  %or.cond.i.i.i89 = and i1 %.not.i6.i.i, %.not.i.i.i.i88
+  br i1 %or.cond.i.i.i89, label %102, label %_ZN3tbb6detail2r15arena17get_critical_taskERjl.exit.i, !llvm.loop !323
 
 _ZN3tbb6detail2r15arena17get_critical_taskERjl.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i86
-  %.not.i90 = icmp eq ptr %108, null
-  br i1 %.not.i90, label %_ZN3tbb6detail2r15arena17get_critical_taskERjl.exit.thread.i, label %118
+  br i1 %.not.i6.i.i, label %_ZN3tbb6detail2r15arena17get_critical_taskERjl.exit.thread.i, label %118
 
 118:                                              ; preds = %_ZN3tbb6detail2r15arena17get_critical_taskERjl.exit.i
   %119 = getelementptr inbounds nuw i8, ptr %108, i64 16
@@ -6781,10 +6779,10 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i71: ; preds = %.lr.ph.i.i.i.i.i7
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i66: ; preds = %149, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i71
   %.sroa.0.1.i.i.i67 = phi i32 [ %148, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i71 ], [ %.sroa.0.07.i.i.i65, %149 ]
   %151 = load atomic i64, ptr %21 monotonic, align 8
-  %.not.i.i.i.i68 = icmp eq i64 %151, 0
-  %.not.i4.i.i69 = icmp ne ptr %142, null
-  %.not4.i.i.i70 = or i1 %.not.i4.i.i69, %.not.i.i.i.i68
-  br i1 %.not4.i.i.i70, label %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74, label %.lr.ph.i.i.i64, !llvm.loop !329
+  %.not.i.i.i.i68 = icmp ne i64 %151, 0
+  %.not.i4.i.i69 = icmp eq ptr %142, null
+  %or.cond.i.i.i70 = and i1 %.not.i4.i.i69, %.not.i.i.i.i68
+  br i1 %or.cond.i.i.i70, label %.lr.ph.i.i.i64, label %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74, !llvm.loop !329
 
 _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74.thread: ; preds = %87, %133, %135
   store ptr null, ptr %9, align 8, !tbaa !196
@@ -6792,8 +6790,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
 
 _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i66
   store ptr %142, ptr %9, align 8, !tbaa !196
-  %.not53 = icmp eq ptr %142, null
-  br i1 %.not53, label %152, label %.thread
+  br i1 %.not.i4.i.i69, label %152, label %.thread
 
 152:                                              ; preds = %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74.thread, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74, %86
   br i1 %30, label %153, label %197
@@ -7942,10 +7939,10 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %83, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
   %.sroa.0.1.i.i.i = phi i32 [ %82, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.07.i.i.i, %83 ]
   %85 = load atomic i64, ptr %18 monotonic, align 8
-  %.not.i.i.i.i = icmp eq i64 %85, 0
-  %.not.i4.i.i = icmp ne ptr %76, null
-  %.not4.i.i.i = or i1 %.not.i4.i.i, %.not.i.i.i.i
-  br i1 %.not4.i.i.i, label %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit, label %.lr.ph.i.i.i, !llvm.loop !329
+  %.not.i.i.i.i = icmp ne i64 %85, 0
+  %.not.i4.i.i = icmp eq ptr %76, null
+  %or.cond.i.i.i = and i1 %.not.i4.i.i, %.not.i.i.i.i
+  br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit, !llvm.loop !329
 
 _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit.thread: ; preds = %63, %67, %69
   store ptr null, ptr %9, align 8, !tbaa !196
@@ -7953,8 +7950,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
 
 _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
   store ptr %76, ptr %9, align 8, !tbaa !196
-  %.not52 = icmp eq ptr %76, null
-  br i1 %.not52, label %86, label %.thread
+  br i1 %.not.i4.i.i, label %86, label %.thread
 
 86:                                               ; preds = %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit.thread, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit
   br i1 %or.cond, label %87, label %152
@@ -8022,14 +8018,13 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i91: ; preds = %.lr.ph.i.i.i.i.i9
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i86: ; preds = %115, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i91
   %.sroa.0.1.i.i.i87 = phi i32 [ %114, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i91 ], [ %.sroa.0.07.i.i.i85, %115 ]
   %117 = load atomic i64, ptr %97 monotonic, align 8
-  %.not.i.i.i.i88 = icmp eq i64 %117, 0
-  %.not.i6.i.i = icmp ne ptr %108, null
-  %.not4.i.i.i89 = or i1 %.not.i6.i.i, %.not.i.i.i.i88
-  br i1 %.not4.i.i.i89, label %_ZN3tbb6detail2r15arena17get_critical_taskERjl.exit.i, label %102, !llvm.loop !323
+  %.not.i.i.i.i88 = icmp ne i64 %117, 0
+  %.not.i6.i.i = icmp eq ptr %108, null
+  %or.cond.i.i.i89 = and i1 %.not.i6.i.i, %.not.i.i.i.i88
+  br i1 %or.cond.i.i.i89, label %102, label %_ZN3tbb6detail2r15arena17get_critical_taskERjl.exit.i, !llvm.loop !323
 
 _ZN3tbb6detail2r15arena17get_critical_taskERjl.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i86
-  %.not.i90 = icmp eq ptr %108, null
-  br i1 %.not.i90, label %_ZN3tbb6detail2r15arena17get_critical_taskERjl.exit.thread.i, label %118
+  br i1 %.not.i6.i.i, label %_ZN3tbb6detail2r15arena17get_critical_taskERjl.exit.thread.i, label %118
 
 118:                                              ; preds = %_ZN3tbb6detail2r15arena17get_critical_taskERjl.exit.i
   %119 = getelementptr inbounds nuw i8, ptr %108, i64 16
@@ -8103,10 +8098,10 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i71: ; preds = %.lr.ph.i.i.i.i.i7
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i66: ; preds = %149, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i71
   %.sroa.0.1.i.i.i67 = phi i32 [ %148, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i71 ], [ %.sroa.0.07.i.i.i65, %149 ]
   %151 = load atomic i64, ptr %21 monotonic, align 8
-  %.not.i.i.i.i68 = icmp eq i64 %151, 0
-  %.not.i4.i.i69 = icmp ne ptr %142, null
-  %.not4.i.i.i70 = or i1 %.not.i4.i.i69, %.not.i.i.i.i68
-  br i1 %.not4.i.i.i70, label %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74, label %.lr.ph.i.i.i64, !llvm.loop !329
+  %.not.i.i.i.i68 = icmp ne i64 %151, 0
+  %.not.i4.i.i69 = icmp eq ptr %142, null
+  %or.cond.i.i.i70 = and i1 %.not.i4.i.i69, %.not.i.i.i.i68
+  br i1 %or.cond.i.i.i70, label %.lr.ph.i.i.i64, label %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74, !llvm.loop !329
 
 _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74.thread: ; preds = %87, %133, %135
   store ptr null, ptr %9, align 8, !tbaa !196
@@ -8114,8 +8109,7 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
 
 _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i66
   store ptr %142, ptr %9, align 8, !tbaa !196
-  %.not53 = icmp eq ptr %142, null
-  br i1 %.not53, label %152, label %.thread
+  br i1 %.not.i4.i.i69, label %152, label %.thread
 
 152:                                              ; preds = %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74.thread, %_ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution_data_extERNS1_5arenaERNS1_11task_streamILNS1_25task_stream_accessor_typeE0EEERjlb.exit74, %86
   br i1 %30, label %153, label %197

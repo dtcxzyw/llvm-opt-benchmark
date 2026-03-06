@@ -2653,7 +2653,7 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
 
 29:                                               ; preds = %cpool_run_conn_shutdown_handler.exit
   store i8 1, ptr %2, align 1, !tbaa !145
-  br label %58
+  br label %57
 
 30:                                               ; preds = %cpool_run_conn_shutdown_handler.exit
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 1413
@@ -2687,38 +2687,29 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
 43:                                               ; preds = %41
   %44 = call i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %5) #8
   %45 = icmp ne i32 %44, 0
+  %.pre = load i8, ptr %5, align 1, !range !110
+  %46 = trunc nuw i8 %.pre to i1
   br label %47
 
-46:                                               ; preds = %41, %39
-  store i8 1, ptr %5, align 1, !tbaa !145
-  br label %47
-
-47:                                               ; preds = %46, %43
-  %.0 = phi i1 [ false, %46 ], [ %45, %43 ]
+46:                                               ; preds = %39, %41, %43
+  %48 = phi i1 [ %46, %43 ], [ true, %41 ], [ true, %39 ]
+  %.0 = phi i1 [ %45, %43 ], [ false, %41 ], [ false, %39 ]
   %or.cond = select i1 %.015, i1 true, i1 %.0
-  br i1 %or.cond, label %.critedge, label %48
-
-48:                                               ; preds = %47
-  %49 = load i8, ptr %4, align 1, !tbaa !145, !range !110, !noundef !111
+  %49 = load i8, ptr %4, align 1, !range !110
   %50 = trunc nuw i8 %49 to i1
-  %51 = load i8, ptr %5, align 1, !range !110
-  %52 = trunc nuw i8 %51 to i1
-  %53 = select i1 %50, i1 %52, i1 false
-  %54 = zext i1 %53 to i8
-  store i8 %54, ptr %2, align 1, !tbaa !145
-  br i1 %53, label %55, label %58
+  %51 = select i1 %50, i1 %48, i1 false
+  %52 = select i1 %or.cond, i1 true, i1 %51
+  %53 = zext i1 %52 to i8
+  store i8 %53, ptr %2, align 1, !tbaa !145
+  br i1 %52, label %54, label %57
 
-.critedge:                                        ; preds = %47
-  store i8 1, ptr %2, align 1, !tbaa !145
-  br label %55
+54:                                               ; preds = %47
+  %55 = load i64, ptr %6, align 8
+  %56 = or i64 %55, 4294967296
+  store i64 %56, ptr %6, align 8
+  br label %57
 
-55:                                               ; preds = %.critedge, %48
-  %56 = load i64, ptr %6, align 8
-  %57 = or i64 %56, 4294967296
-  store i64 %57, ptr %6, align 8
-  br label %58
-
-58:                                               ; preds = %48, %55, %29
+57:; preds = %47, %54, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

@@ -799,74 +799,68 @@ define hidden range(i32 0, 2) i32 @WebPWriteTIFF(ptr noundef captures(address_is
   br i1 %or.cond, label %.loopexit, label %174
 
 174:                                              ; preds = %2
-  %175 = load i32, ptr %1, align 8, !tbaa !18
-  %switch.tableidx = add i32 %175, -1
-  %176 = icmp ult i32 %switch.tableidx, 12
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %175 = load i32, ptr %174, align 4, !tbaa !11
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %177 = load i32, ptr %176, align 8, !tbaa !15
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %179 = load ptr, ptr %178, align 8, !tbaa !16
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %181 = load i32, ptr %180, align 8, !tbaa !16
+  %182 = icmp eq ptr %179, null
+  br i1 %182, label %.loopexit, label %183
+
+183:                                              ; preds = %WebPIsAlphaMode.exit
+  %184 = load i32, ptr %1, align 8, !tbaa !18
+  %switch.tableidx = add i32 %184, -1
+  %185 = icmp ult i32 %switch.tableidx, 12
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 2077, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond49 = select i1 %176, i1 %switch.lobit, i1 false
-  br i1 %or.cond49, label %WebPIsAlphaMode.exit, label %177
+  %or.cond49 = select i1 %185, i1 %switch.lobit, i1 false
+  %186 = add i32 %184, -7
+  %narrow.i.i = icmp ult i32 %186, 4
+  %.not.not = or i1 %or.cond49, %narrow.i.i
+  %187 = select i1 %.not.not, i8 4, i8 3
+  store i8 %187, ptr %86, align 2, !tbaa !16
+  store i8 %187, ptr %27, align 2, !tbaa !16
+  %188 = select i1 %.not.not, i8 15, i8 14
+  store i8 %188, ptr %9, align 8, !tbaa !16
+  %189 = add i32 %184, -11
+  %narrow.i = icmp ult i32 %189, -4
+  %190 = select i1 %narrow.i, i8 2, i8 1
+  store i8 %190, ptr %155, align 2, !tbaa !16
+  store i32 %175, ptr %15, align 2
+  store i32 %177, ptr %22, align 2
+  store i32 %177, ptr %93, align 2
+  %191 = zext nneg i8 %187 to i32
+  %192 = mul i32 %175, %191
+  %193 = mul i32 %192, %177
+  store i32 %193, ptr %100, align 2
+  br i1 %.not.not, label %195, label %194
 
-177:                                              ; preds = %174
-  %178 = add i32 %175, -11
-  %narrow.i.i = icmp ult i32 %178, -4
-  br label %WebPIsAlphaMode.exit
-
-WebPIsAlphaMode.exit:                             ; preds = %174, %177
-  %.not = phi i1 [ %narrow.i.i, %177 ], [ false, %174 ]
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %180 = load i32, ptr %179, align 4, !tbaa !11
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %182 = load i32, ptr %181, align 8, !tbaa !15
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %184 = load ptr, ptr %183, align 8, !tbaa !16
-  %185 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %186 = load i32, ptr %185, align 8, !tbaa !16
-  %187 = icmp eq ptr %184, null
-  br i1 %187, label %.loopexit, label %188
-
-188:                                              ; preds = %WebPIsAlphaMode.exit
-  %189 = select i1 %.not, i8 3, i8 4
-  store i8 %189, ptr %86, align 2, !tbaa !16
-  store i8 %189, ptr %27, align 2, !tbaa !16
-  %190 = select i1 %.not, i8 14, i8 15
-  store i8 %190, ptr %9, align 8, !tbaa !16
-  %191 = add i32 %175, -11
-  %narrow.i = icmp ult i32 %191, -4
-  %192 = select i1 %narrow.i, i8 2, i8 1
-  store i8 %192, ptr %155, align 2, !tbaa !16
-  store i32 %180, ptr %15, align 2
-  store i32 %182, ptr %22, align 2
-  store i32 %182, ptr %93, align 2
-  %193 = zext nneg i8 %189 to i32
-  %194 = mul i32 %180, %193
-  %195 = mul i32 %194, %182
-  store i32 %195, ptr %100, align 2
-  br i1 %.not, label %196, label %197
-
-196:                                              ; preds = %188
+194:; preds = %183
   store i32 0, ptr %149, align 2
   br label %197
 
-197:                                              ; preds = %196, %188
+197:                                              ; preds = %194, %183
   %198 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 210, i64 noundef 1, ptr noundef nonnull %0)
   %.not38 = icmp eq i64 %198, 1
   br i1 %.not38, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %197
-  %199 = zext nneg i8 %189 to i64
-  %200 = zext i32 %180 to i64
-  %.not44 = icmp eq i32 %182, 0
+  %199 = zext nneg i8 %187 to i64
+  %200 = zext i32 %175 to i64
+  %.not44 = icmp eq i32 %177, 0
   br i1 %.not44, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %201 = sext i32 %186 to i64
+  %201 = sext i32 %181 to i64
   br label %202
 
 202:                                              ; preds = %.lr.ph, %204
-  %.041 = phi i32 [ 0, %.lr.ph ], [ %206, %204 ]
-  %.03340 = phi ptr [ %184, %.lr.ph ], [ %205, %204 ]
+  %.041 = phi i32 [ 0, %.lr.ph ], [ %206, %202 ]
+  %.03340 = phi ptr [ %179, %.lr.ph ], [ %205, %202 ]
   %203 = tail call i64 @fwrite(ptr noundef %.03340, i64 noundef %199, i64 noundef %200, ptr noundef nonnull %0)
   %.not39 = icmp eq i64 %203, %200
   br i1 %.not39, label %204, label %.loopexit
@@ -874,11 +868,11 @@ WebPIsAlphaMode.exit:                             ; preds = %174, %177
 204:                                              ; preds = %202
   %205 = getelementptr inbounds i8, ptr %.03340, i64 %201
   %206 = add nuw i32 %.041, 1
-  %exitcond.not = icmp eq i32 %206, %182
+  %exitcond.not = icmp eq i32 %206, %177
   br i1 %exitcond.not, label %.loopexit, label %202, !llvm.loop !24
 
 .loopexit:                                        ; preds = %202, %204, %.preheader, %197, %WebPIsAlphaMode.exit, %2
-  %.032 = phi i32 [ 0, %197 ], [ 0, %2 ], [ 0, %WebPIsAlphaMode.exit ], [ 1, %.preheader ], [ 0, %202 ], [ 1, %204 ]
+  %.032 = phi i32 [ 0, %195 ], [ 0, %2 ], [ 0, %WebPIsAlphaMode.exit ], [ 1, %.preheader ], [ 0, %200 ], [ 1, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.032
 }

@@ -36011,16 +36011,10 @@ define noundef zeroext i1 @_ZN5image4flat12SampleLayout9in_bounds17h56cf24bc1f83
   %8 = load i32, ptr %7, align 8
   %9 = icmp ult i32 %2, %8
   %or.cond = select i1 %6, i1 %9, i1 false
-  br i1 %or.cond, label %10, label %14
-
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i32, ptr %11, align 8, !noundef !4
-  %13 = icmp ult i32 %3, %12
-  br label %14
-
-14:                                               ; preds = %4, %10
-  %.0 = phi i1 [ %13, %10 ], [ false, %4 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ult i32 %3, %11
+  %.0 = select i1 %or.cond, i1 %12, i1 false
   ret i1 %.0
 }
 
@@ -36033,7 +36027,7 @@ define { i64, i64 } @_ZN5image4flat12SampleLayout5index17ha29527056fc9b04fE(ptr 
   %9 = icmp ult i32 %2, %8
   %or.cond.i = select i1 %6, i1 %9, i1 false
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i32, ptr %10, align 8
+  %11 = load i32, ptr %10, align 8, !alias.scope !6686
   %12 = icmp ult i32 %3, %11
   %or.cond = select i1 %or.cond.i, i1 %12, i1 false
   br i1 %or.cond, label %13, label %_ZN5image4flat12SampleLayout9in_bounds17h56cf24bc1f83b0dcE.exit.thread

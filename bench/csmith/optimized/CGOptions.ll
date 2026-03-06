@@ -4140,7 +4140,7 @@ _ZN9CGOptions21has_extension_supportEv.exit.thread: ; preds = %77
   br label %87
 
 87:                                               ; preds = %54, %66, %74, %_ZN9CGOptions21has_extension_supportEv.exit.thread, %86, %0
-  %.0 = phi i1 [ false, %0 ], [ true, %54 ], [ true, %66 ], [ true, %_ZN9CGOptions21has_extension_supportEv.exit.thread ], [ false, %86 ], [ true, %74 ]
+  %.0 = phi i1 [ false, %0 ], [ true, %54 ], [ true, %66 ], [ true, %85 ], [ false, %88 ], [ true, %74 ]
   ret i1 %.0
 }
 
@@ -4155,16 +4155,10 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions21has_extension_supportEv() lo
   %3 = load i8, ptr @_ZN9CGOptions6crest_E, align 1, !range !19
   %4 = trunc nuw i8 %3 to i1
   %or.cond = select i1 %2, i1 true, i1 %4
-  br i1 %or.cond, label %8, label %5
-
-5:                                                ; preds = %0
-  %6 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1, !tbaa !17, !range !19, !noundef !20
-  %7 = trunc nuw i8 %6 to i1
-  br label %8
-
-8:                                                ; preds = %5, %0
-  %9 = phi i1 [ %7, %5 ], [ true, %0 ]
-  ret i1 %9
+  %5 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1, !range !19
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond = select i1 %or.cond, i1 true, i1 %6
+  ret i1 %or.cond
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4362,15 +4356,9 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions11allow_int64Ev() local_unname
   %7 = load i8, ptr @_ZN9CGOptions7math64_E, align 1, !range !19
   %8 = trunc nuw i8 %7 to i1
   %or.cond3 = select i1 %or.cond.not, i1 %8, i1 false
-  br i1 %or.cond3, label %9, label %_ZN9CGOptions21has_extension_supportEv.exit.thread
-
-9:                                                ; preds = %0
-  %10 = load i8, ptr @_ZN9CGOptions9longlong_E, align 1, !tbaa !17, !range !19, !noundef !20
+  %10 = load i8, ptr @_ZN9CGOptions9longlong_E, align 1, !range !19
   %11 = trunc nuw i8 %10 to i1
-  br label %_ZN9CGOptions21has_extension_supportEv.exit.thread
-
-_ZN9CGOptions21has_extension_supportEv.exit.thread: ; preds = %0, %9
-  %12 = phi i1 [ %11, %9 ], [ false, %0 ]
+  %12 = select i1 %or.cond, i1 %11, i1 false
   ret i1 %12
 }
 

@@ -205,10 +205,11 @@ define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h4d76962
   %4 = add nsw i32 %3, -48
   %.sroa.0.0.i = icmp ult i32 %4, 10
   %5 = icmp samesign ugt i32 %3, 64
-  %6 = icmp samesign ugt i32 %3, 96
-  %spec.select.v.i = select i1 %6, i32 123, i32 91
-  %spec.select.i = icmp samesign ult i32 %3, %spec.select.v.i
-  %.sroa.02.0.i = select i1 %5, i1 %spec.select.i, i1 %.sroa.0.0.i
+  %6 = icmp samesign ult i32 %3, 91
+  %spec.select.v.i = select i1 %5, i1 %6, i1 %.sroa.0.0.i
+  %spec.select.i = icmp samesign ugt i32 %3, 96
+  %8 = icmp samesign ult i32 %3, 123
+  %.sroa.02.0.i = select i1 %7, i1 %8, i1 %.sroa.01.0.i
   ret i1 %.sroa.02.0.i
 }
 
@@ -218,10 +219,11 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls80_$LT$impl$u20$co
   %4 = add nsw i32 %3, -48
   %.sroa.0.0.i.i = icmp ult i32 %4, 10
   %5 = icmp samesign ugt i32 %3, 64
-  %6 = icmp samesign ugt i32 %3, 96
-  %spec.select.v.i.i = select i1 %6, i32 123, i32 91
-  %spec.select.i.i = icmp samesign ult i32 %3, %spec.select.v.i.i
-  %.sroa.02.0.i.i = select i1 %5, i1 %spec.select.i.i, i1 %.sroa.0.0.i.i
+  %6 = icmp samesign ult i32 %3, 91
+  %spec.select.v.i.i = select i1 %5, i1 %6, i1 %.sroa.0.0.i.i
+  %spec.select.i.i = icmp samesign ugt i32 %3, 96
+  %8 = icmp samesign ult i32 %3, 123
+  %.sroa.02.0.i.i = select i1 %7, i1 %8, i1 %.sroa.01.0.i.i
   ret i1 %.sroa.02.0.i.i
 }
 
@@ -365,15 +367,15 @@ define hidden { ptr, i64 } @"_ZN4core3str6traits99_$LT$impl$u20$core..slice..ind
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$21is_ascii_alphanumeric17he9f1c38787783a35E.llvm.11609176286844505677"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #0 {
-.thread:
-  %1 = load i32, ptr %0, align 4, !range !20, !noundef !3
-  %2 = add nsw i32 %1, -48
-  %.sroa.0.0 = icmp ult i32 %2, 10
-  %3 = icmp samesign ugt i32 %1, 64
-  %4 = icmp samesign ugt i32 %1, 96
-  %spec.select.v = select i1 %4, i32 123, i32 91
-  %spec.select = icmp samesign ult i32 %1, %spec.select.v
-  %.sroa.02.0 = select i1 %3, i1 %spec.select, i1 %.sroa.0.0
+  %2 = load i32, ptr %0, align 4, !range !20, !noundef !3
+  %3 = add nsw i32 %2, -48
+  %.sroa.0.0 = icmp ult i32 %3, 10
+  %.sroa.0.0 = icmp samesign ugt i32 %2, 64
+  %3 = icmp samesign ult i32 %2, 91
+  %.sroa.01.0 = select i1 %4, i1 %5, i1 %.sroa.0.0
+  %6 = icmp samesign ugt i32 %2, 96
+  %spec.select = icmp samesign ult i32 %2, 123
+  %.sroa.02.0 = select i1 %6, i1 %spec.select, i1 %.sroa.01.0
   ret i1 %.sroa.02.0
 }
 

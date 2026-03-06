@@ -2717,28 +2717,26 @@ define void @_ZNK7Imf_3_418DeepTiledInputFile17dataWindowForTileEiiii(ptr dead_o
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %.thread
 
+.thread:                                          ; preds = %.noexc
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %30
+
 21:                                               ; preds = %.noexc
   %22 = load i32, ptr %7, align 4, !tbaa !62
   %23 = icmp slt i32 %2, %22
   %24 = icmp sgt i32 %2, -1
   %or.cond.i = and i1 %24, %23
-  br i1 %or.cond.i, label %25, label %.thread
-
-.thread:                                          ; preds = %21, %.noexc
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %30
-
-25:                                               ; preds = %21
-  %26 = load i32, ptr %8, align 4, !tbaa !62
-  %27 = icmp slt i32 %3, %26
-  %28 = icmp sgt i32 %3, -1
-  %29 = and i1 %28, %27
+  %25 = load i32, ptr %8, align 4
+  %26 = icmp slt i32 %3, %25
+  %27 = icmp sgt i32 %3, -1
+  %28 = and i1 %27, %26
+  %29 = select i1 %or.cond.i, i1 %28, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %29, label %37, label %30
 
-30:                                               ; preds = %.thread, %25
+30:                                               ; preds = %.thread, %21
   %31 = call ptr @__cxa_allocate_exception(i64 72) #29
   invoke void @_ZN7Iex_3_46ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull @.str.20)
           to label %32 unwind label %35
@@ -2759,7 +2757,7 @@ define void @_ZNK7Imf_3_418DeepTiledInputFile17dataWindowForTileEiiii(ptr dead_o
   call void @__cxa_free_exception(ptr nonnull %31) #29
   br label %78
 
-37:                                               ; preds = %25
+37:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZNK7Imf_3_418DeepTiledInputFile18dataWindowForLevelEii(ptr dead_on_unwind nonnull writable sret(%"class.Imath_3_2::Box") align 4 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %4, i32 noundef %5)
           to label %38 unwind label %49
@@ -2963,17 +2961,15 @@ define noundef zeroext i1 @_ZNK7Imf_3_418DeepTiledInputFile11isValidTileEiiii(pt
   %18 = icmp slt i32 %1, %17
   %19 = icmp sgt i32 %1, -1
   %or.cond = and i1 %19, %18
-  br i1 %or.cond, label %20, label %25
-
-20:                                               ; preds = %16
-  %21 = load i32, ptr %7, align 4, !tbaa !62
-  %22 = icmp slt i32 %2, %21
-  %23 = icmp sgt i32 %2, -1
-  %24 = and i1 %23, %22
+  %20 = load i32, ptr %7, align 4
+  %21 = icmp slt i32 %2, %20
+  %22 = icmp sgt i32 %2, -1
+  %23 = and i1 %22, %21
+  %24 = select i1 %or.cond, i1 %23, i1 false
   br label %25
 
-25:                                               ; preds = %5, %16, %20
-  %.0 = phi i1 [ false, %16 ], [ %24, %20 ], [ false, %5 ]
+25:                                               ; preds = %5, %16
+  %.0 = phi i1 [ %24, %16 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0

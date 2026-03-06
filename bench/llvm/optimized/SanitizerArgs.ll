@@ -9620,30 +9620,18 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit51:          ; preds = %.preheader132, %_ZN
   %.not.i59 = icmp ne i64 %16, 0
   %17 = trunc i64 %1 to i1
   %18 = select i1 %.not.i59, i1 true, i1 %17
-  br i1 %18, label %.preheader129, label %_ZN5clang13SanitizerMaskoRERKS0_.exit61
-
-.preheader129:                                    ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit51
   %19 = or i64 %1, 2
   %.pre156 = trunc i64 %1 to i1
-  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit61
-
-_ZN5clang13SanitizerMaskoRERKS0_.exit61:          ; preds = %.preheader129, %_ZN5clang13SanitizerMaskoRERKS0_.exit51
-  %.pre-phi157 = phi i1 [ %.pre156, %.preheader129 ], [ false, %_ZN5clang13SanitizerMaskoRERKS0_.exit51 ]
-  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.28.0.copyload = phi i64 [ %19, %.preheader129 ], [ %1, %_ZN5clang13SanitizerMaskoRERKS0_.exit51 ]
+  %.pre-phi157 = select i1 %18, i1 %.pre156, i1 false
+  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.28.0.copyload = select i1 %18, i64 %19, i64 %1
   %20 = and i64 %spec.select183, 6917529027641081856
   %.not.i64 = icmp ne i64 %20, 0
   %21 = select i1 %.not.i64, i1 true, i1 %.pre-phi157
-  br i1 %21, label %.preheader128, label %_ZN5clang13SanitizerMaskoRERKS0_.exit66
-
-.preheader128:                                    ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit61
   %22 = or i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.28.0.copyload, 4
   %.pre158 = and i64 %spec.select183, 6917529027641081856
   %23 = icmp ne i64 %.pre158, 0
-  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit66
-
-_ZN5clang13SanitizerMaskoRERKS0_.exit66:          ; preds = %.preheader128, %_ZN5clang13SanitizerMaskoRERKS0_.exit61
-  %.pre-phi159 = phi i1 [ %23, %.preheader128 ], [ false, %_ZN5clang13SanitizerMaskoRERKS0_.exit61 ]
-  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.26.0.copyload = phi i64 [ %22, %.preheader128 ], [ %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.28.0.copyload, %_ZN5clang13SanitizerMaskoRERKS0_.exit61 ]
+  %.pre-phi159 = select i1 %21, i1 %23, i1 false
+  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.26.0.copyload = select i1 %21, i64 %22, i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.28.0.copyload
   %24 = and i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.26.0.copyload, 9
   %25 = icmp ne i64 %24, 0
   %26 = select i1 %.pre-phi159, i1 true, i1 %25

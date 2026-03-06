@@ -1599,23 +1599,19 @@ define dso_local i64 @dtoi8(ptr noundef readonly captures(none) %0) local_unname
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load double, ptr %2, align 8
   %4 = tail call double @llvm.rint.f64(double %3)
-  %5 = fcmp uno double %4, 0.000000e+00
-  br i1 %5, label %.critedge, label %6
+  %5 = fcmp ult double %4, 0xC3E0000000000000
+  %6 = fcmp uge double %4, 0x43E0000000000000
+  %.not7 = or i1 %5, %6
+  br i1 %.not7, label %7, label %11, !prof !7
 
 6:                                                ; preds = %1
-  %7 = fcmp ult double %4, 0xC3E0000000000000
-  %8 = fcmp uge double %4, 0x43E0000000000000
-  %.not7 = or i1 %7, %8
-  br i1 %.not7, label %.critedge, label %12, !prof !7
-
-.critedge:                                        ; preds = %1, %6
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  %10 = tail call i32 @errcode(i32 noundef 50331778) #11
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #11
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %9 = tail call i32 @errcode(i32 noundef 50331778) #11
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1312, ptr noundef nonnull @__func__.dtoi8) #11
   unreachable
 
-12:                                               ; preds = %6
+12:                                               ; preds = %1
   %13 = fptosi double %4 to i64
   ret i64 %13
 }
@@ -1640,23 +1636,19 @@ define dso_local i64 @ftoi8(ptr noundef readonly captures(none) %0) local_unname
   %4 = trunc i64 %3 to i32
   %5 = bitcast i32 %4 to float
   %6 = tail call float @llvm.rint.f32(float %5)
-  %7 = fcmp uno float %6, 0.000000e+00
-  br i1 %7, label %.critedge, label %8
+  %7 = fcmp ult float %6, 0xC3E0000000000000
+  %8 = fcmp uge float %6, 0x43E0000000000000
+  %.not7 = or i1 %7, %8
+  br i1 %.not7, label %9, label %13, !prof !7
 
 8:                                                ; preds = %1
-  %9 = fcmp ult float %6, 0xC3E0000000000000
-  %10 = fcmp uge float %6, 0x43E0000000000000
-  %.not7 = or i1 %9, %10
-  br i1 %.not7, label %.critedge, label %14, !prof !7
-
-.critedge:                                        ; preds = %1, %8
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  %12 = tail call i32 @errcode(i32 noundef 50331778) #11
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #11
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %11 = tail call i32 @errcode(i32 noundef 50331778) #11
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1347, ptr noundef nonnull @__func__.ftoi8) #11
   unreachable
 
-14:                                               ; preds = %8
+14:                                               ; preds = %1
   %15 = fptosi float %6 to i64
   ret i64 %15
 }

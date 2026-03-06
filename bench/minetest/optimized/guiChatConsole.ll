@@ -4149,20 +4149,18 @@ land.lhs.true29:                                  ; preds = %land.lhs.true25
 
 land.rhs:                                         ; preds = %land.lhs.true29
   %26 = load i32, ptr %4, align 8, !tbaa !58
-  %27 = add i32 %26, -57344
-  %or.cond = icmp ult i32 %27, 6400
-  %28 = add i32 %26, -983040
-  %or.cond566 = icmp ult i32 %28, 65534
-  %or.cond730 = or i1 %or.cond, %or.cond566
-  br i1 %or.cond730, label %land.end50, label %lor.rhs43
-
-lor.rhs43:                                        ; preds = %land.rhs
+  %27 = add i32 %26, -63744
+  %or.cond = icmp ult i32 %27, -6400
+  %28 = add i32 %26, -1048574
+  %or.cond566 = icmp ult i32 %28, -65534
+  %or.cond730.not26 = and i1 %or.cond, %or.cond566
   %29 = add i32 %26, -1114110
   %spec.select = icmp ult i32 %29, -65534
+  %.not = select i1 %or.cond730.not26, i1 %spec.select, i1 false
   br label %land.end50
 
-land.end50:                                       ; preds = %land.rhs, %lor.rhs43, %land.lhs.true29, %land.lhs.true25, %if.end24
-  %30 = phi i1 [ false, %land.lhs.true29 ], [ false, %land.lhs.true25 ], [ false, %if.end24 ], [ false, %land.rhs ], [ %spec.select, %lor.rhs43 ]
+land.end50:                                       ; preds = %land.rhs, %land.lhs.true29, %land.lhs.true25, %if.end24
+  %30 = phi i1 [ false, %land.lhs.true29 ], [ false, %land.lhs.true25 ], [ false, %if.end24 ], [ %.not, %land.rhs ]
   %31 = load i32, ptr %Key12, align 4, !tbaa !58
   switch i32 %31, label %if.end348 [
     i32 27, label %if.then53

@@ -280,11 +280,11 @@ define noundef zeroext i1 @_ZN5ZXing4OneD7DataBar20ReadDataCharacterRawERKNS_11P
   store ptr %3, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %8, align 8, !tbaa !14
-  br label %28
+  br label %31
 
-.lr.ph.i.i.i:                                     ; preds = %28, %.lr.ph.i.i.i
-  %.08.i.i.idx.i = phi i64 [ %.08.i.i.add.i, %.lr.ph.i.i.i ], [ 0, %28 ]
-  %.057.i.i.i = phi i32 [ %10, %.lr.ph.i.i.i ], [ 0, %28 ]
+.lr.ph.i.i.i:                                     ; preds = %31, %.lr.ph.i.i.i
+  %.08.i.i.idx.i = phi i64 [ %.08.i.i.add.i, %.lr.ph.i.i.i ], [ 0, %31 ]
+  %.057.i.i.i = phi i32 [ %10, %.lr.ph.i.i.i ], [ 0, %31 ]
   %.08.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %.08.i.i.idx.i
   %9 = load i32, ptr %.08.i.i.ptr.i, align 4, !tbaa !3
   %10 = add nsw i32 %9, %.057.i.i.i
@@ -319,45 +319,39 @@ _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit45: ; preds = %.l
   %19 = add i32 %.neg68, %12
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %19, i32 0)
   %20 = trunc i32 %10 to i1
-  %21 = icmp slt i32 %1, 16
+  %21 = icmp sgt i32 %1, 15
   %22 = xor i1 %21, %20
-  %23 = icmp ne i32 %14, %1
+  %23 = icmp eq i32 %14, %1
   %24 = sub nsw i32 0, %.sroa.speculated57
-  %25 = icmp ne i32 %.sroa.speculated62, %24
-  %or.cond = select i1 %23, i1 true, i1 %25
+  %25 = icmp eq i32 %.sroa.speculated62, %24
+  %or.cond = select i1 %23, i1 %24, i1 false
   %26 = sub nsw i32 0, %.sroa.speculated
-  %27 = icmp ne i32 %.sroa.speculated52, %26
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %27
-  %or.cond5 = or i1 %22, %or.cond3
-  br i1 %or.cond5, label %40, label %36
+  %27 = icmp eq i32 %.sroa.speculated52, %26
+  %or.cond3 = select i1 %or.cond, i1 %26, i1 false
+  %or.cond5.not = and i1 %22, %or.cond3
+  %27 = trunc i32 %12 to i1
+  %28 = icmp slt i32 %1, 17
+  %29 = xor i1 %28, %27
+  %30 = select i1 %or.cond5.not, i1 %29, i1 false
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  ret i1 %30
 
-28:                                               ; preds = %5, %28
-  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
-  %30 = load i32, ptr %29, align 4, !tbaa !3
-  %31 = shl i64 %indvars.iv, 3
-  %.in.idx.i = and i64 %31, 8
+31:                                               ; preds = %5, %31
+  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %31 ]
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
+  %33 = load i32, ptr %32, align 4, !tbaa !3
+  %34 = shl i64 %indvars.iv, 3
+  %.in.idx.i = and i64 %34, 8
   %.in.i = getelementptr inbounds nuw i8, ptr %7, i64 %.in.idx.i
   %32 = load ptr, ptr %.in.i, align 8, !tbaa !14
   %33 = lshr i64 %indvars.iv, 1
   %34 = and i64 %33, 2147483647
   %35 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %34
-  store i32 %30, ptr %35, align 4, !tbaa !3
+  store i32 %33, ptr %35, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.lr.ph.i.i.i, label %28, !llvm.loop !18
-
-36:                                               ; preds = %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit45
-  %37 = trunc i32 %12 to i1
-  %38 = icmp slt i32 %1, 17
-  %39 = xor i1 %38, %37
-  br label %40
-
-40:                                               ; preds = %36, %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit45
-  %41 = phi i1 [ %39, %36 ], [ false, %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit45 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i1 %41
+  br i1 %exitcond.not, label %.lr.ph.i.i.i, label %31, !llvm.loop !18
 }
 
 ; Function Attrs: mustprogress uwtable
