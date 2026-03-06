@@ -157,30 +157,29 @@ define dso_local zeroext i1 @gdb_got_immediate_ack() local_unnamed_addr #0 {
 12:                                               ; preds = %11, %7
   %13 = phi i32 [ %.pr.i, %11 ], [ %9, %7 ]
   %.not.i = icmp eq i32 %13, 4
-  br i1 %.not.i, label %2, label %gdb_get_char.exit.thread
+  br i1 %.not.i, label %2, label %gdb_get_char.exit
 
 14:                                               ; preds = %2
   %15 = icmp eq i32 %5, 0
-  br i1 %15, label %16, label %gdb_get_char.exit
+  br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
   %17 = load i32, ptr @gdbserver_user_state, align 8
   %18 = call i32 @close(i32 noundef %17) #16
   store i32 -1, ptr @gdbserver_user_state, align 8
-  br label %gdb_get_char.exit.thread
+  br label %gdb_get_char.exit
 
-gdb_get_char.exit.thread:                         ; preds = %12, %16
+19:                                               ; preds = %14
+  %20 = load i8, ptr %1, align 1
+  %21 = zext i8 %20 to i32
+  br label %gdb_get_char.exit
+
+gdb_get_char.exit:                                ; preds = %12, %16, %19
+  %.0.i = phi i32 [ %21, %19 ], [ -1, %16 ], [ -1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %21
-
-gdb_get_char.exit:                                ; preds = %14
-  %19 = load i8, ptr %1, align 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %20 = icmp eq i8 %19, 43
-  br label %21
-
-21:                                               ; preds = %gdb_get_char.exit.thread, %gdb_get_char.exit
-  %.0 = phi i1 [ true, %gdb_get_char.exit.thread ], [ %20, %gdb_get_char.exit ]
+  %22 = icmp slt i32 %.0.i, 0
+  %23 = icmp eq i32 %.0.i, 43
+  %.0 = or i1 %22, %23
   ret i1 %.0
 }
 

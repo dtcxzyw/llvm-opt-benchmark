@@ -56,23 +56,18 @@ switch.edge:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @is_numeric(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !7
-  %switch.tableidx = add i32 %2, -1
-  %3 = icmp ult i32 %switch.tableidx, 9
+switch.lookup:
+  %1 = load i32, ptr %0, align 8, !tbaa !7
+  %switch.tableidx = add i32 %1, -1
+  %2 = icmp ult i32 %switch.tableidx, 9
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 287, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %4
-
-4:                                                ; preds = %1
-  %.off.i = add i32 %2, -6
+  %or.cond = select i1 %2, i1 %switch.lobit, i1 false
+  %.off.i = add i32 %1, -6
   %switch.i = icmp ult i32 %.off.i, 3
-  br label %switch.lookup
-
-switch.lookup:                                    ; preds = %1, %4
-  %5 = phi i1 [ %switch.i, %4 ], [ true, %1 ]
-  ret i1 %5
+  %3 = or i1 %or.cond, %switch.i
+  ret i1 %3
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

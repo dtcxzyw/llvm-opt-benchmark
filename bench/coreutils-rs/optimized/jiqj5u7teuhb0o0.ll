@@ -256,9 +256,9 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %60 = load i64, ptr %59, align 8, !alias.scope !42, !noalias !43, !noundef !4
   store i64 0, ptr %59, align 8, !alias.scope !42, !noalias !43
   %.not.i.i.i = icmp eq i64 %60, 0
-  br i1 %.not.i.i.i, label %61, label %107
+  br i1 %.not.i.i.i, label %61, label %109
 
-61:                                               ; preds = %107, %58
+61:                                               ; preds = %109, %58
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %63 = load ptr, ptr %62, align 8, !alias.scope !48, !noalias !43, !nonnull !4, !noundef !4
@@ -328,24 +328,25 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %103 = add nsw i32 %102, -48
   %.0.i.i.i.i.i.i.i = icmp ult i32 %103, 10
   %104 = icmp samesign ugt i32 %102, 64
-  %105 = icmp samesign ugt i32 %102, 96
-  %spec.select.v.i.i.i.i.i.i.i = select i1 %105, i32 103, i32 71
-  %spec.select.i.i.i.i.i.i.i = icmp samesign ult i32 %102, %spec.select.v.i.i.i.i.i.i.i
-  %.04.i.i.i.i.i.i.i = select i1 %104, i1 %spec.select.i.i.i.i.i.i.i, i1 %.0.i.i.i.i.i.i.i
+  %105 = icmp samesign ult i32 %102, 71
+  %.03.i.i.i.i.i.i.i = select i1 %104, i1 %105, i1 %.0.i.i.i.i.i.i.i
+  %106 = icmp samesign ugt i32 %102, 96
+  %107 = icmp samesign ult i32 %102, 103
+  %.04.i.i.i.i.i.i.i = select i1 %106, i1 %107, i1 %.03.i.i.i.i.i.i.i
   br i1 %.04.i.i.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h75bc9ba5151398d4E.exit.i.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he36914b2f6153cfdE.exit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h75bc9ba5151398d4E.exit.i.i.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i.i11"
   tail call fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 0, 1114112) %102), !noalias !59
-  %106 = icmp eq ptr %101, %63
-  br i1 %106, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he36914b2f6153cfdE.exit", label %.lr.ph.i.i.i.i
+  %108 = icmp eq ptr %101, %63
+  br i1 %108, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he36914b2f6153cfdE.exit", label %.lr.ph.i.i.i.i
 
-107:                                              ; preds = %58
-  %108 = add i64 %60, -1
-  %109 = call fastcc noundef i32 @_ZN4core4iter6traits8iterator8Iterator3nth17hbb0fd0b242ada3feE(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %108), !range !60, !noalias !43
-  %.not3.i.i.i = icmp eq i32 %109, 1114112
+109:                                              ; preds = %58
+  %110 = add i64 %60, -1
+  %111 = call fastcc noundef i32 @_ZN4core4iter6traits8iterator8Iterator3nth17hbb0fd0b242ada3feE(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %110), !range !60, !noalias !43
+  %.not3.i.i.i = icmp eq i32 %111, 1114112
   br i1 %.not3.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he36914b2f6153cfdE.exit", label %61
 
-"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he36914b2f6153cfdE.exit": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h75bc9ba5151398d4E.exit.i.i.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i13", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i.i11", %107, %61, %53, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hca393084cb6bd2b5E.exit"
+"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he36914b2f6153cfdE.exit": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h75bc9ba5151398d4E.exit.i.i.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i.i.i13", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i.i11", %109, %61, %53, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hca393084cb6bd2b5E.exit"
   ret void
 }
 

@@ -8530,33 +8530,33 @@ define internal zeroext i1 @record_inside(ptr noundef readonly captures(none) %0
   %12 = and i32 %11, 3
   %13 = mul nuw nsw i32 %12, 90
   %14 = tail call { double, double } @ccwrotatepf(double %1, double %2, i32 noundef %13) #28
-  %15 = extractvalue { double, double } %14, 0
-  %16 = extractvalue { double, double } %14, 1
-  %17 = icmp eq ptr %5, null
-  br i1 %17, label %18, label %24
+  %15 = icmp eq ptr %5, null
+  br i1 %15, label %16, label %22
 
-18:                                               ; preds = %3
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !21
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !100
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 40
-  br label %25
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %20 = load ptr, ptr %19, align 8, !tbaa !100
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 40
+  br label %23
 
-24:                                               ; preds = %3
+22:                                               ; preds = %3
   %.sroa.7.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.10.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.13.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  br label %25
+  br label %23
 
-25:                                               ; preds = %24, %18
-  %.sroa.09.0.in = phi ptr [ %23, %18 ], [ %5, %24 ]
-  %.sroa.7.0.in = phi ptr [ %.sroa.7.0..sroa_idx, %18 ], [ %.sroa.7.0..sroa_idx12, %24 ]
-  %.sroa.10.0.in = phi ptr [ %.sroa.10.0..sroa_idx, %18 ], [ %.sroa.10.0..sroa_idx15, %24 ]
-  %.sroa.13.0.in = phi ptr [ %.sroa.13.0..sroa_idx, %18 ], [ %.sroa.13.0..sroa_idx18, %24 ]
+23:                                               ; preds = %22, %16
+  %.sroa.09.0.in = phi ptr [ %21, %16 ], [ %5, %22 ]
+  %.sroa.7.0.in = phi ptr [ %.sroa.7.0..sroa_idx, %16 ], [ %.sroa.7.0..sroa_idx12, %22 ]
+  %.sroa.10.0.in = phi ptr [ %.sroa.10.0..sroa_idx, %16 ], [ %.sroa.10.0..sroa_idx15, %22 ]
+  %.sroa.13.0.in = phi ptr [ %.sroa.13.0..sroa_idx, %16 ], [ %.sroa.13.0..sroa_idx18, %22 ]
+  %24 = extractvalue { double, double } %14, 1
+  %25 = extractvalue { double, double } %14, 0
   %.sroa.13.0 = load double, ptr %.sroa.13.0.in, align 8, !tbaa !4
   %.sroa.10.0 = load double, ptr %.sroa.10.0.in, align 8, !tbaa !4
   %.sroa.7.0 = load double, ptr %.sroa.7.0.in, align 8, !tbaa !4
@@ -8565,23 +8565,17 @@ define internal zeroext i1 @record_inside(ptr noundef readonly captures(none) %0
   %27 = tail call double @late_double(ptr noundef %6, ptr noundef %26, double noundef 1.000000e+00, double noundef 0.000000e+00) #28
   %28 = fmul double %27, 5.000000e-01
   %29 = fsub double %.sroa.09.0, %28
-  %30 = fadd double %.sroa.10.0, %28
-  %31 = fcmp ugt double %29, %15
-  %32 = fcmp ugt double %15, %30
-  %or.cond = select i1 %31, i1 true, i1 %32
-  br i1 %or.cond, label %39, label %33
-
-33:                                               ; preds = %25
-  %34 = fadd double %.sroa.13.0, %28
-  %35 = fsub double %.sroa.7.0, %28
-  %36 = fcmp ole double %35, %16
-  %37 = fcmp ole double %16, %34
-  %38 = select i1 %36, i1 %37, i1 false
-  br label %39
-
-39:                                               ; preds = %33, %25
-  %40 = phi i1 [ %38, %33 ], [ false, %25 ]
-  ret i1 %40
+  %30 = fsub double %.sroa.7.0, %28
+  %31 = fadd double %.sroa.10.0, %28
+  %32 = fadd double %.sroa.13.0, %28
+  %33 = fcmp ole double %29, %25
+  %34 = fcmp ole double %25, %31
+  %or.cond.not = select i1 %33, i1 %34, i1 false
+  %35 = fcmp ole double %30, %24
+  %36 = fcmp ole double %24, %32
+  %37 = select i1 %or.cond.not, i1 %35, i1 false
+  %38 = select i1 %37, i1 %36, i1 false
+  ret i1 %38
 }
 
 ; Function Attrs: nounwind uwtable

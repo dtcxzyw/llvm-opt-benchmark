@@ -486,7 +486,7 @@ define internal fastcc i32 @return_frame(ptr noundef %0, i32 noundef range(i32 0
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %27, ptr %28, align 8, !tbaa !54
   %.not50 = icmp eq ptr %27, null
-  br i1 %.not50, label %88, label %29
+  br i1 %.not50, label %87, label %29
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -514,10 +514,10 @@ define internal fastcc i32 @return_frame(ptr noundef %0, i32 noundef range(i32 0
   %46 = xor i32 %1, %.044
   %47 = xor i32 %46, 1
   tail call void %44(ptr noundef nonnull %0, ptr noundef %42, i32 noundef %47, i32 noundef %.044) #5
-  br i1 %.not49, label %._crit_edge51, label %48
+  br i1 %.not49, label %._crit_edge52, label %48
 
-._crit_edge51:                                    ; preds = %41
-  %.pre52 = load ptr, ptr %45, align 8, !tbaa !54
+._crit_edge52:                                    ; preds = %41
+  %.pre53 = load ptr, ptr %45, align 8, !tbaa !54
   br label %74
 
 48:                                               ; preds = %41
@@ -559,8 +559,8 @@ define internal fastcc i32 @return_frame(ptr noundef %0, i32 noundef range(i32 0
   store i64 -9223372036854775808, ptr %73, align 8, !tbaa !55
   br label %74
 
-74:                                               ; preds = %._crit_edge51, %71, %66, %59
-  %75 = phi ptr [ %.pre52, %._crit_edge51 ], [ %72, %71 ], [ %61, %66 ], [ %61, %59 ]
+74:                                               ; preds = %._crit_edge52, %71, %66, %59
+  %75 = phi ptr [ %.pre53, %._crit_edge52 ], [ %72, %71 ], [ %61, %66 ], [ %61, %59 ]
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %77 = tail call i32 @ff_ccfifo_inject(ptr noundef nonnull %76, ptr noundef %75) #5
   %78 = load ptr, ptr %5, align 8, !tbaa !58
@@ -569,14 +569,15 @@ define internal fastcc i32 @return_frame(ptr noundef %0, i32 noundef range(i32 0
   %81 = tail call i32 @ff_filter_frame(ptr noundef %79, ptr noundef %80) #5
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %83 = load i32, ptr %82, align 8, !tbaa !63
-  %84 = trunc i32 %83 to i1
-  %85 = and i1 %.not49, %84
-  %86 = zext i1 %85 to i32
-  %87 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %86, ptr %87, align 4, !tbaa !29
-  br label %88
+  %84 = and i32 %83, 1
+  %.not51 = icmp eq i32 %84, 0
+  %85 = xor i32 %1, 1
+  %spec.select = select i1 %.not51, i32 0, i32 %85
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 %spec.select, ptr %86, align 4, !tbaa !29
+  br label %87
 
-88:                                               ; preds = %22, %74
+87:                                               ; preds = %22, %74
   %.0 = phi i32 [ %81, %74 ], [ -12, %22 ]
   ret i32 %.0
 }

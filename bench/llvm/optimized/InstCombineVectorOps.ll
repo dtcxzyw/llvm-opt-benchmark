@@ -1633,15 +1633,9 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %268, %275
   %switch.shifted = lshr i8 47, %trunc.i.i87
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond196 = select i1 %280, i1 %switch.lobit, i1 false
-  br i1 %or.cond196, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit90, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i88
-
-_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i88:        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit
   %281 = and i32 %279, 253
   %spec.select.i89 = icmp eq i32 %281, 4
-  br label %_ZNK4llvm4Type17isFloatingPointTyEv.exit90
-
-_ZNK4llvm4Type17isFloatingPointTyEv.exit90:       ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i88
-  %282 = phi i1 [ %spec.select.i89, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i88 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit ]
+  %282 = or i1 %or.cond196, %spec.select.i89
   %283 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %284 = load i32, ptr %283, align 8
   %trunc.i.i91 = trunc i32 %284 to i8
@@ -1649,19 +1643,13 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit90:       ; preds = %_ZNK4llvm4Type13get
   %switch.shifted197 = lshr i8 47, %trunc.i.i91
   %switch.lobit198 = trunc i8 %switch.shifted197 to i1
   %or.cond199 = select i1 %285, i1 %switch.lobit198, i1 false
-  br i1 %or.cond199, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit94, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i92
-
-_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i92:        ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit90
   %286 = and i32 %284, 253
   %spec.select.i93 = icmp eq i32 %286, 4
-  br label %_ZNK4llvm4Type17isFloatingPointTyEv.exit94
-
-_ZNK4llvm4Type17isFloatingPointTyEv.exit94:       ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit90, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i92
-  %287 = phi i1 [ %spec.select.i93, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i92 ], [ true, %_ZNK4llvm4Type17isFloatingPointTyEv.exit90 ]
+  %287 = or i1 %or.cond199, %spec.select.i93
   %or.cond = and i1 %282, %287
   br i1 %or.cond, label %.critedge, label %288
 
-288:                                              ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit94
+288:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit
   %289 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %173) #18
   %290 = mul i32 %.066, %70
   %291 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -1773,8 +1761,8 @@ _ZNK4llvm5Value9hasOneUseEv.exit103:              ; preds = %312
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit94, %_ZNK4llvm5Value9hasOneUseEv.exit103, %_ZNK4llvm5Value9hasOneUseEv.exit97.thread, %_ZNK4llvm5Value9hasOneUseEv.exit100, %335, %326, %_ZNK4llvm5Value9hasOneUseEv.exit82, %_ZNK4llvm5Value9hasOneUseEv.exit85, %258, %193, %_ZNK4llvm4User10getOperandEj.exit.i, %_ZNK4llvm4User10getOperandEj.exit8.i, %_ZNK4llvm4User10getOperandEj.exit12.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i115, %245, %251, %312, %_ZNK4llvm4User10getOperandEj.exit.i.thread, %_ZNK4llvm4User10getOperandEj.exit8.i.thread, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i, %45, %.thread, %170, %_ZN4llvm13IRBuilderBase11CreateTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineEbb.exit, %189, %.thread158, %_ZNK4llvm4User10getOperandEj.exit.i.i, %24, %2
-  %.0 = phi ptr [ null, %_ZNK4llvm4User10getOperandEj.exit.i.i ], [ null, %.thread158 ], [ null, %2 ], [ null, %24 ], [ %171, %170 ], [ null, %.thread ], [ %168, %_ZN4llvm13IRBuilderBase11CreateTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineEbb.exit ], [ null, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i ], [ %190, %189 ], [ null, %45 ], [ null, %251 ], [ %267, %258 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit82 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit85 ], [ null, %_ZNK4llvm4Type17isFloatingPointTyEv.exit94 ], [ %329, %326 ], [ %336, %335 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit97.thread ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit100 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit103 ], [ null, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i115 ], [ null, %245 ], [ null, %193 ], [ null, %_ZNK4llvm4User10getOperandEj.exit.i ], [ null, %_ZNK4llvm4User10getOperandEj.exit8.i ], [ null, %_ZNK4llvm4User10getOperandEj.exit12.i ], [ null, %312 ], [ null, %_ZNK4llvm4User10getOperandEj.exit.i.thread ], [ null, %_ZNK4llvm4User10getOperandEj.exit8.i.thread ]
+.critedge:                                        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit, %_ZNK4llvm5Value9hasOneUseEv.exit103, %_ZNK4llvm5Value9hasOneUseEv.exit97.thread, %_ZNK4llvm5Value9hasOneUseEv.exit100, %335, %326, %_ZNK4llvm5Value9hasOneUseEv.exit82, %_ZNK4llvm5Value9hasOneUseEv.exit85, %258, %193, %_ZNK4llvm4User10getOperandEj.exit.i, %_ZNK4llvm4User10getOperandEj.exit8.i, %_ZNK4llvm4User10getOperandEj.exit12.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i115, %245, %251, %312, %_ZNK4llvm4User10getOperandEj.exit.i.thread, %_ZNK4llvm4User10getOperandEj.exit8.i.thread, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i, %45, %.thread, %170, %_ZN4llvm13IRBuilderBase11CreateTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineEbb.exit, %189, %.thread158, %_ZNK4llvm4User10getOperandEj.exit.i.i, %24, %2
+  %.0 = phi ptr [ null, %_ZNK4llvm4User10getOperandEj.exit.i.i ], [ null, %.thread158 ], [ null, %2 ], [ null, %24 ], [ %171, %170 ], [ null, %.thread ], [ %168, %_ZN4llvm13IRBuilderBase11CreateTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineEbb.exit ], [ null, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i ], [ %190, %189 ], [ null, %45 ], [ null, %251 ], [ %267, %258 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit82 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit85 ], [ null, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %329, %326 ], [ %336, %335 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit97.thread ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit100 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit103 ], [ null, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i115 ], [ null, %245 ], [ null, %193 ], [ null, %_ZNK4llvm4User10getOperandEj.exit.i ], [ null, %_ZNK4llvm4User10getOperandEj.exit8.i ], [ null, %_ZNK4llvm4User10getOperandEj.exit12.i ], [ null, %312 ], [ null, %_ZNK4llvm4User10getOperandEj.exit.i.thread ], [ null, %_ZNK4llvm4User10getOperandEj.exit8.i.thread ]
   ret ptr %.0
 }
 

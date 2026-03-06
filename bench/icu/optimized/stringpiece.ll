@@ -158,7 +158,7 @@ define noundef i32 @_ZN6icu_7711StringPiece4findES0_i(ptr noundef nonnull readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define noundef range(i32 -1, 2) i32 @_ZN6icu_7711StringPiece7compareES0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr readonly captures(none) %1, i32 %2) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN6icu_7711StringPiece7compareES0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr readonly captures(none) %1, i32 %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !10
   %6 = icmp sgt i32 %5, 0
@@ -170,36 +170,37 @@ define noundef range(i32 -1, 2) i32 @_ZN6icu_7711StringPiece7compareES0_(ptr nou
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %9
 
-9:                                                ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
+9:                                                ; preds = %.lr.ph, %16
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
+  %.021 = phi i32 [ undef, %.lr.ph ], [ %.2, %16 ]
   %10 = icmp eq i64 %indvars.iv, %8
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1, !tbaa !11
-  %16 = icmp slt i8 %13, %15
-  br i1 %16, label %.thread, label %17
+  %.not = icmp slt i8 %13, %15
+  %.not18 = icmp sgt i8 %13, %15
+  %..0 = select i1 %.not18, i32 1, i32 %.021
+  %cond = icmp eq i8 %13, %15
+  %.2 = select i1 %.not, i32 -1, i32 %..0
+  br i1 %cond, label %16, label %.loopexit
 
-17:                                               ; preds = %11
-  %.not = icmp sgt i8 %13, %15
-  br i1 %.not, label %.thread, label %18
-
-18:                                               ; preds = %17
+16:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %18, %3
-  %.012.lcssa = phi i32 [ 0, %3 ], [ %5, %18 ]
-  %19 = icmp slt i32 %.012.lcssa, %2
-  %.16 = sext i1 %19 to i32
-  br label %.thread
+._crit_edge:                                      ; preds = %16, %3
+  %.012.lcssa = phi i32 [ 0, %3 ], [ %5, %16 ]
+  %17 = icmp slt i32 %.012.lcssa, %2
+  %.16 = sext i1 %17 to i32
+  br label %.loopexit
 
-.thread:                                          ; preds = %11, %9, %17, %._crit_edge
-  %.1 = phi i32 [ %.16, %._crit_edge ], [ -1, %11 ], [ 1, %17 ], [ 1, %9 ]
+.loopexit:                                        ; preds = %9, %11, %._crit_edge
+  %.1 = phi i32 [ %.16, %._crit_edge ], [ %.2, %11 ], [ 1, %9 ]
   ret i32 %.1
 }
 

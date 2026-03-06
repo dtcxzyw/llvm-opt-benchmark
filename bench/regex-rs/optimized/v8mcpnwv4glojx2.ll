@@ -1066,18 +1066,10 @@ _ZN12regex_syntax3ast3Ast13class_unicode17h4397f11f07c47324E.exit: ; preds = %.n
 define hidden noundef zeroext i1 @_ZN12regex_syntax3ast5parse6is_hex17h48d0d495e0ca3453E(i32 noundef %0) unnamed_addr #8 {
   %2 = add i32 %0, -48
   %or.cond = icmp ult i32 %2, 10
-  %3 = add i32 %0, -97
-  %or.cond1 = icmp ult i32 %3, 6
-  %or.cond3 = or i1 %or.cond, %or.cond1
-  br i1 %or.cond3, label %6, label %4
-
-4:                                                ; preds = %1
-  %5 = add i32 %0, -65
-  %spec.select = icmp ult i32 %5, 6
-  br label %6
-
-6:                                                ; preds = %4, %1
-  %.0 = phi i1 [ true, %1 ], [ %spec.select, %4 ]
+  %3 = and i32 %0, -33
+  %4 = add i32 %3, -65
+  %5 = icmp ult i32 %4, 6
+  %.0 = or i1 %or.cond, %5
   ret i1 %.0
 }
 
@@ -3969,18 +3961,10 @@ define noundef zeroext i1 @_ZN12regex_syntax12is_word_byte17h9605665c6230e939E(i
   %3 = add i8 %0, -48
   %or.cond = icmp ult i8 %3, 10
   %or.cond3 = or i1 %2, %or.cond
-  %4 = add i8 %0, -97
-  %or.cond1 = icmp ult i8 %4, 26
-  %or.cond4 = or i1 %or.cond1, %or.cond3
-  br i1 %or.cond4, label %7, label %5
-
-5:                                                ; preds = %1
-  %6 = add i8 %0, -65
-  %spec.select = icmp ult i8 %6, 26
-  br label %7
-
-7:                                                ; preds = %5, %1
-  %.0 = phi i1 [ true, %1 ], [ %spec.select, %5 ]
+  %4 = and i8 %0, -33
+  %5 = add i8 %4, -65
+  %6 = icmp ult i8 %5, 26
+  %.0 = or i1 %or.cond3, %6
   ret i1 %.0
 }
 

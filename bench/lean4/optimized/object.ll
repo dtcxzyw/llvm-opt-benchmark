@@ -12158,17 +12158,11 @@ define zeroext i1 @lean_string_lt(ptr noundef readonly captures(none) %0, ptr no
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %6, i64 %4)
   %9 = tail call i32 @memcmp(ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef %.sroa.speculated) #44
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %15, label %11
-
-11:                                               ; preds = %2
-  %12 = icmp eq i32 %9, 0
-  %13 = icmp ult i64 %4, %6
-  %14 = and i1 %12, %13
-  br label %15
-
-15:                                               ; preds = %11, %2
-  %16 = phi i1 [ true, %2 ], [ %14, %11 ]
-  ret i1 %16
+  %11 = icmp eq i32 %9, 0
+  %12 = icmp ult i64 %4, %6
+  %13 = and i1 %11, %12
+  %14 = or i1 %10, %13
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12551,7 +12545,7 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL25lean_string_utf8_get_coreE
 
 9:                                                ; preds = %4
   store i32 %7, ptr %3, align 4, !tbaa !156
-  br label %.critedge59
+  br label %76
 
 10:                                               ; preds = %4
   %11 = and i32 %7, 224
@@ -12573,7 +12567,7 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL25lean_string_utf8_get_coreE
   %23 = or disjoint i32 %20, %22
   store i32 %23, ptr %3, align 4, !tbaa !156
   %24 = icmp samesign ult i32 %20, 128
-  br i1 %24, label %25, label %.critedge59
+  br i1 %24, label %25, label %76
 
 25:                                               ; preds = %16, %13, %10
   %26 = and i32 %7, 240
@@ -12607,17 +12601,17 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL25lean_string_utf8_get_coreE
   %47 = icmp samesign ult i32 %41, 55296
   %48 = icmp samesign ugt i32 %37, 57343
   %or.cond = select i1 %47, i1 true, i1 %48
-  br i1 %or.cond, label %.critedge59, label %.critedge
+  br i1 %or.cond, label %76, label %.critedge
 
 .critedge:                                        ; preds = %31, %46, %28, %25
   %49 = and i32 %7, 248
   %50 = icmp eq i32 %49, 240
-  br i1 %50, label %51, label %.critedge59
+  br i1 %50, label %51, label %75
 
 51:                                               ; preds = %.critedge
   %52 = add nuw i64 %2, 3
   %53 = icmp ult i64 %52, %1
-  br i1 %53, label %54, label %.critedge59
+  br i1 %53, label %54, label %75
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -12640,12 +12634,15 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL25lean_string_utf8_get_coreE
   %72 = or disjoint i32 %69, %71
   %73 = or disjoint i32 %72, %66
   store i32 %73, ptr %3, align 4, !tbaa !156
-  %74 = add nsw i32 %66, -65536
-  %or.cond57 = icmp ult i32 %74, 1048576
-  br label %.critedge59
+  %74 = add nsw i32 %66, -1114112
+  %or.cond57 = icmp ult i32 %74, -1048576
+  br i1 %or.cond57, label %75, label %76
 
-.critedge59:                                      ; preds = %54, %.critedge, %51, %46, %16, %9
-  %.0 = phi i1 [ true, %9 ], [ %or.cond57, %54 ], [ true, %46 ], [ true, %16 ], [ false, %.critedge ], [ false, %51 ]
+75:                                               ; preds = %54, %51, %.critedge
+  br label %76
+
+76:                                               ; preds = %46, %16, %54, %75, %9
+  %.0 = phi i1 [ true, %9 ], [ false, %75 ], [ true, %54 ], [ true, %16 ], [ true, %46 ]
   ret i1 %.0
 }
 

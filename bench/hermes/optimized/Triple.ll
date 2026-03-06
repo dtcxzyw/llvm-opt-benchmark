@@ -2929,18 +2929,17 @@ if.end.i680:                                      ; preds = %_ZNK4llvh9StringRef
   %16 = phi i1 [ %15, %_ZNK4llvh9StringRef10startswithES0_.exit601.thread ], [ false, %_ZNK4llvh9StringRef10startswithES0_.exit601 ]
   %bcmp115 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %Comp.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.136, i64 5)
   %17 = icmp eq i32 %bcmp115, 0
-  %18 = zext i1 %17 to i8
   br label %_ZNK4llvh9StringRef10startswithES0_.exit590
 
 _ZNK4llvh9StringRef10startswithES0_.exit590:      ; preds = %if.end.i680, %_ZNK4llvh9StringRef10startswithES0_.exit601
   %frombool83277 = phi i8 [ 0, %_ZNK4llvh9StringRef10startswithES0_.exit601 ], [ %frombool83278, %if.end.i680 ]
-  %19 = phi i1 [ false, %_ZNK4llvh9StringRef10startswithES0_.exit601 ], [ %16, %if.end.i680 ]
-  %frombool86 = phi i8 [ 0, %_ZNK4llvh9StringRef10startswithES0_.exit601 ], [ %18, %if.end.i680 ]
+  %18 = phi i1 [ false, %_ZNK4llvh9StringRef10startswithES0_.exit601 ], [ %16, %if.end.i680 ]
+  %19 = phi i1 [ false, %_ZNK4llvh9StringRef10startswithES0_.exit601 ], [ %17, %if.end.i680 ]
+  %frombool86 = zext i1 %19 to i8
   %cmp87 = icmp ne i32 %call80, 0
-  %or.cond = select i1 %cmp87, i1 true, i1 %19
-  %20 = trunc nuw i8 %frombool86 to i1
-  %spec.select = select i1 %or.cond, i1 true, i1 %20
-  br i1 %spec.select, label %if.end105, label %for.inc169
+  %or.cond = select i1 %cmp87, i1 true, i1 %18
+  %20 = select i1 %or.cond, i1 true, i1 %19
+  br i1 %20, label %if.end105, label %for.inc169
 
 sw.bb91:                                          ; preds = %if.end66
   %call93 = call fastcc noundef i32 @_ZL16parseEnvironmentN4llvh9StringRefE(ptr %Comp.sroa.0.0.copyload, i64 %Comp.sroa.8.0.copyload)
@@ -3136,7 +3135,7 @@ for.inc169:                                       ; preds = %sw.bb.for.inc169_cr
   %OS.4 = phi i32 [ %OS.3335, %land.lhs.true ], [ %OS.3335, %sw.epilog ], [ %OS.3335, %sw.bb.for.inc169_crit_edge ], [ %OS.3335, %if.then97 ], [ 0, %_ZNK4llvh9StringRef10startswithES0_.exit590 ]
   %Vendor.4 = phi i32 [ %Vendor.3336, %land.lhs.true ], [ 0, %sw.epilog ], [ %Vendor.3336, %sw.bb.for.inc169_crit_edge ], [ %Vendor.3336, %if.then97 ], [ %Vendor.3336, %_ZNK4llvh9StringRef10startswithES0_.exit590 ]
   %IsCygwin.4 = phi i8 [ %IsCygwin.3337, %land.lhs.true ], [ %IsCygwin.3337, %sw.epilog ], [ %IsCygwin.3337, %sw.bb.for.inc169_crit_edge ], [ %IsCygwin.3337, %if.then97 ], [ %frombool83277, %_ZNK4llvh9StringRef10startswithES0_.exit590 ]
-  %IsMinGW32.4 = phi i8 [ %IsMinGW32.3338, %land.lhs.true ], [ %IsMinGW32.3338, %sw.epilog ], [ %IsMinGW32.3338, %sw.bb.for.inc169_crit_edge ], [ %IsMinGW32.3338, %if.then97 ], [ 0, %_ZNK4llvh9StringRef10startswithES0_.exit590 ]
+  %IsMinGW32.4 = phi i8 [ %IsMinGW32.3338, %land.lhs.true ], [ %IsMinGW32.3338, %sw.epilog ], [ %IsMinGW32.3338, %sw.bb.for.inc169_crit_edge ], [ %IsMinGW32.3338, %if.then97 ], [ %frombool86, %_ZNK4llvh9StringRef10startswithES0_.exit590 ]
   %inc170 = add i32 %Idx.0332, 1
   %conv55 = zext i32 %inc170 to i64
   %cmp57.not = icmp eq i32 %42, %inc170

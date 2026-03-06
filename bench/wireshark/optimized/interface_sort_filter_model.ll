@@ -1343,7 +1343,7 @@ define void @_ZN24InterfaceSortFilterModel20toggleTypeVisibilityEi(ptr noundef a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
-  br i1 %5, label %6, label %.thread.i
+  br i1 %5, label %6, label %_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1356,7 +1356,7 @@ define void @_ZN24InterfaceSortFilterModel20toggleTypeVisibilityEi(ptr noundef a
   %.sroa.018.0.i.i.i.i = phi ptr [ %9, %6 ], [ %12, %13 ]
   %12 = getelementptr i8, ptr %.sroa.018.0.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq ptr %12, %10
-  br i1 %.not.i.i.i.i, label %.thread.i, label %13
+  br i1 %.not.i.i.i.i, label %_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit, label %13
 
 13:                                               ; preds = %11
   %14 = load i32, ptr %12, align 4
@@ -1368,24 +1368,16 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i: ; preds = %13
   %17 = ptrtoint ptr %8 to i64
   %18 = sub i64 %16, %17
   %.fr.i = freeze i64 %18
-  %.not11.i = icmp eq i64 %.fr.i, -4
-  br i1 %.not11.i, label %.thread.i, label %22
+  %.not6.i = icmp eq i64 %.fr.i, -4
+  br label %_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit
 
-.thread.i:                                        ; preds = %11, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i, %2
+_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit: ; preds = %11, %2, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i
+  %.0.i = phi i1 [ true, %2 ], [ %.not6.i, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i ], [ true, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %20 = load i8, ptr %19, align 2, !range !14, !noundef !15
   %21 = trunc nuw i8 %20 to i1
-  br label %_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit
-
-22:                                               ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %24 = load i8, ptr %23, align 2, !range !14, !noundef !15
-  %25 = trunc nuw i8 %24 to i1
-  %26 = xor i1 %25, true
-  br label %_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit
-
-_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit: ; preds = %.thread.i, %22
-  %not. = phi i1 [ %26, %22 ], [ %21, %.thread.i ]
+  %22 = xor i1 %.0.i, %21
+  %not. = xor i1 %22, true
   tail call void @_ZN24InterfaceSortFilterModel23setInterfaceTypeVisibleEib(ptr noundef align 8 dereferenceable_or_null(72) %0, i32 noundef %1, i1 noundef zeroext %not.)
   ret void
 }
@@ -1395,7 +1387,7 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
-  br i1 %5, label %6, label %.thread
+  br i1 %5, label %6, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1408,7 +1400,7 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownE
   %.sroa.018.0.i.i.i = phi ptr [ %9, %6 ], [ %12, %13 ]
   %12 = getelementptr i8, ptr %.sroa.018.0.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %12, %10
-  br i1 %.not.i.i.i, label %.thread, label %13
+  br i1 %.not.i.i.i, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, label %13
 
 13:                                               ; preds = %11
   %14 = load i32, ptr %12, align 4
@@ -1420,54 +1412,40 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %13
   %17 = ptrtoint ptr %8 to i64
   %18 = sub i64 %16, %17
   %.fr = freeze i64 %18
-  %.not11 = icmp eq i64 %.fr, -4
-  br i1 %.not11, label %.thread, label %23
+  %.not6 = icmp eq i64 %.fr, -4
+  br label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread
 
-.thread:                                          ; preds = %11, %2, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
+_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread: ; preds = %11, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, %2
+  %.0 = phi i1 [ true, %2 ], [ %.not6, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit ], [ true, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %20 = load i8, ptr %19, align 2, !range !14, !noundef !15
   %21 = trunc nuw i8 %20 to i1
-  %22 = xor i1 %21, true
-  br label %27
-
-23:                                               ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %25 = load i8, ptr %24, align 2, !range !14, !noundef !15
-  %26 = trunc nuw i8 %25 to i1
-  br label %27
-
-27:                                               ; preds = %23, %.thread
-  %28 = phi i1 [ %26, %23 ], [ %22, %.thread ]
-  ret i1 %28
+  %22 = xor i1 %.0, %21
+  ret i1 %22
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel16filterAcceptsRowEiRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(72) %0, i32 noundef %1, ptr noundef align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
-  %4 = alloca %class.QModelIndex, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef align 8 dereferenceable_or_null(16) %0)
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %8 = load ptr, ptr %7, align 8
-  call void %8(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %4, ptr noundef align 8 dereferenceable_or_null(16) %5, i32 noundef %1, i32 noundef 0, ptr noundef align 8 dereferenceable(24) %2)
-  %9 = load i32, ptr %4, align 8
-  %10 = icmp sgt i32 %9, -1
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %12 = load i32, ptr %11, align 4
-  %13 = icmp sgt i32 %12, -1
-  %or.cond = select i1 %10, i1 %13, i1 false
-  br i1 %or.cond, label %14, label %_ZNK11QModelIndex7isValidEv.exit
-
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp ne ptr %16, null
-  br label %_ZNK11QModelIndex7isValidEv.exit
-
-_ZNK11QModelIndex7isValidEv.exit:                 ; preds = %3, %14
-  %18 = phi i1 [ %17, %14 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %18
+_ZNK11QModelIndex7isValidEv.exit:
+  %3 = alloca %class.QModelIndex, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %4 = tail call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef align 8 dereferenceable_or_null(16) %0)
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %7 = load ptr, ptr %6, align 8
+  call void %7(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %3, ptr noundef align 8 dereferenceable_or_null(16) %4, i32 noundef %1, i32 noundef 0, ptr noundef align 8 dereferenceable(24) %2)
+  %8 = load i32, ptr %3, align 8
+  %9 = icmp sgt i32 %8, -1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp sgt i32 %11, -1
+  %or.cond = select i1 %9, i1 %12, i1 false
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ne ptr %14, null
+  %16 = select i1 %or.cond, i1 %15, i1 false
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable

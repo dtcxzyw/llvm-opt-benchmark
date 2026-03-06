@@ -1020,31 +1020,30 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL8internal25Static_filters_pr
 
 61:                                               ; preds = %5
   %62 = fcmp oeq double %.4121, 0.000000e+00
-  br i1 %62, label %.thread124, label %74
+  br i1 %62, label %.thread, label %73
 
 63:                                               ; preds = %5
   %64 = fcmp olt double %.4, 1.000000e+76
-  br i1 %64, label %65, label %74
+  br i1 %64, label %65, label %73
 
 65:                                               ; preds = %63
   %66 = fmul double %.4121, 0x3D0403802000000C
   %67 = fmul double %.4, %66
   %68 = fmul double %.4, %.4
   %69 = fmul double %68, %67
-  %70 = fcmp ogt double %40, %69
-  br i1 %70, label %.thread124, label %71
+  %70 = fcmp ule double %40, %69
+  %71 = fneg double %69
+  %72 = fcmp uge double %40, %71
+  %cond1 = and i1 %70, %72
+  %.2 = select i1 %70, i32 -1, i32 1
+  br i1 %cond1, label %73, label %.thread
 
-71:                                               ; preds = %65
-  %72 = fneg double %69
-  %73 = fcmp uge double %40, %72
-  br i1 %73, label %74, label %.thread124
+73:                                               ; preds = %63, %65, %61
+  %74 = tail call noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors25Side_of_oriented_circle_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_S16_EEENS_4SignEDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  br label %.thread
 
-74:                                               ; preds = %63, %71, %61
-  %75 = tail call noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors25Side_of_oriented_circle_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_S16_EEENS_4SignEDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br label %.thread124
-
-.thread124:                                       ; preds = %65, %61, %71, %74
-  %.3 = phi i32 [ %75, %74 ], [ -1, %71 ], [ 0, %61 ], [ 1, %65 ]
+.thread:                                          ; preds = %61, %65, %73
+  %.3 = phi i32 [ %74, %73 ], [ 0, %61 ], [ %.2, %65 ]
   ret i32 %.3
 }
 

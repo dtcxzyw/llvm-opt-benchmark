@@ -1186,7 +1186,7 @@ define void @_ZN12llama_sbatch11split_equalEm(ptr dead_on_unwind noalias writabl
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !99
   %14 = icmp eq ptr %11, %13
-  br i1 %14, label %.critedge, label %15
+  br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %3
   %16 = load i32, ptr %11, align 8, !tbaa !70
@@ -1204,13 +1204,13 @@ define void @_ZN12llama_sbatch11split_equalEm(ptr dead_on_unwind noalias writabl
   %23 = ashr exact i64 %22, 5
   br label %24
 
-24:                                               ; preds = %36, %19
-  %.022 = phi i64 [ 0, %19 ], [ %.1, %36 ]
-  %.021 = phi i64 [ 0, %19 ], [ %37, %36 ]
-  %.020 = phi i64 [ %23, %19 ], [ %25, %36 ]
+24:                                               ; preds = %32, %19
+  %.022 = phi i64 [ 0, %19 ], [ %.1, %32 ]
+  %.021 = phi i64 [ 0, %19 ], [ %34, %32 ]
+  %.020 = phi i64 [ %23, %19 ], [ %25, %32 ]
   %25 = add i64 %.020, -1
   %.not = icmp eq i64 %.020, 0
-  br i1 %.not, label %.critedge, label %26
+  br i1 %.not, label %.loopexit, label %26
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %10, align 8, !tbaa !9
@@ -1229,17 +1229,15 @@ define void @_ZN12llama_sbatch11split_equalEm(ptr dead_on_unwind noalias writabl
   %.. = tail call i64 @llvm.umin.i64(i64 %30, i64 %.)
   %.1 = select i1 %33, i64 %.., i64 %.022
   tail call void @_ZN12llama_sbatch17add_seq_to_ubatchER12llama_ubatchR16llama_sbatch_seqm(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef %.1)
-  %34 = load i32, ptr %28, align 8, !tbaa !70
-  %35 = icmp sgt i32 %34, 1
-  br i1 %35, label %.critedge, label %36
+  %34 = add i64 %.1, %.021
+  %35 = load i32, ptr %28, align 8, !tbaa !70
+  %36 = icmp slt i32 %35, 2
+  %37 = add i64 %34, %.1
+  %38 = icmp ule i64 %37, %.
+  %cond = select i1 %36, i1 %38, i1 false
+  br i1 %cond, label %24, label %.loopexit, !llvm.loop !100
 
-36:                                               ; preds = %32
-  %37 = add i64 %.1, %.021
-  %38 = add i64 %37, %.1
-  %.not29 = icmp ugt i64 %38, %.
-  br i1 %.not29, label %.critedge, label %24, !llvm.loop !100
-
-.critedge:                                        ; preds = %32, %36, %24, %3
+.loopexit:                                        ; preds = %32, %24, %3
   ret void
 }
 

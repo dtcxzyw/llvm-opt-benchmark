@@ -5764,17 +5764,11 @@ define linkonce_odr noundef zeroext i1 @_ZNK3glw12Renderbuffer9doIsValidEv(ptr n
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   %or.cond = select i1 %.not, i1 %6, i1 false
-  br i1 %or.cond, label %7, label %11
-
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load i32, ptr %8, align 8
-  %10 = icmp sgt i32 %9, 0
-  br label %11
-
-11:                                               ; preds = %7, %1
-  %12 = phi i1 [ %10, %7 ], [ false, %1 ]
-  ret i1 %12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp sgt i32 %8, 0
+  %10 = select i1 %or.cond, i1 %9, i1 false
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11918,17 +11912,11 @@ define linkonce_odr noundef zeroext i1 @_ZNK3glw9Texture2D9doIsValidEv(ptr nound
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   %or.cond = select i1 %.not, i1 %6, i1 false
-  br i1 %or.cond, label %7, label %11
-
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load i32, ptr %8, align 8
-  %10 = icmp sgt i32 %9, 0
-  br label %11
-
-11:                                               ; preds = %7, %1
-  %12 = phi i1 [ %10, %7 ], [ false, %1 ]
-  ret i1 %12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp sgt i32 %8, 0
+  %10 = select i1 %or.cond, i1 %9, i1 false
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

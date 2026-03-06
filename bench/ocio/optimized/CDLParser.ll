@@ -5361,43 +5361,37 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev9CDLParser4Impl21IsVal
   %3 = load ptr, ptr %0, align 8, !tbaa !30
   %4 = load ptr, ptr %1, align 8, !tbaa !30
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(12) @_ZN19OpenColorIO_v2_5devL15TAG_DESCRIPTIONE) #34
-  %6 = icmp eq i32 %5, 0
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(17) @_ZN19OpenColorIO_v2_5devL26METADATA_INPUT_DESCRIPTIONE) #34
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %12, label %9
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(17) @_ZN19OpenColorIO_v2_5devL26METADATA_INPUT_DESCRIPTIONE) #34
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %11, label %8
 
-9:                                                ; preds = %2
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(19) @_ZN19OpenColorIO_v2_5devL28METADATA_VIEWING_DESCRIPTIONE) #34
-  %11 = icmp eq i32 %10, 0
-  br label %12
+8:                                                ; preds = %2
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(19) @_ZN19OpenColorIO_v2_5devL28METADATA_VIEWING_DESCRIPTIONE) #34
+  %10 = icmp eq i32 %9, 0
+  br label %11
 
-12:                                               ; preds = %9, %2
-  %13 = phi i1 [ true, %2 ], [ %11, %9 ]
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @_ZN19OpenColorIO_v2_5devL11TAG_SOPNODEE) #34
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %22, label %16
+11:                                               ; preds = %8, %2
+  %12 = phi i1 [ true, %2 ], [ %10, %8 ]
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @_ZN19OpenColorIO_v2_5devL11TAG_SOPNODEE) #34
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %21, label %15
 
-16:                                               ; preds = %12
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @_ZN19OpenColorIO_v2_5devL11TAG_SATNODEE) #34
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %22, label %19
+15:                                               ; preds = %11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @_ZN19OpenColorIO_v2_5devL11TAG_SATNODEE) #34
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %21, label %18
 
-19:                                               ; preds = %16
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @_ZN19OpenColorIO_v2_5devL14TAG_SATNODEALTE) #34
-  %21 = icmp ne i32 %20, 0
-  br label %22
+18:                                               ; preds = %15
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @_ZN19OpenColorIO_v2_5devL14TAG_SATNODEALTE) #34
+  %20 = icmp ne i32 %19, 0
+  br label %21
 
-22:                                               ; preds = %19, %16, %12
-  %23 = phi i1 [ false, %16 ], [ false, %12 ], [ %21, %19 ]
-  br i1 %6, label %26, label %24
-
-24:                                               ; preds = %22
-  %25 = select i1 %13, i1 %23, i1 false
-  br label %26
-
-26:                                               ; preds = %24, %22
-  %27 = phi i1 [ true, %22 ], [ %25, %24 ]
-  ret i1 %27
+21:                                               ; preds = %18, %15, %11
+  %22 = phi i1 [ false, %15 ], [ false, %11 ], [ %20, %18 ]
+  %23 = icmp eq i32 %5, 0
+  %24 = select i1 %12, i1 %22, i1 false
+  %25 = select i1 %23, i1 true, i1 %24
+  ret i1 %25
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

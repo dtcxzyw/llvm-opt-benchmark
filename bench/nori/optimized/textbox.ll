@@ -16931,41 +16931,35 @@ _ZSt13binary_searchIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcEbT_S8
   %39 = load ptr, ptr %8, align 8
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %39) #31
   %40 = invoke noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %41 unwind label %50
+          to label %_ZNKSt8__detail16_RegexTranslatorINSt7__cxx1112regex_traitsIcEELb1ELb0EE14_M_match_rangeEccc.exit unwind label %41
 
-41:                                               ; preds = %.lr.ph
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
-  %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = call noundef signext i8 %44(ptr noundef nonnull align 8 dereferenceable(570) %40, i8 noundef signext %29)
-  %46 = load ptr, ptr %40, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = call noundef signext i8 %48(ptr noundef nonnull align 8 dereferenceable(570) %40, i8 noundef signext %29)
-  %.not.i.i = icmp sgt i8 %36, %45
-  %.not14.i.i = icmp sgt i8 %45, %38
-  %or.cond.i.i = or i1 %.not.i.i, %.not14.i.i
-  br i1 %or.cond.i.i, label %_ZNKSt8__detail16_RegexTranslatorINSt7__cxx1112regex_traitsIcEELb1ELb0EE14_M_match_rangeEccc.exit, label %_ZNKSt8__detail16_RegexTranslatorINSt7__cxx1112regex_traitsIcEELb1ELb0EE14_M_match_rangeEccc.exit.thread
-
-_ZNKSt8__detail16_RegexTranslatorINSt7__cxx1112regex_traitsIcEELb1ELb0EE14_M_match_rangeEccc.exit.thread: ; preds = %41
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit.thread
-
-common.resume:                                    ; preds = %88, %50
-  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %89, %88 ]
+common.resume:                                    ; preds = %88, %41
+  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %89, %88 ]
   resume { ptr, i32 } %common.resume.op
 
-50:                                               ; preds = %.lr.ph
-  %51 = landingpad { ptr, i32 }
+41:                                               ; preds = %.lr.ph
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   br label %common.resume
 
-_ZNKSt8__detail16_RegexTranslatorINSt7__cxx1112regex_traitsIcEELb1ELb0EE14_M_match_rangeEccc.exit: ; preds = %41
-  %52 = icmp sle i8 %36, %49
-  %53 = icmp sle i8 %49, %38
-  %54 = and i1 %52, %53
+_ZNKSt8__detail16_RegexTranslatorINSt7__cxx1112regex_traitsIcEELb1ELb0EE14_M_match_rangeEccc.exit: ; preds = %.lr.ph
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
+  %43 = load ptr, ptr %40, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8
+  %46 = call noundef signext i8 %45(ptr noundef nonnull align 8 dereferenceable(570) %40, i8 noundef signext %29)
+  %47 = load ptr, ptr %40, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = call noundef signext i8 %49(ptr noundef nonnull align 8 dereferenceable(570) %40, i8 noundef signext %29)
+  %.not.i.i = icmp sle i8 %36, %46
+  %.not14.i.i = icmp sle i8 %46, %38
+  %or.cond.not.i.i = and i1 %.not.i.i, %.not14.i.i
+  %51 = icmp sle i8 %36, %50
+  %52 = icmp sle i8 %50, %38
+  %53 = and i1 %51, %52
+  %54 = or i1 %or.cond.not.i.i, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %54, label %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit.thread, label %34
 
@@ -17100,8 +17094,8 @@ _ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit24.thread: ; pred
   %.not39 = icmp eq ptr %118, %94
   br i1 %.not39, label %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit.thread, label %.lr.ph46
 
-_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit.thread: ; preds = %_ZNKSt8__detail16_RegexTranslatorINSt7__cxx1112regex_traitsIcEELb1ELb0EE14_M_match_rangeEccc.exit, %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit24, %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit24.thread, %104, %90, %._crit_edge, %_ZNKSt8__detail16_RegexTranslatorINSt7__cxx1112regex_traitsIcEELb1ELb0EE14_M_match_rangeEccc.exit.thread, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SE_SE_RKT0_.exit, %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit, %_ZSt13binary_searchIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcEbT_S8_RKT0_.exit
-  %.0 = phi i1 [ true, %_ZNKSt8__detail16_RegexTranslatorINSt7__cxx1112regex_traitsIcEELb1ELb0EE14_M_match_rangeEccc.exit.thread ], [ true, %_ZSt13binary_searchIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcEbT_S8_RKT0_.exit ], [ true, %104 ], [ true, %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit ], [ true, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SE_SE_RKT0_.exit ], [ true, %._crit_edge ], [ false, %90 ], [ false, %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit24.thread ], [ true, %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit24 ], [ true, %_ZNKSt8__detail16_RegexTranslatorINSt7__cxx1112regex_traitsIcEELb1ELb0EE14_M_match_rangeEccc.exit ]
+_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit.thread: ; preds = %_ZNKSt8__detail16_RegexTranslatorINSt7__cxx1112regex_traitsIcEELb1ELb0EE14_M_match_rangeEccc.exit, %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit24, %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit24.thread, %104, %90, %._crit_edge, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SE_SE_RKT0_.exit, %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit, %_ZSt13binary_searchIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcEbT_S8_RKT0_.exit
+  %.0 = phi i1 [ true, %._crit_edge ], [ true, %_ZSt13binary_searchIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcEbT_S8_RKT0_.exit ], [ true, %104 ], [ true, %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit ], [ true, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES7_ET_SE_SE_RKT0_.exit ], [ false, %90 ], [ false, %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit24.thread ], [ true, %_ZNKSt7__cxx1112regex_traitsIcE7isctypeEcNS1_10_RegexMaskE.exit24 ], [ true, %_ZNKSt8__detail16_RegexTranslatorINSt7__cxx1112regex_traitsIcEELb1ELb0EE14_M_match_rangeEccc.exit ]
   ret i1 %.0
 }
 
@@ -17944,39 +17938,33 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt8__detail16_RegexTransla
   %12 = load ptr, ptr %0, align 8
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %12) #31
   %13 = invoke noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %14 unwind label %27
+          to label %_ZNKSt8__detail20_RegexTranslatorBaseINSt7__cxx1112regex_traitsIcEELb1ELb1EE17_M_in_range_icaseEccc.exit unwind label %14
 
 14:                                               ; preds = %4
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #31
-  %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %17 = load ptr, ptr %16, align 8
-  %18 = call noundef signext i8 %17(ptr noundef nonnull align 8 dereferenceable(570) %13, i8 noundef signext %11)
-  %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = call noundef signext i8 %21(ptr noundef nonnull align 8 dereferenceable(570) %13, i8 noundef signext %11)
-  %.not.i = icmp sgt i8 %7, %18
-  %.not14.i = icmp sgt i8 %18, %9
-  %or.cond.i = or i1 %.not.i, %.not14.i
-  br i1 %or.cond.i, label %23, label %_ZNKSt8__detail20_RegexTranslatorBaseINSt7__cxx1112regex_traitsIcEELb1ELb1EE17_M_in_range_icaseEccc.exit
-
-23:                                               ; preds = %14
-  %24 = icmp sle i8 %7, %22
-  %25 = icmp sle i8 %22, %9
-  %26 = and i1 %24, %25
-  br label %_ZNKSt8__detail20_RegexTranslatorBaseINSt7__cxx1112regex_traitsIcEELb1ELb1EE17_M_in_range_icaseEccc.exit
-
-27:                                               ; preds = %4
-  %28 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #31
-  resume { ptr, i32 } %28
+  resume { ptr, i32 } %15
 
-_ZNKSt8__detail20_RegexTranslatorBaseINSt7__cxx1112regex_traitsIcEELb1ELb1EE17_M_in_range_icaseEccc.exit: ; preds = %14, %23
-  %29 = phi i1 [ true, %14 ], [ %26, %23 ]
+_ZNKSt8__detail20_RegexTranslatorBaseINSt7__cxx1112regex_traitsIcEELb1ELb1EE17_M_in_range_icaseEccc.exit: ; preds = %4
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #31
+  %16 = load ptr, ptr %13, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %18 = load ptr, ptr %17, align 8
+  %19 = call noundef signext i8 %18(ptr noundef nonnull align 8 dereferenceable(570) %13, i8 noundef signext %11)
+  %20 = load ptr, ptr %13, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = call noundef signext i8 %22(ptr noundef nonnull align 8 dereferenceable(570) %13, i8 noundef signext %11)
+  %.not.i = icmp sle i8 %7, %19
+  %.not14.i = icmp sle i8 %19, %9
+  %or.cond.not.i = and i1 %.not.i, %.not14.i
+  %24 = icmp sle i8 %7, %23
+  %25 = icmp sle i8 %23, %9
+  %26 = and i1 %24, %25
+  %27 = or i1 %or.cond.not.i, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %29
+  ret i1 %27
 }
 
 ; Function Attrs: nounwind

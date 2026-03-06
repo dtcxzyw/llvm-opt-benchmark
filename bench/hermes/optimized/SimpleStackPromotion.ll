@@ -219,10 +219,10 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i.i
   %cmp.not35.i.i.i = icmp eq i32 %24, 0
   br i1 %cmp.not35.i.i.i, label %_ZN6hermes12_GLOBAL__N_114tryCopyToStackEPNS_8VariableE.exit.i.i, label %for.body.i22.i.i
 
-for.body.i22.i.i:                                 ; preds = %if.end.i.i, %for.inc.i.i.i
-  %hasLoadInOwningFunction.038.i.i.i = phi i1 [ %hasLoadInOwningFunction.1.i.i.i, %for.inc.i.i.i ], [ false, %if.end.i.i ]
-  %hasStoreInInnerFunction.037.i.i.i = phi i1 [ %hasStoreInInnerFunction.1.i.i.i, %for.inc.i.i.i ], [ false, %if.end.i.i ]
-  %__begin2.036.i.i.i = phi ptr [ %incdec.ptr.i25.i.i, %for.inc.i.i.i ], [ %23, %if.end.i.i ]
+for.body.i22.i.i:                                 ; preds = %if.end.i.i, %for.body.i22.i.i
+  %hasLoadInOwningFunction.038.i.i.i = phi i1 [ %hasLoadInOwningFunction.1.i.i.i, %for.body.i22.i.i ], [ false, %if.end.i.i ]
+  %hasStoreInInnerFunction.037.i.i.i = phi i1 [ %hasStoreInInnerFunction.1.i.i.i, %for.body.i22.i.i ], [ false, %if.end.i.i ]
+  %__begin2.036.i.i.i = phi ptr [ %incdec.ptr.i25.i.i, %for.body.i22.i.i ], [ %23, %if.end.i.i ]
   %25 = load ptr, ptr %__begin2.036.i.i.i, align 8
   %Parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 56
   %26 = load ptr, ptr %Parent.i.i.i.i, align 8
@@ -231,26 +231,18 @@ for.body.i22.i.i:                                 ; preds = %if.end.i.i, %for.in
   %cmp7.i.i.i = icmp eq ptr %27, %22
   %add.ptr.i.i.i.i.i.i23.i.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = load i8, ptr %add.ptr.i.i.i.i.i.i23.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i24.i.i = icmp eq i8 %28, 49
-  br i1 %cmp.i.i.i.i.i.i.i.i24.i.i, label %if.then.i.i.i, label %if.else.i.i.i
-
-if.then.i.i.i:                                    ; preds = %for.body.i22.i.i
-  %or19.i.i.i = or i1 %hasLoadInOwningFunction.038.i.i.i, %cmp7.i.i.i
-  br label %for.inc.i.i.i
-
-if.else.i.i.i:                                    ; preds = %for.body.i22.i.i
+  %cmp.i.i.i.i.i.i.i.i24.i.i = icmp ne i8 %28, 49
   %lnot.i.i.i = xor i1 %cmp7.i.i.i, true
-  %or1718.i.i.i = or i1 %hasStoreInInnerFunction.037.i.i.i, %lnot.i.i.i
-  br label %for.inc.i.i.i
-
-for.inc.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %hasStoreInInnerFunction.1.i.i.i = phi i1 [ %hasStoreInInnerFunction.037.i.i.i, %if.then.i.i.i ], [ %or1718.i.i.i, %if.else.i.i.i ]
-  %hasLoadInOwningFunction.1.i.i.i = phi i1 [ %or19.i.i.i, %if.then.i.i.i ], [ %hasLoadInOwningFunction.038.i.i.i, %if.else.i.i.i ]
+  %or1718.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i24.i.i, i1 %lnot.i.i.i, i1 false
+  %hasStoreInInnerFunction.1.i.i.i = or i1 %hasStoreInInnerFunction.037.i.i.i, %or1718.i.i.i
+  %not.cmp.i.i.i.i.i.i.i.i.i.i = xor i1 %cmp.i.i.i.i.i.i.i.i24.i.i, true
+  %or19.i.i.i = select i1 %not.cmp.i.i.i.i.i.i.i.i.i.i, i1 %cmp7.i.i.i, i1 false
+  %hasLoadInOwningFunction.1.i.i.i = or i1 %hasLoadInOwningFunction.038.i.i.i, %or19.i.i.i
   %incdec.ptr.i25.i.i = getelementptr inbounds nuw i8, ptr %__begin2.036.i.i.i, i64 8
   %cmp.not.i26.i.i = icmp eq ptr %incdec.ptr.i25.i.i, %add.ptr.i72.i.i.i
   br i1 %cmp.not.i26.i.i, label %for.end.i27.i.i, label %for.body.i22.i.i
 
-for.end.i27.i.i:                                  ; preds = %for.inc.i.i.i
+for.end.i27.i.i:                                  ; preds = %for.body.i22.i.i
   %29 = xor i1 %hasStoreInInnerFunction.1.i.i.i, true
   %30 = select i1 %29, i1 %hasLoadInOwningFunction.1.i.i.i, i1 false
   br i1 %30, label %do.end.i28.i.i, label %_ZN6hermes12_GLOBAL__N_114tryCopyToStackEPNS_8VariableE.exit.i.i

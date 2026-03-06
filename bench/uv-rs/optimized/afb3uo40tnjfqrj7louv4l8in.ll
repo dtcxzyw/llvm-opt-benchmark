@@ -1730,18 +1730,19 @@ define internal fastcc noundef zeroext i1 @_ZN8unscanny7Scanner2at17h35f00b47c20
 
 .thread3.i:                                       ; preds = %35, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit14.i.i", %23, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit12.i.i"
   %.sroa.4.0.i.ph5.i = phi i32 [ %45, %35 ], [ %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit12.i.i" ], [ %24, %23 ], [ %33, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit14.i.i" ]
-  %47 = add i32 %.sroa.4.0.i.ph5.i, -48
-  %.sroa.0.0.i.i.i.i.i = icmp ult i32 %47, 10
-  %48 = icmp samesign ugt i32 %.sroa.4.0.i.ph5.i, 64
-  %49 = icmp samesign ugt i32 %.sroa.4.0.i.ph5.i, 96
-  %spec.select.v.i.i.i.i.i = select i1 %49, i32 123, i32 91
-  %spec.select.i.i.i.i.i = icmp samesign ult i32 %.sroa.4.0.i.ph5.i, %spec.select.v.i.i.i.i.i
-  %.sroa.02.0.i.i.i.i.i = select i1 %48, i1 %spec.select.i.i.i.i.i, i1 %.sroa.0.0.i.i.i.i.i
+  %47 = icmp samesign ugt i32 %.sroa.4.0.i.ph5.i, 64
+  %48 = icmp samesign ugt i32 %.sroa.4.0.i.ph5.i, 96
+  %49 = icmp samesign ult i32 %.sroa.4.0.i.ph5.i, 123
+  %50 = icmp samesign ult i32 %.sroa.4.0.i.ph5.i, 91
+  %51 = add nsw i32 %.sroa.4.0.i.ph5.i, -48
+  %52 = icmp ult i32 %51, 10
+  %53 = select i1 %47, i1 %50, i1 %52
+  %not..sroa.02.0.i.i.i.i.not.i = select i1 %48, i1 %49, i1 %53
   br label %"_ZN8unscanny72_$LT$impl$u20$unscanny..sealed..Sealed$LT$$RF$char$GT$$u20$for$u20$F$GT$7matches17h7da3db540dfdc933E.exit"
 
 "_ZN8unscanny72_$LT$impl$u20$unscanny..sealed..Sealed$LT$$RF$char$GT$$u20$for$u20$F$GT$7matches17h7da3db540dfdc933E.exit": ; preds = %.thread3.i, %1, %35
-  %50 = phi i1 [ %.sroa.02.0.i.i.i.i.i, %.thread3.i ], [ false, %35 ], [ false, %1 ]
-  ret i1 %50
+  %54 = phi i1 [ %not..sroa.02.0.i.i.i.i.not.i, %.thread3.i ], [ false, %35 ], [ false, %1 ]
+  ret i1 %54
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable

@@ -577,14 +577,16 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %trunc.i.i = trunc nuw i64 %2 to i1
   %10 = tail call double @llvm.sqrt.f64(double %3)
-  %narrow.i.i.i.i = fcmp ogt double %3, 0.000000e+00
-  %narrow.i.i.not73 = select i1 %trunc.i.i, i1 %narrow.i.i.i.i, i1 false
+  %narrow.i.i.i.i = fcmp ule double %3, 0.000000e+00
+  %.sroa.3.0.i.i = select i1 %trunc.i.i, double %10, double undef
+  %not.trunc.i.i = xor i1 %trunc.i.i, true
+  %narrow.i.i = select i1 %not.trunc.i.i, i1 true, i1 %narrow.i.i.i.i
   br label %15
 
 11:                                               ; preds = %13
   %12 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %71
 
 13:                                               ; preds = %4
   invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.3f8c7bb511a16cb7134873579bacb188.30, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f8c7bb511a16cb7134873579bacb188.32) #22
@@ -614,139 +616,139 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   %20 = getelementptr [8 x i8], ptr %19, i64 %.sroa.015.062
   %21 = load double, ptr %20, align 8, !alias.scope !77, !noundef !4
   %22 = tail call double @llvm.sqrt.f64(double %21)
-  %narrow.i = fcmp ogt double %21, 0.000000e+00
-  %brmerge = select i1 %narrow.i, i1 true, i1 %narrow.i.i.not73
-  %.mux = select i1 %narrow.i, double %22, double %10
-  br i1 %brmerge, label %.thread, label %38
+  %narrow.i = fcmp ule double %21, 0.000000e+00
+  %.pn.i = select i1 %narrow.i, i1 %narrow.i.i, i1 false
+  %.sroa.3.0.i.pn.i = select i1 %narrow.i, double %.sroa.3.0.i.i, double %22
+  br i1 %.pn.i, label %39, label %25
 
-23:                                               ; preds = %26
+23:                                               ; preds = %27
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %71
 
-.thread:                                          ; preds = %._crit_edge
-  store double %.mux, ptr %20, align 8
-  %25 = load i64, ptr %7, align 8, !alias.scope !80, !noalias !85, !noundef !4
-  %.not1.i.i.i.not = icmp ult i64 %.sroa.015.062, %25
-  br i1 %.not1.i.i.i.not, label %27, label %26
+25:                                               ; preds = %._crit_edge
+  store double %.sroa.3.0.i.pn.i, ptr %20, align 8
+  %26 = load i64, ptr %7, align 8, !alias.scope !80, !noalias !85, !noundef !4
+  %.not1.i.i.i.not = icmp ult i64 %.sroa.015.062, %26
+  br i1 %.not1.i.i.i.not, label %28, label %27
 
-26:                                               ; preds = %.thread
+27:                                               ; preds = %25
   invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #22
           to label %.noexc unwind label %23
 
-.noexc:                                           ; preds = %26
+.noexc:                                           ; preds = %27
   unreachable
 
-27:                                               ; preds = %.thread
-  %28 = load i64, ptr %6, align 8, !alias.scope !80, !noalias !85, !noundef !4
-  %29 = sub i64 %28, %16
-  %30 = mul i64 %28, %.sroa.015.062
-  %31 = load ptr, ptr %9, align 8, !alias.scope !87, !noalias !96, !nonnull !4, !noundef !4
-  %32 = getelementptr [8 x i8], ptr %31, i64 %30
-  %33 = getelementptr [8 x i8], ptr %32, i64 %16
-  %.not.i = icmp eq i64 %28, %16
+28:                                               ; preds = %25
+  %29 = load i64, ptr %6, align 8, !alias.scope !80, !noalias !85, !noundef !4
+  %30 = sub i64 %29, %16
+  %31 = mul i64 %29, %.sroa.015.062
+  %32 = load ptr, ptr %9, align 8, !alias.scope !87, !noalias !96, !nonnull !4, !noundef !4
+  %33 = getelementptr [8 x i8], ptr %32, i64 %31
+  %34 = getelementptr [8 x i8], ptr %33, i64 %16
+  %.not.i = icmp eq i64 %29, %16
   br i1 %.not.i, label %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit", label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %27, %.preheader.us.i
-  %.sroa.05.012.us.i = phi i64 [ %34, %.preheader.us.i ], [ 0, %27 ]
-  %34 = add nuw i64 %.sroa.05.012.us.i, 1
-  %35 = getelementptr [8 x i8], ptr %33, i64 %.sroa.05.012.us.i
-  %36 = load double, ptr %35, align 8, !alias.scope !98, !noalias !101, !noundef !4
-  %37 = fdiv double %36, %.mux
-  store double %37, ptr %35, align 8, !alias.scope !98, !noalias !101
-  %exitcond.not.i = icmp eq i64 %34, %29
+.preheader.us.i:                                  ; preds = %28, %.preheader.us.i
+  %.sroa.05.012.us.i = phi i64 [ %35, %.preheader.us.i ], [ 0, %28 ]
+  %35 = add nuw i64 %.sroa.05.012.us.i, 1
+  %36 = getelementptr [8 x i8], ptr %34, i64 %.sroa.05.012.us.i
+  %37 = load double, ptr %36, align 8, !alias.scope !98, !noalias !101, !noundef !4
+  %38 = fdiv double %37, %.sroa.3.0.i.pn.i
+  store double %38, ptr %36, align 8, !alias.scope !98, !noalias !101
+  %exitcond.not.i = icmp eq i64 %35, %30
   br i1 %exitcond.not.i, label %"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit", label %.preheader.us.i
 
-"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit": ; preds = %.preheader.us.i, %27
+"_ZN8nalgebra4base3ops118_$LT$impl$u20$core..ops..arith..DivAssign$LT$T$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10div_assign17h5a984a16a710d643E.exit": ; preds = %.preheader.us.i, %28
   %exitcond66.not = icmp eq i64 %16, %.val24
   br i1 %exitcond66.not, label %._crit_edge64, label %15
 
-38:                                               ; preds = %._crit_edge
+39:                                               ; preds = %._crit_edge
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !104
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6f9411735bae5566E.llvm.12303340874314762014"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1)
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %40 = load i64, ptr %39, align 8, !range !115, !noalias !104, !noundef !4
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE.exit", label %42
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %41 = load i64, ptr %40, align 8, !range !115, !noalias !104, !noundef !4
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE.exit", label %43
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %44 = load i64, ptr %43, align 8, !noalias !104, !noundef !4
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE.exit", label %46
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %45 = load i64, ptr %44, align 8, !noalias !104, !noundef !4
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE.exit", label %47
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %5, align 8, !noalias !104, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %44, i64 noundef %40) #25
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %5, align 8, !noalias !104, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %48, i64 noundef %45, i64 noundef %41) #25
   br label %"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE.exit"
 
-"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE.exit": ; preds = %38, %42, %46
+"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE.exit": ; preds = %39, %43, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !104
   br label %17
 
 .lr.ph:                                           ; preds = %15, %"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit"
-  %.sroa.017.061 = phi i64 [ %48, %"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit" ], [ 0, %15 ]
-  %48 = add nuw i64 %.sroa.017.061, 1
+  %.sroa.017.061 = phi i64 [ %49, %"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit" ], [ 0, %15 ]
+  %49 = add nuw i64 %.sroa.017.061, 1
   %.val26 = load ptr, ptr %9, align 8, !alias.scope !71, !nonnull !4, !noundef !4
   %.val27 = load i64, ptr %6, align 8, !alias.scope !74, !noundef !4
-  %49 = mul i64 %.val27, %.sroa.017.061
-  %50 = getelementptr [8 x i8], ptr %.val26, i64 %49
-  %51 = getelementptr [8 x i8], ptr %50, i64 %.sroa.015.062
-  %52 = load double, ptr %51, align 8, !alias.scope !116, !noundef !4
-  %53 = load i64, ptr %7, align 8, !alias.scope !119, !noalias !124, !noundef !4
-  %.not.i32.not = icmp ult i64 %.sroa.017.061, %53
-  br i1 %.not.i32.not, label %57, label %54
+  %50 = mul i64 %.val27, %.sroa.017.061
+  %51 = getelementptr [8 x i8], ptr %.val26, i64 %50
+  %52 = getelementptr [8 x i8], ptr %51, i64 %.sroa.015.062
+  %53 = load double, ptr %52, align 8, !alias.scope !116, !noundef !4
+  %54 = load i64, ptr %7, align 8, !alias.scope !119, !noalias !124, !noundef !4
+  %.not.i32.not = icmp ult i64 %.sroa.017.061, %54
+  br i1 %.not.i32.not, label %58, label %55
 
-54:                                               ; preds = %.lr.ph
+55:                                               ; preds = %.lr.ph
   invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.3f8c7bb511a16cb7134873579bacb188.20, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f8c7bb511a16cb7134873579bacb188.19) #22
-          to label %.noexc35 unwind label %55
+          to label %.noexc35 unwind label %56
 
-.noexc35:                                         ; preds = %54
+.noexc35:                                         ; preds = %55
   unreachable
 
-55:                                               ; preds = %54
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %55
+  %57 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %71
 
-57:                                               ; preds = %.lr.ph
-  %58 = mul i64 %.val27, %.sroa.015.062
-  %59 = getelementptr [8 x i8], ptr %.val26, i64 %58
-  %60 = sub i64 %.val27, %.sroa.015.062
-  %61 = getelementptr [8 x i8], ptr %59, i64 %.sroa.015.062
+58:                                               ; preds = %.lr.ph
+  %59 = mul i64 %.val27, %.sroa.015.062
+  %60 = getelementptr [8 x i8], ptr %.val26, i64 %59
+  %61 = sub i64 %.val27, %.sroa.015.062
+  %62 = getelementptr [8 x i8], ptr %60, i64 %.sroa.015.062
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %.not.i.i = icmp eq i64 %.val27, %.sroa.015.062
   br i1 %.not.i.i, label %"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit", label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %57, %.lr.ph.i.i
-  %.sroa.06.012.i.i = phi i64 [ %62, %.lr.ph.i.i ], [ 0, %57 ]
-  %62 = add nuw i64 %.sroa.06.012.i.i, 1
-  %63 = getelementptr inbounds [8 x i8], ptr %61, i64 %.sroa.06.012.i.i
-  %64 = getelementptr inbounds [8 x i8], ptr %51, i64 %.sroa.06.012.i.i
-  %65 = load double, ptr %64, align 8, !alias.scope !131, !noalias !134, !noundef !4
-  %66 = load double, ptr %63, align 8, !alias.scope !138, !noalias !141, !noundef !4
-  %67 = fmul double %52, %65
-  %68 = fsub double %66, %67
-  store double %68, ptr %63, align 8, !alias.scope !126, !noalias !141
-  %exitcond.not.i.i = icmp eq i64 %62, %60
+.lr.ph.i.i:                                       ; preds = %58, %.lr.ph.i.i
+  %.sroa.06.012.i.i = phi i64 [ %63, %.lr.ph.i.i ], [ 0, %58 ]
+  %63 = add nuw i64 %.sroa.06.012.i.i, 1
+  %64 = getelementptr inbounds [8 x i8], ptr %62, i64 %.sroa.06.012.i.i
+  %65 = getelementptr inbounds [8 x i8], ptr %52, i64 %.sroa.06.012.i.i
+  %66 = load double, ptr %65, align 8, !alias.scope !131, !noalias !134, !noundef !4
+  %67 = load double, ptr %64, align 8, !alias.scope !138, !noalias !141, !noundef !4
+  %68 = fmul double %53, %66
+  %69 = fsub double %67, %68
+  store double %69, ptr %64, align 8, !alias.scope !126, !noalias !141
+  %exitcond.not.i.i = icmp eq i64 %63, %61
   br i1 %exitcond.not.i.i, label %"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit", label %.lr.ph.i.i
 
-"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit": ; preds = %.lr.ph.i.i, %57
-  %exitcond.not = icmp eq i64 %48, %.sroa.015.062
+"_ZN8nalgebra4base4blas115_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$S$GT$$GT$4axpy17h0dc77c854b510a64E.exit": ; preds = %.lr.ph.i.i, %58
+  %exitcond.not = icmp eq i64 %49, %.sroa.015.062
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-69:                                               ; preds = %70
+70:                                               ; preds = %71
   resume { ptr, i32 } %.pn
 
-70:                                               ; preds = %11, %23, %55
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %56, %55 ], [ %12, %11 ]
+71:                                               ; preds = %11, %23, %56
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %57, %56 ], [ %12, %11 ]
   invoke void @"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1) #23
-          to label %69 unwind label %71
+          to label %70 unwind label %72
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+72:                                               ; preds = %71
+  %73 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #24
   unreachable

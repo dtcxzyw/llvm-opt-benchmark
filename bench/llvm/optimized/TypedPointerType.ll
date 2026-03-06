@@ -242,24 +242,20 @@ define dso_local void @_ZN4llvm16TypedPointerTypeC2EPNS_4TypeEj(ptr noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm16TypedPointerType18isValidElementTypeEPNS_4TypeE(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8
-  %trunc = trunc i32 %3 to i8
+switch.lookup:
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %2 = load i32, ptr %1, align 8
+  %trunc = trunc i32 %2 to i8
   %switch.tableidx = add i8 %trunc, -7
-  %4 = icmp ult i8 %switch.tableidx, 5
+  %3 = icmp ult i8 %switch.tableidx, 5
   %switch.shifted = lshr i8 23, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %4, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %5
-
-5:                                                ; preds = %1
-  %6 = and i32 %3, 255
-  %7 = icmp ne i32 %6, 10
-  br label %switch.lookup
-
-switch.lookup:                                    ; preds = %1, %5
-  %8 = phi i1 [ %7, %5 ], [ false, %1 ]
-  ret i1 %8
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = and i32 %2, 255
+  %5 = icmp ne i32 %4, 10
+  %not.or.cond = xor i1 %or.cond, true
+  %6 = and i1 %5, %not.or.cond
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

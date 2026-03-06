@@ -889,79 +889,76 @@ declare i32 @repo_read_index(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @update_modes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4, !tbaa !37
-  %4 = icmp ne i32 %3, -1
-  %5 = load i32, ptr @core_apply_sparse_checkout, align 4
-  %.not = icmp eq i32 %5, 0
-  %6 = select i1 %4, i1 true, i1 %.not
-  %7 = icmp eq i32 %3, -1
-  %8 = icmp ne i32 %5, 0
-  %or.cond.i = select i1 %7, i1 %8, i1 false
-  br i1 %or.cond.i, label %9, label %11
+  %.not = icmp eq i32 %3, -1
+  %4 = load i32, ptr @core_apply_sparse_checkout, align 4
+  %.not8 = icmp ne i32 %4, 0
+  %.not11 = select i1 %.not, i1 %.not8, i1 false
+  br i1 %.not11, label %5, label %7
 
-9:                                                ; preds = %2
-  %10 = load i32, ptr @core_sparse_checkout_cone, align 4, !tbaa !37
-  store i32 %10, ptr %0, align 4, !tbaa !37
-  br label %11
+5:                                                ; preds = %2
+  %6 = load i32, ptr @core_sparse_checkout_cone, align 4, !tbaa !37
+  store i32 %6, ptr %0, align 4, !tbaa !37
+  br label %7
 
-11:                                               ; preds = %9, %2
+7:                                                ; preds = %5, %2
   store i32 1, ptr @core_apply_sparse_checkout, align 4, !tbaa !37
-  %12 = load i32, ptr %0, align 4, !tbaa !37
-  switch i32 %12, label %13 [
+  %8 = load i32, ptr %0, align 4, !tbaa !37
+  switch i32 %8, label %9 [
     i32 1, label %update_cone_mode.exit
     i32 -1, label %update_cone_mode.exit
   ]
 
-13:                                               ; preds = %11
+9:                                                ; preds = %7
   br label %update_cone_mode.exit
 
-update_cone_mode.exit:                            ; preds = %11, %11, %13
-  %storemerge.i = phi i32 [ 0, %13 ], [ 1, %11 ], [ 1, %11 ]
-  %.0.i = phi i32 [ 1, %13 ], [ 2, %11 ], [ 2, %11 ]
+update_cone_mode.exit:                            ; preds = %7, %7, %9
+  %storemerge.i = phi i32 [ 0, %9 ], [ 1, %7 ], [ 1, %7 ]
+  %.0.i = phi i32 [ 1, %9 ], [ 2, %7 ], [ 2, %7 ]
   store i32 %storemerge.i, ptr @core_sparse_checkout_cone, align 4, !tbaa !37
-  br i1 %6, label %14, label %16
+  br i1 %.not11, label %12, label %10
 
-14:                                               ; preds = %update_cone_mode.exit
-  %15 = tail call fastcc i32 @set_config(i32 noundef %.0.i)
-  %.not8 = icmp eq i32 %15, 0
-  br i1 %.not8, label %16, label %37
+10:                                               ; preds = %update_cone_mode.exit
+  %11 = tail call fastcc i32 @set_config(i32 noundef %.0.i)
+  %.not9 = icmp eq i32 %11, 0
+  br i1 %.not9, label %12, label %33
 
-16:                                               ; preds = %14, %update_cone_mode.exit
-  %17 = load i32, ptr %1, align 4, !tbaa !37
-  %18 = icmp sgt i32 %17, -1
-  br i1 %18, label %19, label %37
+12:                                               ; preds = %10, %update_cone_mode.exit
+  %13 = load i32, ptr %1, align 4, !tbaa !37
+  %14 = icmp sgt i32 %13, -1
+  br i1 %14, label %15, label %33
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr @the_repository, align 8, !tbaa !17
-  %21 = tail call i32 @set_sparse_index_config(ptr noundef %20, i32 noundef %17) #13
-  %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %25
+15:                                               ; preds = %12
+  %16 = load ptr, ptr @the_repository, align 8, !tbaa !17
+  %17 = tail call i32 @set_sparse_index_config(ptr noundef %16, i32 noundef %13) #13
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %19, label %21
 
-23:                                               ; preds = %19
-  %24 = tail call fastcc ptr @_(ptr noundef nonnull @.str.27)
-  tail call void (ptr, ...) @die(ptr noundef %24) #14
+19:                                               ; preds = %15
+  %20 = tail call fastcc ptr @_(ptr noundef nonnull @.str.27)
+  tail call void (ptr, ...) @die(ptr noundef %20) #14
   unreachable
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr @the_repository, align 8, !tbaa !17
-  %27 = tail call i32 @repo_read_index(ptr noundef %26) #13
-  %28 = load ptr, ptr @the_repository, align 8, !tbaa !17
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 384
-  %30 = load ptr, ptr %29, align 8, !tbaa !83
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  %32 = load i8, ptr %31, align 8
-  %33 = or i8 %32, 8
-  store i8 %33, ptr %31, align 8
-  %34 = load i32, ptr %1, align 4, !tbaa !37
-  %.not9 = icmp eq i32 %34, 0
-  br i1 %.not9, label %35, label %37
+21:                                               ; preds = %15
+  %22 = load ptr, ptr @the_repository, align 8, !tbaa !17
+  %23 = tail call i32 @repo_read_index(ptr noundef %22) #13
+  %24 = load ptr, ptr @the_repository, align 8, !tbaa !17
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 384
+  %26 = load ptr, ptr %25, align 8, !tbaa !83
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
+  %28 = load i8, ptr %27, align 8
+  %29 = or i8 %28, 8
+  store i8 %29, ptr %27, align 8
+  %30 = load i32, ptr %1, align 4, !tbaa !37
+  %.not10 = icmp eq i32 %30, 0
+  br i1 %.not10, label %31, label %33
 
-35:                                               ; preds = %25
-  %36 = load ptr, ptr %29, align 8, !tbaa !83
-  tail call void @ensure_full_index(ptr noundef %36) #13
-  br label %37
+31:                                               ; preds = %21
+  %32 = load ptr, ptr %25, align 8, !tbaa !83
+  tail call void @ensure_full_index(ptr noundef %32) #13
+  br label %33
 
-37:                                               ; preds = %16, %35, %25, %14
-  %.0 = phi i32 [ 1, %14 ], [ 0, %25 ], [ 0, %35 ], [ 0, %16 ]
+33:                                               ; preds = %12, %31, %21, %10
+  %.0 = phi i32 [ 1, %10 ], [ 0, %21 ], [ 0, %31 ], [ 0, %12 ]
   ret i32 %.0
 }
 

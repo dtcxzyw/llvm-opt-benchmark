@@ -433,7 +433,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit: ; preds = 
   %14 = add nuw nsw i32 %.0, 1
   br label %4
 
-.preheader.split:                                 ; preds = %.preheader, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread"
+.preheader.split:                                 ; preds = %.preheader, %27
   %15 = load atomic i64, ptr %3 acquire, align 8
   switch i64 %15, label %.thread [
     i64 0, label %16
@@ -445,16 +445,13 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit: ; preds = 
   %17 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hbb1eaf08f9bac9b0E()
   %18 = extractvalue { i64, i32 } %17, 0
   %19 = extractvalue { i64, i32 } %17, 1
-  %20 = icmp slt i64 %18, %0
-  br i1 %20, label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread", label %21
+  %.not.i = icmp eq i64 %18, %0
+  %20 = icmp ult i32 %19, %1
+  %21 = icmp slt i64 %18, %0
+  %22 = select i1 %.not.i, i1 %20, i1 %21
+  br i1 %22, label %27, label %23
 
-21:                                               ; preds = %16
-  %22 = icmp eq i64 %18, %0
-  %23 = icmp ult i32 %19, %1
-  %or.cond = select i1 %22, i1 %23, i1 false
-  br i1 %or.cond, label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread", label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15"
-
-"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15": ; preds = %21
+23:                                               ; preds = %16
   %24 = cmpxchg ptr %3, i64 0, i64 1 acq_rel acquire, align 8
   %25 = extractvalue { i64, i1 } %24, 1
   %26 = extractvalue { i64, i1 } %24, 0
@@ -462,11 +459,11 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit: ; preds = 
   %.sroa.02.2 = select i1 %25, i64 1, i64 %spec.select.i.i.i
   br label %.thread
 
-"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread": ; preds = %21, %16
-  %27 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hc35e545107962334E"(i64 noundef %0, i32 noundef %1, i64 noundef %18, i32 noundef %19)
-  %28 = extractvalue { i64, i32 } %27, 0
-  %29 = extractvalue { i64, i32 } %27, 1
-  tail call void @_ZN3std6thread12park_timeout17hd5e7217f4f5c5e09E(i64 noundef %28, i32 noundef %29)
+27:                                               ; preds = %16
+  %28 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hc35e545107962334E"(i64 noundef %0, i32 noundef %1, i64 noundef %18, i32 noundef %19)
+  %29 = extractvalue { i64, i32 } %28, 0
+  %30 = extractvalue { i64, i32 } %28, 1
+  tail call void @_ZN3std6thread12park_timeout17hd5e7217f4f5c5e09E(i64 noundef %29, i32 noundef %30)
   br label %.preheader.split
 
 .thread.loopexit13:                               ; preds = %.preheader.split.us, %.preheader.split.us
@@ -478,8 +475,8 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit: ; preds = 
 .thread.loopexit18:                               ; preds = %4, %4
   br label %.thread
 
-.thread:                                          ; preds = %4, %.preheader.split, %.preheader.split.us, %.thread.loopexit18, %.thread.loopexit15, %.thread.loopexit13, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15"
-  %.sroa.02.0 = phi i64 [ 3, %.preheader.split ], [ %.sroa.02.2, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15" ], [ %7, %.thread.loopexit13 ], [ %5, %.thread.loopexit18 ], [ %15, %.thread.loopexit15 ], [ 3, %.preheader.split.us ], [ 3, %4 ]
+.thread:                                          ; preds = %4, %.preheader.split, %.preheader.split.us, %.thread.loopexit18, %.thread.loopexit15, %.thread.loopexit13, %23
+  %.sroa.02.0 = phi i64 [ 3, %.preheader.split ], [ %.sroa.02.2, %23 ], [ %7, %.thread.loopexit13 ], [ %5, %.thread.loopexit18 ], [ %15, %.thread.loopexit15 ], [ 3, %.preheader.split.us ], [ 3, %4 ]
   ret i64 %.sroa.02.0
 }
 

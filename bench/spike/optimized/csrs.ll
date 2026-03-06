@@ -1421,63 +1421,56 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t12subset_matchEmm(ptr noundef nonn
 
 _ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit:       ; preds = %8, %12
   %.0.i = phi i64 [ %26, %12 ], [ 0, %8 ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load i64, ptr %27, align 8, !tbaa !162
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !6
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 266624
-  %32 = load i64, ptr %31, align 8, !tbaa !167
-  %33 = add i64 %32, -2
-  %.neg.i.i = shl nsw i64 -1, %33
-  %34 = and i64 %.neg.i.i, %28
-  %35 = shl i64 %34, 2
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load i8, ptr %36, align 8, !tbaa !164
-  %38 = and i8 %37, 24
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %71, label %40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %28 = load i8, ptr %27, align 8, !tbaa !164
+  %29 = and i8 %28, 24
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %70, label %31
 
-40:                                               ; preds = %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit
-  %41 = icmp eq i8 %38, 8
-  %42 = icmp uge i64 %1, %35
-  %43 = sub i64 0, %2
-  %44 = and i64 %1, %43
-  %45 = and i64 %.0.i, %43
-  %46 = icmp ult i64 %44, %45
-  %or.cond = or i1 %46, %42
-  br i1 %or.cond, label %52, label %47
+31:                                               ; preds = %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !6
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 266624
+  %35 = load i64, ptr %34, align 8, !tbaa !167
+  %36 = add i64 %35, -2
+  %.neg.i.i = shl nsw i64 -1, %36
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %38 = load i64, ptr %37, align 8, !tbaa !162
+  %39 = and i64 %.neg.i.i, %38
+  %40 = shl i64 %39, 2
+  %41 = icmp eq i8 %29, 8
+  %42 = sub i64 0, %2
+  %43 = and i64 %1, %42
+  %44 = and i64 %.0.i, %42
+  %45 = and i64 %40, %42
+  %46 = icmp ne i8 %29, 16
+  %47 = shl i64 %38, 1
+  %48 = zext i1 %46 to i64
+  %49 = or disjoint i64 %47, %48
+  %50 = xor i64 %.neg.i.i, -1
+  %51 = or i64 %49, %50
+  %52 = sub i64 2305843009213693950, %51
+  %53 = and i64 %52, %51
+  %54 = xor i64 %53, -1
+  %55 = shl i64 %54, 3
+  %56 = xor i64 %55, -1
+  %57 = and i64 %2, %56
+  %58 = xor i64 %40, %1
+  %59 = icmp uge i64 %43, %44
+  %60 = icmp ult i64 %1, %40
+  %61 = and i1 %59, %60
+  %62 = icmp ult i64 %1, %.0.i
+  %63 = icmp uge i64 %43, %45
+  %64 = or i1 %62, %63
+  %65 = and i1 %61, %64
+  %66 = icmp eq i64 %57, 0
+  %67 = icmp ugt i64 %2, %58
+  %68 = select i1 %66, i1 %67, i1 false
+  %69 = select i1 %41, i1 %65, i1 %68
+  br label %70
 
-47:                                               ; preds = %40
-  %48 = and i64 %35, %43
-  %49 = icmp ult i64 %44, %48
-  %50 = icmp uge i64 %1, %.0.i
-  %51 = and i1 %50, %49
-  br label %52
-
-52:                                               ; preds = %47, %40
-  %53 = phi i1 [ %51, %47 ], [ true, %40 ]
-  %54 = icmp ne i8 %38, 16
-  %55 = shl i64 %28, 1
-  %56 = zext i1 %54 to i64
-  %57 = or disjoint i64 %55, %56
-  %58 = xor i64 %.neg.i.i, -1
-  %59 = or i64 %57, %58
-  %60 = sub i64 2305843009213693950, %59
-  %61 = and i64 %60, %59
-  %62 = xor i64 %61, -1
-  %63 = shl i64 %62, 3
-  %64 = xor i64 %63, -1
-  %65 = and i64 %2, %64
-  %.not30 = icmp ne i64 %65, 0
-  %66 = xor i64 %35, %1
-  %67 = icmp ule i64 %2, %66
-  %68 = select i1 %.not30, i1 true, i1 %67
-  %69 = select i1 %41, i1 %53, i1 %68
-  %70 = xor i1 %69, true
-  br label %71
-
-71:                                               ; preds = %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit, %52
-  %.0 = phi i1 [ %70, %52 ], [ false, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit ]
+70:                                               ; preds = %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit, %31
+  %.0 = phi i1 [ %69, %31 ], [ false, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit ]
   ret i1 %.0
 }
 
@@ -1506,7 +1499,7 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typemb(ptr nou
   %or.cond5 = select i1 %17, i1 %11, i1 false
   %or.cond83 = select i1 %or.cond82, i1 true, i1 %or.cond5
   %18 = select i1 %16, i1 %9, i1 false
-  %spec.select86 = select i1 %or.cond83, i1 true, i1 %18
+  %spec.select = select i1 %or.cond83, i1 true, i1 %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2176
@@ -1516,7 +1509,7 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typemb(ptr nou
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(48) %22) #30
   %27 = trunc i64 %26 to i1
-  br i1 %27, label %28, label %46
+  br i1 %27, label %28, label %47
 
 28:                                               ; preds = %4
   %29 = and i32 %7, 6
@@ -1528,14 +1521,14 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typemb(ptr nou
 
 32:                                               ; preds = %28
   %33 = and i1 %15, %.not
-  br label %50
+  br label %51
 
 34:                                               ; preds = %28
   %not. = xor i1 %12, true
   %35 = select i1 %not., i1 %11, i1 false
   %36 = icmp sgt i8 %6, -1
   %37 = xor i1 %14, %36
-  %38 = select i1 %37, i1 %spec.select86, i1 false
+  %38 = select i1 %37, i1 %spec.select, i1 false
   %.not12 = xor i1 %13, true
   %or.cond14 = select i1 %.not12, i1 %9, i1 false
   br i1 %or.cond14, label %39, label %40
@@ -1543,7 +1536,7 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typemb(ptr nou
 39:                                               ; preds = %34
   %or.cond17.not = and i1 %15, %.not
   %or.cond19 = or i1 %17, %or.cond17.not
-  br i1 %or.cond19, label %43, label %.thread88
+  br i1 %or.cond19, label %44, label %.thread87
 
 40:                                               ; preds = %34
   %or.cond21 = select i1 %13, i1 true, i1 %9
@@ -1553,31 +1546,31 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typemb(ptr nou
   %or.cond24.not = and i1 %15, %.not
   %or.cond26 = and i1 %17, %14
   %or.cond84 = or i1 %or.cond24.not, %or.cond26
-  br i1 %or.cond84, label %43, label %.thread88
+  br i1 %or.cond84, label %44, label %.thread87
 
 42:                                               ; preds = %40
   %or.cond28.old = and i1 %16, %13
-  br i1 %or.cond28.old, label %43, label %.thread88
+  br i1 %or.cond28.old, label %44, label %.thread87
 
-.thread88:                                        ; preds = %39, %41, %42
+.thread87:                                        ; preds = %39, %41, %42
   %or.cond30 = and i1 %15, %13
   %or.cond32 = select i1 %or.cond30, i1 %9, i1 false
-  %spec.select = and i1 %14, %or.cond32
-  br label %43
+  %43 = and i1 %14, %or.cond32
+  br label %44
 
-43:                                               ; preds = %.thread88, %42, %41, %39
-  %44 = phi i1 [ true, %42 ], [ %spec.select, %.thread88 ], [ true, %41 ], [ true, %39 ]
-  %45 = select i1 %35, i1 %44, i1 %38
-  br label %50
+44:                                               ; preds = %42, %41, %39, %.thread87
+  %45 = phi i1 [ true, %42 ], [ true, %39 ], [ true, %41 ], [ %43, %.thread87 ]
+  %46 = select i1 %35, i1 %45, i1 %38
+  br label %51
 
-46:                                               ; preds = %4
-  %47 = xor i1 %13, true
-  %48 = select i1 %14, i1 %47, i1 false
-  %49 = select i1 %48, i1 true, i1 %spec.select86
-  br label %50
+47:                                               ; preds = %4
+  %48 = xor i1 %13, true
+  %49 = select i1 %14, i1 %48, i1 false
+  %50 = select i1 %49, i1 true, i1 %spec.select
+  br label %51
 
-50:                                               ; preds = %46, %43, %32
-  %.0 = phi i1 [ %33, %32 ], [ %45, %43 ], [ %49, %46 ]
+51:                                               ; preds = %47, %44, %32
+  %.0 = phi i1 [ %33, %32 ], [ %46, %44 ], [ %50, %47 ]
   ret i1 %.0
 }
 

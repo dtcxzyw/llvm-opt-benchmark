@@ -991,51 +991,48 @@ sdsReqType.exit:                                  ; preds = %49, %51, %53, %55
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.0.i67, i8 1)
   %.058 = select i1 %.not, i8 %.0.i67, i8 %spec.store.select
   %57 = zext nneg i8 %.058 to i64
-  %switch.gep94 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sdsAllocSize, i64 %57
-  %switch.load95 = load i64, ptr %switch.gep94, align 8
+  %switch.gep90 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sdsAllocSize, i64 %57
+  %switch.load91 = load i64, ptr %switch.gep90, align 8
   %58 = icmp eq i8 %6, %.058
-  br i1 %58, label %.thread, label %59
+  %59 = icmp samesign ult i8 %.058, %6
+  %60 = icmp samesign ugt i8 %.058, 1
+  %61 = and i1 %59, %60
+  %62 = select i1 %58, i1 true, i1 %61
+  %.pn = select i1 %62, i64 %.0.i, i64 %switch.load91
+  %.in = add i64 %1, 1
+  %63 = add i64 %.in, %.pn
+  br i1 %62, label %64, label %73
 
-59:                                               ; preds = %sdsReqType.exit
-  %60 = icmp samesign ult i8 %.058, %6
-  %61 = icmp samesign ugt i8 %.058, 1
-  %62 = and i1 %60, %61
-  br i1 %62, label %.thread, label %72
+64:                                               ; preds = %sdsReqType.exit
+  %65 = tail call i64 @je_nallocx(i64 noundef %63, i32 noundef 0) #27
+  %66 = tail call i64 @je_malloc_usable_size(ptr noundef %47) #25
+  %67 = icmp eq i64 %65, %66
+  br i1 %67, label %79, label %68
 
-.thread:                                          ; preds = %59, %sdsReqType.exit
-  %.in87 = add i64 %1, 1
-  %63 = add i64 %.in87, %.0.i
-  %64 = tail call i64 @je_nallocx(i64 noundef %63, i32 noundef 0) #27
-  %65 = tail call i64 @je_malloc_usable_size(ptr noundef %47) #25
-  %66 = icmp eq i64 %64, %65
-  br i1 %66, label %79, label %67
+68:                                               ; preds = %64
+  %69 = tail call ptr @zrealloc(ptr noundef %47, i64 noundef %63) #28
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %.critedge, label %71
 
-67:                                               ; preds = %.thread
-  %68 = tail call ptr @zrealloc(ptr noundef %47, i64 noundef %63) #28
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %.critedge, label %70
-
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %.0.i
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.0.i
   br label %79
 
-72:                                               ; preds = %59
-  %.in = add i64 %1, 1
-  %73 = add i64 %.in, %switch.load95
-  %74 = tail call noalias ptr @zmalloc(i64 noundef %73) #29
+73:                                               ; preds = %sdsReqType.exit
+  %74 = tail call noalias ptr @zmalloc(i64 noundef %63) #29
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.critedge, label %76
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %switch.load95
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %switch.load91
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull align 1 %0, i64 %spec.select, i1 false)
   tail call void @zfree(ptr noundef %47) #25
   %78 = getelementptr inbounds i8, ptr %77, i64 -1
   store i8 %.058, ptr %78, align 1, !tbaa !13
   br label %79
 
-79:                                               ; preds = %70, %.thread, %76
-  %.255 = phi ptr [ %77, %76 ], [ %71, %70 ], [ %0, %.thread ]
+79:                                               ; preds = %71, %64, %76
+  %.255 = phi ptr [ %77, %76 ], [ %72, %71 ], [ %0, %64 ]
   %80 = getelementptr inbounds nuw i8, ptr %.255, i64 %spec.select
   store i8 0, ptr %80, align 1, !tbaa !13
   %81 = getelementptr inbounds i8, ptr %.255, i64 -1
@@ -1111,8 +1108,8 @@ sdssetlen.exit:                                   ; preds = %79, %84, %86, %89, 
   store i64 %1, ptr %109, align 1, !tbaa !11
   br label %.critedge
 
-.critedge:                                        ; preds = %108, %105, %102, %99, %sdssetlen.exit, %72, %67, %sdsalloc.exit
-  %.0 = phi ptr [ %0, %sdsalloc.exit ], [ null, %67 ], [ null, %72 ], [ %.255, %sdssetlen.exit ], [ %.255, %99 ], [ %.255, %102 ], [ %.255, %105 ], [ %.255, %108 ]
+.critedge:                                        ; preds = %108, %105, %102, %99, %sdssetlen.exit, %73, %68, %sdsalloc.exit
+  %.0 = phi ptr [ %0, %sdsalloc.exit ], [ null, %68 ], [ null, %73 ], [ %.255, %sdssetlen.exit ], [ %.255, %99 ], [ %.255, %102 ], [ %.255, %105 ], [ %.255, %108 ]
   ret ptr %.0
 }
 

@@ -196,37 +196,31 @@ define dso_local void @set_initial_job_alias_list(ptr noundef %0) local_unnamed_
   %.not2639 = icmp eq ptr %5, null
   br i1 %.not2639, label %.critedge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %16
+._crit_edge:                                      ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.3, label %21, label %45
 
-.lr.ph:                                           ; preds = %1, %16
-  %6 = phi ptr [ %20, %16 ], [ %5, %1 ]
-  %.042 = phi i8 [ %.1, %16 ], [ 0, %1 ]
-  %.02041 = phi i1 [ %.121, %16 ], [ false, %1 ]
-  %.02240 = phi i1 [ %.3, %16 ], [ false, %1 ]
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %6 = phi ptr [ %20, %.lr.ph ], [ %5, %1 ]
+  %.042 = phi i8 [ %.1, %.lr.ph ], [ 0, %1 ]
+  %.02041 = phi i1 [ %.121, %.lr.ph ], [ false, %1 ]
+  %.02240 = phi i1 [ %.3, %.lr.ph ], [ false, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 320
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 67108864
   %.not30 = icmp eq i32 %9, 0
   %10 = and i32 %8, 67633152
   %11 = icmp ne i32 %10, 0
-  %.2 = select i1 %11, i1 true, i1 %.02240
   %.1 = select i1 %.not30, i8 %.042, i8 1
   %12 = zext i32 %8 to i64
   %13 = and i64 %12, 128
-  %.not31 = icmp eq i64 %13, 0
-  br i1 %.not31, label %16, label %14
-
-14:                                               ; preds = %.lr.ph
-  %15 = and i64 %12, 20480
-  %or.cond34 = icmp ne i64 %15, 0
-  %spec.select35 = select i1 %or.cond34, i1 true, i1 %.02041
-  br label %16
-
-16:                                               ; preds = %14, %.lr.ph
-  %.3 = phi i1 [ %.2, %.lr.ph ], [ true, %14 ]
-  %.121 = phi i1 [ %.02041, %.lr.ph ], [ %spec.select35, %14 ]
+  %.not31 = icmp ne i64 %13, 0
+  %14 = and i64 %12, 20480
+  %or.cond34 = icmp ne i64 %14, 0
+  %15 = select i1 %.not31, i1 true, i1 %11
+  %.3 = select i1 %15, i1 true, i1 %.02240
+  %16 = and i1 %.not31, %or.cond34
+  %.121 = select i1 %16, i1 true, i1 %.02041
   %17 = load i32, ptr %2, align 4
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %2, align 4
@@ -3468,7 +3462,7 @@ _get_ntasks_per_core.exit:                        ; preds = %155, %164
   %.1 = phi i1 [ true, %_get_ntasks_per_core.exit ], [ %or.cond405, %189 ], [ false, %185 ], [ false, %181 ]
   %or.cond = and i1 %.not357, %.not358
   %or.cond3 = and i1 %or.cond, %.not359
-  %195 = select i1 %or.cond3, i1 %.1, i1 false
+  %195 = and i1 %or.cond3, %.1
   %196 = getelementptr inbounds nuw i8, ptr %156, i64 64
   %197 = load ptr, ptr %196, align 8
   %198 = call ptr @bit_copy(ptr noundef %197) #14

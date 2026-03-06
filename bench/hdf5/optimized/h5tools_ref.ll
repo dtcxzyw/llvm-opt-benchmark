@@ -51,12 +51,12 @@ define range(i32 -1, 1) i32 @ref_path_table_lookup(ptr noundef %0, ptr noundef w
   %4 = alloca %struct.H5L_info2_t, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %22, label %6
+  br i1 %5, label %21, label %6
 
 6:                                                ; preds = %2
   %char0 = load i8, ptr %0, align 1
   switch i8 %char0, label %.tail.thread [
-    i8 0, label %22
+    i8 0, label %21
     i8 47, label %.tail
   ]
 
@@ -64,38 +64,32 @@ define range(i32 -1, 1) i32 @ref_path_table_lookup(ptr noundef %0, ptr noundef w
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %16, label %.tail.thread
+  br i1 %9, label %15, label %.tail.thread
 
 .tail.thread:                                     ; preds = %6, %.tail
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = load i64, ptr @thefile, align 8, !tbaa !12
   %11 = call i32 @H5Lget_info2(i64 noundef %10, ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 0) #11
-  %12 = icmp slt i32 %11, 0
-  br i1 %12, label %.critedge, label %13
-
-13:                                               ; preds = %.tail.thread
-  %14 = load i32, ptr %4, align 8, !tbaa !14
-  %15 = icmp slt i32 %14, 64
+  %12 = icmp sgt i32 %11, -1
+  %13 = load i32, ptr %4, align 8
+  %14 = icmp slt i32 %13, 64
+  %cond = select i1 %12, i1 %14, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %15, label %16, label %22
+  br i1 %cond, label %15, label %21
 
-16:                                               ; preds = %13, %.tail
-  %17 = load i64, ptr @thefile, align 8, !tbaa !12
-  %18 = call i32 @H5Oget_info_by_name3(i64 noundef %17, ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1, i64 noundef 0) #11
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %22, label %20
+15:                                               ; preds = %.tail.thread, %.tail
+  %16 = load i64, ptr @thefile, align 8, !tbaa !12
+  %17 = call i32 @H5Oget_info_by_name3(i64 noundef %16, ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1, i64 noundef 0) #11
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %21, label %19
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
-  br label %22
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
+  br label %21
 
-.critedge:                                        ; preds = %.tail.thread
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %22
-
-22:                                               ; preds = %6, %16, %.critedge, %2, %13, %20
-  %.07 = phi i32 [ -1, %13 ], [ -1, %.critedge ], [ 0, %20 ], [ -1, %6 ], [ -1, %2 ], [ -1, %16 ]
+21:                                               ; preds = %6, %15, %2, %.tail.thread, %19
+  %.07 = phi i32 [ -1, %.tail.thread ], [ -1, %2 ], [ 0, %19 ], [ -1, %6 ], [ -1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.07
 }
@@ -109,9 +103,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @get_next_xid() local_unnamed_addr #4 {
-  %1 = load i32, ptr @xid, align 4, !tbaa !18
+  %1 = load i32, ptr @xid, align 4, !tbaa !14
   %2 = add nsw i32 %1, 1
-  store i32 %2, ptr @xid, align 4, !tbaa !18
+  store i32 %2, ptr @xid, align 4, !tbaa !14
   ret i32 %1
 }
 
@@ -128,19 +122,19 @@ define void @get_fake_token(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %4
-  %9 = load i8, ptr @H5_libinit_g, align 1, !tbaa !19, !range !20, !noundef !21
+  %9 = load i8, ptr @H5_libinit_g, align 1, !tbaa !16, !range !18, !noundef !19
   %10 = trunc nuw i8 %9 to i1
-  %11 = load i8, ptr @H5_libterm_g, align 1, !range !20
+  %11 = load i8, ptr @H5_libterm_g, align 1, !range !18
   %12 = trunc nuw i8 %11 to i1
   %13 = select i1 %10, i1 true, i1 %12
-  br i1 %13, label %16, label %14, !prof !22
+  br i1 %13, label %16, label %14, !prof !20
 
 14:                                               ; preds = %8
   %15 = tail call i32 @H5open() #11
   br label %16
 
 16:                                               ; preds = %8, %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) @H5O_TOKEN_UNDEF_g, i64 16, i1 false), !tbaa.struct !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) @H5O_TOKEN_UNDEF_g, i64 16, i1 false), !tbaa.struct !21
   br label %17
 
 17:                                               ; preds = %16, %4
@@ -150,19 +144,19 @@ define void @get_fake_token(ptr noundef %0) local_unnamed_addr #0 {
   br label %29
 
 20:                                               ; preds = %1
-  %21 = load i8, ptr @H5_libinit_g, align 1, !tbaa !19, !range !20, !noundef !21
+  %21 = load i8, ptr @H5_libinit_g, align 1, !tbaa !16, !range !18, !noundef !19
   %22 = trunc nuw i8 %21 to i1
-  %23 = load i8, ptr @H5_libterm_g, align 1, !range !20
+  %23 = load i8, ptr @H5_libterm_g, align 1, !range !18
   %24 = trunc nuw i8 %23 to i1
   %25 = select i1 %22, i1 true, i1 %24
-  br i1 %25, label %28, label %26, !prof !22
+  br i1 %25, label %28, label %26, !prof !20
 
 26:                                               ; preds = %20
   %27 = tail call i32 @H5open() #11
   br label %28
 
 28:                                               ; preds = %20, %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) @H5O_TOKEN_UNDEF_g, i64 16, i1 false), !tbaa.struct !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) @H5O_TOKEN_UNDEF_g, i64 16, i1 false), !tbaa.struct !21
   br label %29
 
 29:                                               ; preds = %28, %17
@@ -186,19 +180,19 @@ define void @ref_path_table_gen_fake(ptr noundef readonly captures(address_is_nu
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr @H5_libinit_g, align 1, !tbaa !19, !range !20, !noundef !21
+  %10 = load i8, ptr @H5_libinit_g, align 1, !tbaa !16, !range !18, !noundef !19
   %11 = trunc nuw i8 %10 to i1
-  %12 = load i8, ptr @H5_libterm_g, align 1, !range !20
+  %12 = load i8, ptr @H5_libterm_g, align 1, !range !18
   %13 = trunc nuw i8 %12 to i1
   %14 = select i1 %11, i1 true, i1 %13
-  br i1 %14, label %17, label %15, !prof !22
+  br i1 %14, label %17, label %15, !prof !20
 
 15:                                               ; preds = %9
   %16 = tail call i32 @H5open() #11
   br label %17
 
 17:                                               ; preds = %15, %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(16) @H5O_TOKEN_UNDEF_g, i64 16, i1 false), !tbaa.struct !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(16) @H5O_TOKEN_UNDEF_g, i64 16, i1 false), !tbaa.struct !21
   br label %18
 
 18:                                               ; preds = %17, %5
@@ -208,19 +202,19 @@ define void @ref_path_table_gen_fake(ptr noundef readonly captures(address_is_nu
   br label %get_fake_token.exit
 
 21:                                               ; preds = %2
-  %22 = load i8, ptr @H5_libinit_g, align 1, !tbaa !19, !range !20, !noundef !21
+  %22 = load i8, ptr @H5_libinit_g, align 1, !tbaa !16, !range !18, !noundef !19
   %23 = trunc nuw i8 %22 to i1
-  %24 = load i8, ptr @H5_libterm_g, align 1, !range !20
+  %24 = load i8, ptr @H5_libterm_g, align 1, !range !18
   %25 = trunc nuw i8 %24 to i1
   %26 = select i1 %23, i1 true, i1 %25
-  br i1 %26, label %29, label %27, !prof !22
+  br i1 %26, label %29, label %27, !prof !20
 
 27:                                               ; preds = %21
   %28 = tail call i32 @H5open() #11
   br label %29
 
 29:                                               ; preds = %27, %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(16) @H5O_TOKEN_UNDEF_g, i64 16, i1 false), !tbaa.struct !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(16) @H5O_TOKEN_UNDEF_g, i64 16, i1 false), !tbaa.struct !21
   br label %get_fake_token.exit
 
 get_fake_token.exit:                              ; preds = %18, %29
@@ -363,14 +357,14 @@ declare ptr @H5SL_create(i32 noundef, ptr noundef) local_unnamed_addr #1
 define internal i32 @ref_path_table_cmp(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 0, ptr %3, align 4, !tbaa !18
+  store i32 0, ptr %3, align 4, !tbaa !14
   %4 = load i64, ptr @thefile, align 8, !tbaa !12
   %5 = icmp sgt i64 %4, 0
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
   %7 = call i32 @H5Otoken_cmp(i64 noundef %4, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #11
-  %.pre = load i32, ptr %3, align 4, !tbaa !18
+  %.pre = load i32, ptr %3, align 4, !tbaa !14
   br label %10
 
 8:                                                ; preds = %2
@@ -469,14 +463,12 @@ attributes #13 = { nounwind willreturn memory(read) }
 !11 = !{!"p1 omnipotent char", !5, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
-!14 = !{!15, !16, i64 0}
-!15 = !{!"", !16, i64 0, !17, i64 4, !13, i64 8, !16, i64 16, !6, i64 24}
-!16 = !{!"int", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!17, !17, i64 0}
 !17 = !{!"_Bool", !6, i64 0}
-!18 = !{!16, !16, i64 0}
-!19 = !{!17, !17, i64 0}
-!20 = !{i8 0, i8 2}
-!21 = !{}
-!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!23 = !{i64 0, i64 16, !24}
-!24 = !{!6, !6, i64 0}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!21 = !{i64 0, i64 16, !22}
+!22 = !{!6, !6, i64 0}

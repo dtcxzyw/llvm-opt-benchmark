@@ -918,39 +918,37 @@ define internal fastcc ptr @get_error_line_from_tokenizer_buffers(ptr noundef re
 21:                                               ; preds = %18, %10
   %.032 = phi ptr [ %20, %18 ], [ %16, %10 ]
   %22 = icmp sgt i64 %15, 0
-  br i1 %22, label %.lr.ph, label %.thread
+  br i1 %22, label %.lr.ph, label %._crit_edge
 
-23:                                               ; preds = %29
-  %24 = add i32 %.03149, 1
+23:                                               ; preds = %.lr.ph
+  %24 = add i32 %.03146, 1
   %25 = sext i32 %24 to i64
   %26 = icmp sgt i64 %15, %25
-  br i1 %26, label %.lr.ph, label %.thread, !llvm.loop !50
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 .lr.ph:                                           ; preds = %21, %23
-  %.03149 = phi i32 [ %24, %23 ], [ 0, %21 ]
-  %.03348 = phi ptr [ %30, %23 ], [ %6, %21 ]
-  %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03348, i32 noundef 10) #8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread, label %29
+  %.03146 = phi i32 [ %24, %23 ], [ 0, %21 ]
+  %.03345 = phi ptr [ %29, %23 ], [ %6, %21 ]
+  %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03345, i32 noundef 10) #8
+  %28 = icmp ne ptr %27, null
+  %29 = getelementptr i8, ptr %27, i64 1
+  %30 = icmp ule ptr %29, %.032
+  %cond = select i1 %28, i1 %30, i1 false
+  br i1 %cond, label %23, label %._crit_edge
 
-29:                                               ; preds = %.lr.ph
-  %30 = getelementptr i8, ptr %27, i64 1
-  %.not47 = icmp ugt ptr %30, %.032
-  br i1 %.not47, label %.thread, label %23
-
-.thread:                                          ; preds = %29, %23, %.lr.ph, %21
-  %.1 = phi ptr [ %6, %21 ], [ %30, %23 ], [ %.03348, %.lr.ph ], [ %.03348, %29 ]
+._crit_edge:                                      ; preds = %.lr.ph, %23, %21
+  %.1 = phi ptr [ %6, %21 ], [ %.03345, %.lr.ph ], [ %29, %23 ]
   %31 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 10) #8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %36
 
-33:                                               ; preds = %.thread
+33:                                               ; preds = %._crit_edge
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #8
   %35 = getelementptr i8, ptr %.1, i64 %34
   br label %36
 
-36:                                               ; preds = %33, %.thread
-  %.0 = phi ptr [ %35, %33 ], [ %31, %.thread ]
+36:                                               ; preds = %33, %._crit_edge
+  %.0 = phi ptr [ %35, %33 ], [ %31, %._crit_edge ]
   %37 = ptrtoint ptr %.0 to i64
   %38 = ptrtoint ptr %.1 to i64
   %39 = sub i64 %37, %38

@@ -168,7 +168,7 @@ define range(i64 0, -4294967294) i64 @_ZNK7rocksdb17OffpeakTimeOption18GetOffpea
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = icmp eq i32 %4, %6
-  br i1 %7, label %26, label %8
+  br i1 %7, label %23, label %8
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %1, align 8, !tbaa !19
@@ -180,30 +180,21 @@ define range(i64 0, -4294967294) i64 @_ZNK7rocksdb17OffpeakTimeOption18GetOffpea
   %14 = icmp sgt i32 %4, %6
   %.not16 = icmp sle i32 %4, %13
   %15 = icmp sle i32 %13, %6
-  br i1 %14, label %16, label %17
-
-16:                                               ; preds = %8
-  %narrow18 = or i1 %.not16, %15
-  br label %18
-
-17:                                               ; preds = %8
   %narrow = and i1 %.not16, %15
-  br label %18
+  %narrow18 = or i1 %.not16, %15
+  %storemerge.in = select i1 %14, i1 %narrow18, i1 %narrow
+  %16 = icmp sgt i32 %4, %11
+  %17 = add nsw i32 %4, 86400
+  %.pn = select i1 %16, i32 %4, i32 %17
+  %18 = sub nsw i32 %.pn, %11
+  %19 = zext i32 %18 to i64
+  %20 = shl nuw i64 %19, 32
+  %21 = zext i1 %storemerge.in to i64
+  %22 = or disjoint i64 %20, %21
+  br label %23
 
-18:                                               ; preds = %17, %16
-  %storemerge.in = phi i1 [ %narrow, %17 ], [ %narrow18, %16 ]
-  %19 = icmp sgt i32 %4, %11
-  %20 = add nsw i32 %4, 86400
-  %.pn = select i1 %19, i32 %4, i32 %20
-  %21 = sub nsw i32 %.pn, %11
-  %22 = zext i32 %21 to i64
-  %23 = shl nuw i64 %22, 32
-  %24 = zext i1 %storemerge.in to i64
-  %25 = or disjoint i64 %23, %24
-  br label %26
-
-26:                                               ; preds = %2, %18
-  %.sroa.0.0.insert.insert = phi i64 [ 0, %2 ], [ %25, %18 ]
+23:                                               ; preds = %2, %8
+  %.sroa.0.0.insert.insert = phi i64 [ 0, %2 ], [ %22, %8 ]
   ret i64 %.sroa.0.0.insert.insert
 }
 

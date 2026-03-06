@@ -2546,34 +2546,29 @@ define internal fastcc void @manage_tempaddrs(ptr noundef %0, ptr noundef %1, i3
   %64 = phi i32 [ %2, %6 ], [ %60, %58 ]
   %65 = load volatile ptr, ptr %8, align 8
   %66 = icmp eq ptr %65, %8
-  br i1 %66, label %67, label %72
-
-67:                                               ; preds = %.loopexit
-  %68 = icmp ne i32 %64, 0
-  %69 = icmp ne i32 %63, 0
-  %70 = select i1 %68, i1 true, i1 %69
+  %67 = icmp ne i32 %64, 0
+  %68 = icmp ne i32 %63, 0
+  %69 = select i1 %67, i1 true, i1 %68
+  %70 = select i1 %66, i1 %69, i1 false
   %71 = or i1 %4, %70
-  br i1 %71, label %73, label %78
+  br i1 %71, label %72, label %77
 
 72:                                               ; preds = %.loopexit
-  br i1 %4, label %73, label %78
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %74 = load i32, ptr %73, align 8
+  %75 = icmp sgt i32 %74, 0
+  br i1 %75, label %76, label %77
 
-73:                                               ; preds = %67, %72
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %75 = load i32, ptr %74, align 8
-  %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %77, label %78
-
-77:                                               ; preds = %73
+76:                                               ; preds = %72
   tail call void @_raw_read_unlock_bh(ptr noundef nonnull %7) #20
   tail call fastcc void @ipv6_create_tempaddr(ptr noundef %1, i1 noundef zeroext false)
-  br label %79
+  br label %78
 
-78:                                               ; preds = %67, %73, %72
+77:                                               ; preds = %72, %.loopexit
   tail call void @_raw_read_unlock_bh(ptr noundef nonnull %7) #20
-  br label %79
+  br label %78
 
-79:                                               ; preds = %78, %77
+78:                                               ; preds = %77, %76
   ret void
 }
 

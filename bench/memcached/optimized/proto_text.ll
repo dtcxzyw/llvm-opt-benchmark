@@ -5309,8 +5309,8 @@ sub_0:                                            ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !66
   %8 = load i8, ptr %7, align 1
-  %.not49 = icmp eq i8 %8, 48
-  br i1 %.not49, label %sub_1, label %.tail
+  %.not48 = icmp eq i8 %8, 48
+  br i1 %.not48, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -5345,101 +5345,99 @@ set_noreply_maybe.exit:                           ; preds = %.tail, %17, %20
   %25 = icmp eq i64 %2, 4
   %or.cond = select i1 %12, i1 true, i1 %24
   %or.cond47 = select i1 %25, i1 %or.cond, i1 false
-  br i1 %or.cond47, label %.critedge, label %26
+  %26 = icmp eq i64 %2, 5
+  %or.cond3 = select i1 %26, i1 %12, i1 false
+  %27 = select i1 %or.cond3, i1 %24, i1 false
+  %28 = select i1 %or.cond47, i1 true, i1 %27
+  br i1 %28, label %.critedge, label %29
 
-26:                                               ; preds = %set_noreply_maybe.exit
-  %27 = icmp eq i64 %2, 5
-  %or.cond3 = select i1 %27, i1 %12, i1 false
-  %spec.select = select i1 %or.cond3, i1 %24, i1 false
-  br i1 %spec.select, label %.critedge, label %28
-
-28:                                               ; preds = %26
+29:                                               ; preds = %set_noreply_maybe.exit
   tail call void @out_string(ptr noundef nonnull %0, ptr noundef nonnull @.str.121) #13
-  br label %77
+  br label %78
 
-.critedge:                                        ; preds = %26, %set_noreply_maybe.exit, %3
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !66
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load i64, ptr %31, align 8, !tbaa !68
-  %33 = icmp ugt i64 %32, 250
-  br i1 %33, label %34, label %35
-
-34:                                               ; preds = %.critedge
-  tail call void @out_string(ptr noundef %0, ptr noundef nonnull @.str.51) #13
-  br label %77
+.critedge:                                        ; preds = %set_noreply_maybe.exit, %3
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !66
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = load i64, ptr %32, align 8, !tbaa !68
+  %34 = icmp ugt i64 %33, 250
+  br i1 %34, label %35, label %36
 
 35:                                               ; preds = %.critedge
-  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !118
-  %.not = icmp eq i32 %36, 0
-  br i1 %.not, label %38, label %37
+  tail call void @out_string(ptr noundef %0, ptr noundef nonnull @.str.51) #13
+  br label %78
 
-37:                                               ; preds = %35
-  tail call void @stats_prefix_record_delete(ptr noundef %30, i64 noundef %32) #13
-  br label %38
+36:                                               ; preds = %.critedge
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !118
+  %.not = icmp eq i32 %37, 0
+  br i1 %.not, label %39, label %38
 
-38:                                               ; preds = %37, %35
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %40 = load ptr, ptr %39, align 8, !tbaa !28
-  %41 = call ptr @item_get_locked(ptr noundef %30, i64 noundef %32, ptr noundef %40, i1 noundef zeroext false, ptr noundef nonnull %4) #13
-  %.not45 = icmp eq ptr %41, null
-  %42 = load ptr, ptr %39, align 8, !tbaa !28
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 360
-  %44 = call i32 @pthread_mutex_lock(ptr noundef nonnull %43) #13
-  %45 = load ptr, ptr %39, align 8, !tbaa !28
-  br i1 %.not45, label %69, label %46
+38:                                               ; preds = %36
+  tail call void @stats_prefix_record_delete(ptr noundef %31, i64 noundef %33) #13
+  br label %39
 
-46:                                               ; preds = %38
-  %47 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %48 = load i8, ptr %47, align 8, !tbaa !29
-  %49 = and i8 %48, 63
-  %50 = zext nneg i8 %49 to i64
-  %51 = getelementptr inbounds nuw [64 x i8], ptr %45, i64 %50
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 664
-  %53 = load i64, ptr %52, align 8, !tbaa !110
-  %54 = add i64 %53, 1
-  store i64 %54, ptr %52, align 8, !tbaa !110
-  %55 = getelementptr inbounds nuw i8, ptr %45, i64 360
-  %56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #13
-  %57 = load i32, ptr @logger_key, align 4, !tbaa !27
-  %58 = call ptr @pthread_getspecific(i32 noundef %57) #13
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 84
-  %60 = load i16, ptr %59, align 4, !tbaa !102
-  %61 = and i16 %60, 8192
-  %.not46 = icmp eq i16 %61, 0
-  br i1 %.not46, label %64, label %62
+39:                                               ; preds = %38, %36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %41 = load ptr, ptr %40, align 8, !tbaa !28
+  %42 = call ptr @item_get_locked(ptr noundef %31, i64 noundef %33, ptr noundef %41, i1 noundef zeroext false, ptr noundef nonnull %4) #13
+  %.not45 = icmp eq ptr %42, null
+  %43 = load ptr, ptr %40, align 8, !tbaa !28
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 360
+  %45 = call i32 @pthread_mutex_lock(ptr noundef nonnull %44) #13
+  %46 = load ptr, ptr %40, align 8, !tbaa !28
+  br i1 %.not45, label %70, label %47
 
-62:                                               ; preds = %46
-  %63 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %58, i32 noundef 10, ptr noundef nonnull %41, i32 noundef 1) #13
-  br label %64
+47:                                               ; preds = %39
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  %49 = load i8, ptr %48, align 8, !tbaa !29
+  %50 = and i8 %49, 63
+  %51 = zext nneg i8 %50 to i64
+  %52 = getelementptr inbounds nuw [64 x i8], ptr %46, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 664
+  %54 = load i64, ptr %53, align 8, !tbaa !110
+  %55 = add i64 %54, 1
+  store i64 %55, ptr %53, align 8, !tbaa !110
+  %56 = getelementptr inbounds nuw i8, ptr %46, i64 360
+  %57 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %56) #13
+  %58 = load i32, ptr @logger_key, align 4, !tbaa !27
+  %59 = call ptr @pthread_getspecific(i32 noundef %58) #13
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 84
+  %61 = load i16, ptr %60, align 4, !tbaa !102
+  %62 = and i16 %61, 8192
+  %.not46 = icmp eq i16 %62, 0
+  br i1 %.not46, label %65, label %63
 
-64:                                               ; preds = %62, %46
-  %65 = load i32, ptr %4, align 4, !tbaa !27
-  call void @do_item_unlink(ptr noundef nonnull %41, i32 noundef %65) #13
-  %66 = load ptr, ptr %39, align 8, !tbaa !28
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 6960
-  %68 = load ptr, ptr %67, align 8, !tbaa !105
-  call void @storage_delete(ptr noundef %68, ptr noundef nonnull %41) #13
-  call void @do_item_remove(ptr noundef nonnull %41) #13
-  br label %75
+63:                                               ; preds = %47
+  %64 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %59, i32 noundef 10, ptr noundef nonnull %42, i32 noundef 1) #13
+  br label %65
 
-69:                                               ; preds = %38
-  %70 = getelementptr inbounds nuw i8, ptr %45, i64 448
-  %71 = load i64, ptr %70, align 8, !tbaa !109
-  %72 = add i64 %71, 1
-  store i64 %72, ptr %70, align 8, !tbaa !109
-  %73 = getelementptr inbounds nuw i8, ptr %45, i64 360
-  %74 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %73) #13
-  br label %75
+65:                                               ; preds = %63, %47
+  %66 = load i32, ptr %4, align 4, !tbaa !27
+  call void @do_item_unlink(ptr noundef nonnull %42, i32 noundef %66) #13
+  %67 = load ptr, ptr %40, align 8, !tbaa !28
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 6960
+  %69 = load ptr, ptr %68, align 8, !tbaa !105
+  call void @storage_delete(ptr noundef %69, ptr noundef nonnull %42) #13
+  call void @do_item_remove(ptr noundef nonnull %42) #13
+  br label %76
 
-75:                                               ; preds = %69, %64
-  %.str.4.sink = phi ptr [ @.str.4, %69 ], [ @.str.122, %64 ]
+70:                                               ; preds = %39
+  %71 = getelementptr inbounds nuw i8, ptr %46, i64 448
+  %72 = load i64, ptr %71, align 8, !tbaa !109
+  %73 = add i64 %72, 1
+  store i64 %73, ptr %71, align 8, !tbaa !109
+  %74 = getelementptr inbounds nuw i8, ptr %46, i64 360
+  %75 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %74) #13
+  br label %76
+
+76:                                               ; preds = %70, %65
+  %.str.4.sink = phi ptr [ @.str.4, %70 ], [ @.str.122, %65 ]
   call void @out_string(ptr noundef nonnull %0, ptr noundef nonnull %.str.4.sink) #13
-  %76 = load i32, ptr %4, align 4, !tbaa !27
-  call void @item_unlock(i32 noundef %76) #13
-  br label %77
+  %77 = load i32, ptr %4, align 4, !tbaa !27
+  call void @item_unlock(i32 noundef %77) #13
+  br label %78
 
-77:                                               ; preds = %28, %75, %34
+78:                                               ; preds = %29, %76, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

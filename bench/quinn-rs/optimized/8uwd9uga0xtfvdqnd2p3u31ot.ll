@@ -264,7 +264,7 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   store i32 %1, ptr %23, align 4
   %24 = call noundef ptr @_ZN7socket26socket6Socket15set_nonblocking17hab70d62cc23a519aE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i1 noundef zeroext true)
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %25, label %131
+  br i1 %.not, label %25, label %130
 
 25:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -274,7 +274,7 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %29 = load ptr, ptr %28, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br i1 %27, label %131, label %30
+  br i1 %27, label %130, label %30
 
 30:                                               ; preds = %25
   %31 = ptrtoint ptr %29 to i64
@@ -297,7 +297,7 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %42 = load i8, ptr %41, align 1, !range !8
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %38, label %131, label %43
+  br i1 %38, label %130, label %43
 
 43:                                               ; preds = %36
   %44 = trunc nuw i8 %42 to i1
@@ -539,104 +539,100 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   call void @_ZN9quinn_udp3imp27set_socket_option_supported17hf25646a1e17ea1b3E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 0, i32 noundef 10, i32 noundef 3)
   %114 = load i8, ptr %7, align 8, !range !8, !noundef !5
   %115 = trunc nuw i8 %114 to i1
-  br i1 %115, label %116, label %119
-
-116:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf7c05e80c761017bE.exit"
-  %117 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %118 = load ptr, ptr %117, align 8, !nonnull !5, !noundef !5
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %117 = load ptr, ptr %116, align 8, !nonnull !5
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %119 = load i8, ptr %118, align 1, !range !8
+  %120 = xor i8 %119, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %131
+  br i1 %115, label %130, label %121
 
-119:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf7c05e80c761017bE.exit"
-  %120 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %121 = load i8, ptr %120, align 1, !range !8, !noundef !5
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+121:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf7c05e80c761017bE.exit"
   br i1 %33, label %125, label %122
 
-122:                                              ; preds = %119
+122:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN9quinn_udp3imp27set_socket_option_supported17hf25646a1e17ea1b3E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 23, i32 noundef 3)
   %123 = load i8, ptr %6, align 8, !range !8, !noundef !5
   %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %128, label %132
+  br i1 %124, label %127, label %131
 
-125:                                              ; preds = %119
-  %126 = xor i8 %121, 1
-  %127 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 0, i32 noundef 8, i32 noundef 1)
-  %.not154 = icmp eq ptr %127, null
-  br i1 %.not154, label %.thread183, label %131
+125:                                              ; preds = %121
+  %126 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 0, i32 noundef 8, i32 noundef 1)
+  %.not154 = icmp eq ptr %126, null
+  br i1 %.not154, label %.thread179, label %130
 
-128:                                              ; preds = %122
-  %129 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %130 = load ptr, ptr %129, align 8, !nonnull !5, !noundef !5
+127:                                              ; preds = %122
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %129 = load ptr, ptr %128, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %131
+  br label %130
 
-131:                                              ; preds = %36, %25, %2, %149, %147, %132, %125, %128, %116
-  %.sink = phi ptr [ %148, %147 ], [ %137, %132 ], [ %127, %125 ], [ %153, %149 ], [ %130, %128 ], [ %118, %116 ], [ %29, %25 ], [ %24, %2 ], [ %40, %36 ]
+130:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf7c05e80c761017bE.exit", %36, %25, %2, %148, %146, %131, %125, %127
+  %.sink = phi ptr [ %147, %146 ], [ %136, %131 ], [ %126, %125 ], [ %152, %148 ], [ %129, %127 ], [ %40, %36 ], [ %29, %25 ], [ %24, %2 ], [ %117, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf7c05e80c761017bE.exit" ]
   store ptr %.sink, ptr %0, align 8
-  br label %158
+  br label %157
 
-132:                                              ; preds = %122
-  %133 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %134 = load i8, ptr %133, align 1, !range !8, !noundef !5
-  %135 = and i8 %134, %121
-  %136 = xor i8 %135, 1
+131:                                              ; preds = %122
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %133 = load i8, ptr %132, align 1, !range !8, !noundef !5
+  %134 = and i8 %133, %119
+  %135 = xor i8 %134, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %137 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 49, i32 noundef 1)
-  %.not156 = icmp eq ptr %137, null
-  br i1 %.not156, label %147, label %131
+  %136 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 49, i32 noundef 1)
+  %.not156 = icmp eq ptr %136, null
+  br i1 %.not156, label %146, label %130
 
-.thread183:                                       ; preds = %149, %125
-  %.sroa.090.1 = phi i8 [ %126, %125 ], [ %157, %149 ]
-  %138 = call { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
-  %139 = extractvalue { i64, i32 } %138, 0
-  %140 = extractvalue { i64, i32 } %138, 1
-  store i64 %139, ptr %4, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %140, ptr %141, align 8
-  %142 = call { i64, i32 } @_ZN3std4time7Instant11checked_sub17h8481916eb82effbcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef 120, i32 noundef 0)
-  %143 = extractvalue { i64, i32 } %142, 1
-  %.not160 = icmp eq i32 %143, 1000000000
-  %144 = extractvalue { i64, i32 } %142, 0
-  %.sroa.0134.0 = select i1 %.not160, i64 %139, i64 %144
-  %.sroa.3.0 = select i1 %.not160, i32 %140, i32 %143
-  %145 = call noundef i64 @_ZN9quinn_udp3imp3gso16max_gso_segments17h73c40b0f40770412E()
-  %146 = call noundef i64 @_ZN9quinn_udp3imp3gro12gro_segments17hb58c75954bff324dE()
+.thread179:                                       ; preds = %148, %125
+  %.sroa.090.1 = phi i8 [ %120, %125 ], [ %156, %148 ]
+  %137 = call { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
+  %138 = extractvalue { i64, i32 } %137, 0
+  %139 = extractvalue { i64, i32 } %137, 1
+  store i64 %138, ptr %4, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %139, ptr %140, align 8
+  %141 = call { i64, i32 } @_ZN3std4time7Instant11checked_sub17h8481916eb82effbcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef 120, i32 noundef 0)
+  %142 = extractvalue { i64, i32 } %141, 1
+  %.not160 = icmp eq i32 %142, 1000000000
+  %143 = extractvalue { i64, i32 } %141, 0
+  %.sroa.0134.0 = select i1 %.not160, i64 %138, i64 %143
+  %.sroa.3.0 = select i1 %.not160, i32 %139, i32 %142
+  %144 = call noundef i64 @_ZN9quinn_udp3imp3gso16max_gso_segments17h73c40b0f40770412E()
+  %145 = call noundef i64 @_ZN9quinn_udp3imp3gro12gro_segments17hb58c75954bff324dE()
   store i64 0, ptr %0, align 8
   %.sroa.075.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0134.0, ptr %.sroa.075.sroa.4.0..sroa_idx, align 8
   %.sroa.075.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.3.0, ptr %.sroa.075.sroa.5.0..sroa_idx, align 8
   %.sroa.075.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %145, ptr %.sroa.075.sroa.7.0..sroa_idx, align 8
+  store i64 %144, ptr %.sroa.075.sroa.7.0..sroa_idx, align 8
   %.sroa.576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %146, ptr %.sroa.576.0..sroa_idx, align 8
+  store i64 %145, ptr %.sroa.576.0..sroa_idx, align 8
   %.sroa.677.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %.sroa.677.0..sroa_idx, align 8
-  br label %158
+  br label %157
 
-147:                                              ; preds = %132
-  %148 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 66, i32 noundef 1)
-  %.not158 = icmp eq ptr %148, null
-  br i1 %.not158, label %149, label %131
+146:                                              ; preds = %131
+  %147 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 66, i32 noundef 1)
+  %.not158 = icmp eq ptr %147, null
+  br i1 %.not158, label %148, label %130
 
-149:                                              ; preds = %147
+148:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9quinn_udp3imp27set_socket_option_supported17hf25646a1e17ea1b3E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 62, i32 noundef 1)
-  %150 = load i8, ptr %5, align 8, !range !8, !noundef !5
-  %151 = trunc nuw i8 %150 to i1
-  %152 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %153 = load ptr, ptr %152, align 8, !nonnull !5
-  %154 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %155 = load i8, ptr %154, align 1, !range !8
-  %156 = xor i8 %155, 1
-  %157 = or i8 %156, %136
+  %149 = load i8, ptr %5, align 8, !range !8, !noundef !5
+  %150 = trunc nuw i8 %149 to i1
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %152 = load ptr, ptr %151, align 8, !nonnull !5
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %154 = load i8, ptr %153, align 1, !range !8
+  %155 = xor i8 %154, 1
+  %156 = or i8 %155, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %151, label %131, label %.thread183
+  br i1 %150, label %130, label %.thread179
 
-158:                                              ; preds = %.thread183, %131
-  %.sroa.090.1.sink = phi i8 [ %.sroa.090.1, %.thread183 ], [ 2, %131 ]
+157:                                              ; preds = %.thread179, %130
+  %.sroa.090.1.sink = phi i8 [ %.sroa.090.1, %.thread179 ], [ 2, %130 ]
   %.sroa.778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 %.sroa.090.1.sink, ptr %.sroa.778.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %23)

@@ -6067,21 +6067,14 @@ define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$
   %3 = add nsw i32 %2, -33
   %.0 = icmp ult i32 %3, 15
   %4 = icmp samesign ugt i32 %2, 57
-  br i1 %4, label %5, label %.thread12
-
-5:                                                ; preds = %1
-  %6 = icmp samesign ult i32 %2, 65
-  %7 = icmp samesign ugt i32 %2, 90
-  br i1 %7, label %8, label %.thread12
-
-8:                                                ; preds = %5
-  %9 = icmp samesign ugt i32 %2, 122
-  %spec.select.v = select i1 %9, i32 127, i32 97
-  %spec.select = icmp samesign ult i32 %2, %spec.select.v
-  br label %.thread12
-
-.thread12:                                        ; preds = %8, %1, %5
-  %.06 = phi i1 [ %.0, %1 ], [ %spec.select, %8 ], [ %6, %5 ]
+  %5 = icmp samesign ult i32 %2, 65
+  %.04 = select i1 %4, i1 %5, i1 %.0
+  %6 = icmp samesign ugt i32 %2, 90
+  %7 = icmp samesign ult i32 %2, 97
+  %.05 = select i1 %6, i1 %7, i1 %.04
+  %8 = icmp samesign ugt i32 %2, 122
+  %9 = icmp samesign ult i32 %2, 127
+  %.06 = select i1 %8, i1 %9, i1 %.05
   ret i1 %.06
 }
 
@@ -21262,29 +21255,22 @@ define hidden noundef zeroext i1 @_ZN10tokenizers14pre_tokenizers11punctuation7i
   %2 = add nsw i32 %0, -33
   %.0.i = icmp ult i32 %2, 15
   %3 = icmp samesign ugt i32 %0, 57
-  br i1 %3, label %4, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159.exit"
-
-4:                                                ; preds = %1
-  %5 = icmp samesign ult i32 %0, 65
-  %6 = icmp samesign ugt i32 %0, 90
-  br i1 %6, label %7, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159.exit"
-
-7:                                                ; preds = %4
-  %8 = icmp samesign ugt i32 %0, 122
-  %spec.select.v.i = select i1 %8, i32 127, i32 97
-  %spec.select.i = icmp samesign ult i32 %0, %spec.select.v.i
-  br i1 %spec.select.i, label %11, label %9
-
-"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159.exit": ; preds = %1, %4
-  %.06.i = phi i1 [ %.0.i, %1 ], [ %5, %4 ]
+  %4 = icmp samesign ult i32 %0, 65
+  %.04.i = select i1 %3, i1 %4, i1 %.0.i
+  %5 = icmp samesign ugt i32 %0, 90
+  %6 = icmp samesign ult i32 %0, 97
+  %.05.i = select i1 %5, i1 %6, i1 %.04.i
+  %7 = icmp samesign ugt i32 %0, 122
+  %8 = icmp samesign ult i32 %0, 127
+  %.06.i = select i1 %7, i1 %8, i1 %.05.i
   br i1 %.06.i, label %11, label %9
 
-9:                                                ; preds = %7, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159.exit"
+9:                                                ; preds = %1
   %10 = tail call noundef zeroext i1 @_ZN18unicode_categories17UnicodeCategories14is_punctuation17he7d2a917fef1699eE.llvm.787574339177529159(i32 noundef %0)
   br label %11
 
-11:                                               ; preds = %7, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159.exit", %9
-  %.0 = phi i1 [ %10, %9 ], [ true, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159.exit" ], [ true, %7 ]
+11:                                               ; preds = %1, %9
+  %.0 = phi i1 [ %10, %9 ], [ true, %1 ]
   ret i1 %.0
 }
 

@@ -274,19 +274,13 @@ define dso_local noundef zeroext i1 @mmap_address_hint_valid(i64 noundef %0, i64
 16:                                               ; preds = %14, %8
   %17 = phi i64 [ %13, %8 ], [ %15, %14 ]
   %18 = sub i64 %17, %1
-  %19 = icmp ult i64 %18, %0
-  br i1 %19, label %25, label %20
-
-20:                                               ; preds = %16
-  %21 = icmp ugt i64 %0, 140737488351232
-  %22 = add i64 %1, %0
-  %23 = icmp ult i64 %22, 140737488351233
-  %24 = xor i1 %21, %23
-  br label %25
-
-25:                                               ; preds = %20, %16
-  %26 = phi i1 [ %24, %20 ], [ false, %16 ]
-  ret i1 %26
+  %19 = icmp uge i64 %18, %0
+  %20 = icmp ugt i64 %0, 140737488351232
+  %21 = add i64 %1, %0
+  %22 = icmp ult i64 %21, 140737488351233
+  %23 = xor i1 %20, %22
+  %24 = and i1 %23, %19
+  ret i1 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none)

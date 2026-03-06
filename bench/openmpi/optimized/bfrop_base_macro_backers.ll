@@ -292,32 +292,24 @@ pmix_bfrops_base_tma_check_nspace.exit.thread.i:  ; preds = %pmix_bfrops_base_tm
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %22 = load i32, ptr %21, align 4, !tbaa !9
   %23 = icmp eq i32 %20, %22
-  br i1 %23, label %pmix_bfrops_base_tma_check_procid.exit, label %24
-
-24:                                               ; preds = %pmix_bfrops_base_tma_check_nspace.exit.thread.i
-  %25 = icmp eq i32 %20, -2
-  %26 = icmp eq i32 %22, -2
-  %or.cond.i7.i = or i1 %25, %26
+  %24 = icmp eq i32 %20, -2
+  %25 = icmp eq i32 %22, -2
+  %or.cond.i7.i = or i1 %24, %25
+  %.0.i8.i = or i1 %23, %or.cond.i7.i
   br label %pmix_bfrops_base_tma_check_procid.exit
 
-pmix_bfrops_base_tma_check_procid.exit:           ; preds = %pmix_bfrops_base_tma_check_nspace.exit.i, %pmix_bfrops_base_tma_check_nspace.exit.thread.i, %24
-  %.0.i = phi i1 [ false, %pmix_bfrops_base_tma_check_nspace.exit.i ], [ true, %pmix_bfrops_base_tma_check_nspace.exit.thread.i ], [ %or.cond.i7.i, %24 ]
+pmix_bfrops_base_tma_check_procid.exit:           ; preds = %pmix_bfrops_base_tma_check_nspace.exit.i, %pmix_bfrops_base_tma_check_nspace.exit.thread.i
+  %.0.i = phi i1 [ %.0.i8.i, %pmix_bfrops_base_tma_check_nspace.exit.thread.i ], [ false, %pmix_bfrops_base_tma_check_nspace.exit.i ]
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext i1 @PMIx_Check_rank(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq i32 %0, %1
-  br i1 %3, label %pmix_bfrops_base_tma_check_rank.exit, label %4
-
-4:                                                ; preds = %2
-  %5 = icmp eq i32 %0, -2
-  %6 = icmp eq i32 %1, -2
-  %or.cond.i = or i1 %5, %6
-  br label %pmix_bfrops_base_tma_check_rank.exit
-
-pmix_bfrops_base_tma_check_rank.exit:             ; preds = %2, %4
-  %.0.i = phi i1 [ true, %2 ], [ %or.cond.i, %4 ]
+  %4 = icmp eq i32 %0, -2
+  %5 = icmp eq i32 %1, -2
+  %or.cond.i = or i1 %4, %5
+  %.0.i = or i1 %3, %or.cond.i
   ret i1 %.0.i
 }
 

@@ -8551,15 +8551,10 @@ invoke.cont646.i:                                 ; preds = %if.then6.i354.i, %i
   %878 = load i8, ptr %856, align 1
   %tobool652.i = trunc i8 %878 to i1
   %or.cond5.i = select i1 %tobool649.i, i1 true, i1 %tobool652.i
-  br i1 %or.cond5.i, label %land.end656.i, label %land.rhs653.i
-
-land.rhs653.i:                                    ; preds = %invoke.cont646.i
   %879 = load i8, ptr %arrayidx577.i, align 1
   %tobool655.i = trunc i8 %879 to i1
-  br label %land.end656.i
-
-land.end656.i:                                    ; preds = %land.rhs653.i, %invoke.cont646.i
-  %880 = phi i1 [ %tobool655.i, %land.rhs653.i ], [ false, %invoke.cont646.i ]
+  %not.or.cond5.i = xor i1 %or.cond5.i, true
+  %880 = select i1 %not.or.cond5.i, i1 %tobool655.i, i1 false
   %call658.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %880, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i320, ptr noundef nonnull @.str, i32 noundef 2104, ptr noundef nonnull @.str.227)
           to label %_ZL18Test_intrusive_ptrv.exit unwind label %if.then.i565.i
 
@@ -8779,8 +8774,8 @@ if.end.i857.i:                                    ; preds = %_ZN5eastl13intrusiv
   store i32 %dec.i.i.i867.i, ptr @_ZN12SmartPtrTest12RefCountTest6mCountE, align 4
   br label %common.resume
 
-if.then.i565.i:                                   ; preds = %land.end656.i, %if.then6.i354.i, %if.then.i348.i, %invoke.cont628.i, %invoke.cont626.i, %invoke.cont614.i, %if.then6.i338.i, %if.then.i332.i, %invoke.cont595.i, %invoke.cont592.i, %_ZN12SmartPtrTest12RefCountTest7ReleaseEv.exit.i
-  %arc1.sroa.0.0.ph.i = phi ptr [ %call569.i, %_ZN12SmartPtrTest12RefCountTest7ReleaseEv.exit.i ], [ %call569.i, %invoke.cont592.i ], [ %call569.i, %invoke.cont595.i ], [ %call569.i, %if.then.i332.i ], [ %call596.i, %if.then6.i338.i ], [ %arc1.sroa.0.1.i, %invoke.cont614.i ], [ %arc1.sroa.0.1.i, %invoke.cont626.i ], [ %arc1.sroa.0.1.i, %invoke.cont628.i ], [ %arc1.sroa.0.1.i, %if.then.i348.i ], [ %call629.i, %if.then6.i354.i ], [ %arc1.sroa.0.2.i, %land.end656.i ]
+if.then.i565.i:                                   ; preds = %invoke.cont646.i, %if.then6.i354.i, %if.then.i348.i, %invoke.cont628.i, %invoke.cont626.i, %invoke.cont614.i, %if.then6.i338.i, %if.then.i332.i, %invoke.cont595.i, %invoke.cont592.i, %_ZN12SmartPtrTest12RefCountTest7ReleaseEv.exit.i
+  %arc1.sroa.0.0.ph.i = phi ptr [ %call569.i, %_ZN12SmartPtrTest12RefCountTest7ReleaseEv.exit.i ], [ %call569.i, %invoke.cont592.i ], [ %call569.i, %invoke.cont595.i ], [ %call569.i, %if.then.i332.i ], [ %call596.i, %if.then6.i338.i ], [ %arc1.sroa.0.1.i, %invoke.cont614.i ], [ %arc1.sroa.0.1.i, %invoke.cont626.i ], [ %arc1.sroa.0.1.i, %invoke.cont628.i ], [ %arc1.sroa.0.1.i, %if.then.i348.i ], [ %call629.i, %if.then6.i354.i ], [ %arc1.sroa.0.2.i, %invoke.cont646.i ]
   %lpad.thr_comm802.i = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i566.i = load ptr, ptr %arc1.sroa.0.0.ph.i, align 8
@@ -8796,7 +8791,7 @@ terminate.lpad.i569.i:                            ; preds = %if.then.i565.i
   call void @__clang_call_terminate(ptr %925) #18
   unreachable
 
-_ZL18Test_intrusive_ptrv.exit:                    ; preds = %land.end656.i
+_ZL18Test_intrusive_ptrv.exit:                    ; preds = %invoke.cont646.i
   %vtable.i5.i365.i = load ptr, ptr %arc1.sroa.0.2.i, align 8
   %vfn.i6.i366.i = getelementptr inbounds nuw i8, ptr %vtable.i5.i365.i, i64 24
   %926 = load ptr, ptr %vfn.i6.i366.i, align 8

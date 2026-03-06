@@ -2862,13 +2862,13 @@ hamt_node_find.exit:                              ; preds = %43, %17, %62, %55, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @_PyHamt_Eq(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define hidden i32 @_PyHamt_Eq(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PyHamtIteratorState, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = icmp eq ptr %0, %1
-  br i1 %7, label %29, label %8
+  br i1 %7, label %28, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2876,7 +2876,7 @@ define hidden range(i32 -1, 2) i32 @_PyHamt_Eq(ptr noundef readonly captures(add
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8, !tbaa !16
   %.not = icmp eq i64 %10, %12
-  br i1 %.not, label %13, label %29
+  br i1 %.not, label %13, label %28
 
 13:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2890,17 +2890,18 @@ define hidden range(i32 -1, 2) i32 @_PyHamt_Eq(ptr noundef readonly captures(add
   store ptr %15, ptr %3, align 8, !tbaa !18
   br label %17
 
-17:                                               ; preds = %28, %13
+17:                                               ; preds = %23, %13
+  %.1 = phi i32 [ undef, %13 ], [ %.3, %23 ]
   %18 = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5)
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %.thread19
+  br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %4, align 8, !tbaa !110
   %22 = call fastcc i32 @hamt_find(ptr noundef %1, ptr noundef %21, ptr noundef nonnull %6)
-  switch i32 %22, label %default.unreachable27 [
-    i32 0, label %.thread19.loopexit
-    i32 1, label %.thread19
+  switch i32 %22, label %default.unreachable23 [
+    i32 0, label %.thread.loopexit
+    i32 1, label %.thread
     i32 2, label %23
   ]
 
@@ -2908,29 +2909,29 @@ define hidden range(i32 -1, 2) i32 @_PyHamt_Eq(ptr noundef readonly captures(add
   %24 = load ptr, ptr %5, align 8, !tbaa !110
   %25 = load ptr, ptr %6, align 8, !tbaa !110
   %26 = tail call i32 @PyObject_RichCompareBool(ptr noundef %24, ptr noundef %25, i32 noundef 2) #13
-  %27 = icmp slt i32 %26, 0
-  br i1 %27, label %.thread19, label %28
+  %27 = icmp sgt i32 %26, -1
+  %.not19 = icmp eq i32 %26, 0
+  %..1 = select i1 %.not19, i32 0, i32 %.1
+  %cond = icmp sgt i32 %26, 0
+  %.3 = select i1 %27, i32 %..1, i32 -1
+  br i1 %cond, label %17, label %.thread, !llvm.loop !120
 
-28:                                               ; preds = %23
-  %.not22 = icmp eq i32 %26, 0
-  br i1 %.not22, label %.thread19, label %17, !llvm.loop !120
-
-default.unreachable27:                            ; preds = %20
+default.unreachable23:                            ; preds = %20
   unreachable
 
-.thread19.loopexit:                               ; preds = %20
-  br label %.thread19
+.thread.loopexit:                                 ; preds = %20
+  br label %.thread
 
-.thread19:                                        ; preds = %23, %17, %28, %20, %.thread19.loopexit
-  %.2 = phi i32 [ 0, %20 ], [ -1, %23 ], [ 1, %17 ], [ 0, %28 ], [ -1, %.thread19.loopexit ]
+.thread:                                          ; preds = %17, %23, %20, %.thread.loopexit
+  %.2 = phi i32 [ 0, %20 ], [ 1, %17 ], [ %.3, %23 ], [ -1, %.thread.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %29
+  br label %28
 
-29:                                               ; preds = %8, %2, %.thread19
-  %.0 = phi i32 [ %.2, %.thread19 ], [ 1, %2 ], [ 0, %8 ]
+28:                                               ; preds = %8, %2, %.thread
+  %.0 = phi i32 [ %.2, %.thread ], [ 1, %2 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -3484,7 +3485,8 @@ define internal ptr @hamt_tp_richcompare(ptr noundef readonly captures(address) 
   store ptr %22, ptr %4, align 8, !tbaa !18
   br label %24
 
-24:                                               ; preds = %35, %20
+24:                                               ; preds = %30, %20
+  %.1.i = phi i32 [ undef, %20 ], [ %.3.i, %30 ]
   %25 = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %_PyHamt_Eq.exit.thread21
@@ -3493,7 +3495,7 @@ define internal ptr @hamt_tp_richcompare(ptr noundef readonly captures(address) 
   %28 = load ptr, ptr %5, align 8, !tbaa !110
   %29 = call fastcc i32 @hamt_find(ptr noundef readonly %1, ptr noundef %28, ptr noundef nonnull %7)
   switch i32 %29, label %default.unreachable [
-    i32 0, label %_PyHamt_Eq.exit
+    i32 0, label %_PyHamt_Eq.exit.thread23
     i32 1, label %_PyHamt_Eq.exit.thread21
     i32 2, label %30
   ]
@@ -3502,33 +3504,41 @@ define internal ptr @hamt_tp_richcompare(ptr noundef readonly captures(address) 
   %31 = load ptr, ptr %6, align 8, !tbaa !110
   %32 = load ptr, ptr %7, align 8, !tbaa !110
   %33 = tail call i32 @PyObject_RichCompareBool(ptr noundef %31, ptr noundef %32, i32 noundef 2) #13
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %_PyHamt_Eq.exit, label %35
-
-35:                                               ; preds = %30
-  %.not22.i = icmp eq i32 %33, 0
-  br i1 %.not22.i, label %_PyHamt_Eq.exit.thread21, label %24, !llvm.loop !120
+  %34 = icmp sgt i32 %33, -1
+  %.not19.i = icmp eq i32 %33, 0
+  %..1.i = select i1 %.not19.i, i32 0, i32 %.1.i
+  %cond.i = icmp sgt i32 %33, 0
+  %.3.i = select i1 %34, i32 %..1.i, i32 -1
+  br i1 %cond.i, label %24, label %_PyHamt_Eq.exit, !llvm.loop !120
 
 default.unreachable:                              ; preds = %27
   unreachable
 
-_PyHamt_Eq.exit.thread21:                         ; preds = %27, %24, %35
-  %.2.i.ph = phi i32 [ 0, %35 ], [ 1, %24 ], [ 0, %27 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %_PyHamt_Eq.exit.thread
-
-_PyHamt_Eq.exit:                                  ; preds = %27, %30
+_PyHamt_Eq.exit.thread23:                         ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
-_PyHamt_Eq.exit.thread:                           ; preds = %15, %13, %_PyHamt_Eq.exit.thread21
-  %.0.i19 = phi i32 [ %.2.i.ph, %_PyHamt_Eq.exit.thread21 ], [ 0, %15 ], [ 1, %13 ]
+_PyHamt_Eq.exit.thread21:                         ; preds = %27, %24
+  %.2.i.ph = phi i32 [ 1, %24 ], [ 0, %27 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %_PyHamt_Eq.exit.thread
+
+_PyHamt_Eq.exit:                                  ; preds = %30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %35 = icmp slt i32 %.3.i, 0
+  br i1 %35, label %38, label %_PyHamt_Eq.exit.thread
+
+_PyHamt_Eq.exit.thread:                           ; preds = %15, %13, %_PyHamt_Eq.exit.thread21, %_PyHamt_Eq.exit
+  %.0.i19 = phi i32 [ %.2.i.ph, %_PyHamt_Eq.exit.thread21 ], [ 0, %_PyHamt_Eq.exit ], [ 0, %15 ], [ 1, %13 ]
   %36 = icmp eq i32 %2, 3
   %.not14 = icmp eq i32 %.0.i19, 0
   %37 = zext i1 %.not14 to i32
@@ -3537,8 +3547,8 @@ _PyHamt_Eq.exit.thread:                           ; preds = %15, %13, %_PyHamt_E
   %spec.select = select i1 %.not15, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   br label %38
 
-38:                                               ; preds = %_PyHamt_Eq.exit, %_PyHamt_Eq.exit.thread, %3, %9
-  %.011 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ @_Py_NotImplementedStruct, %9 ], [ %spec.select, %_PyHamt_Eq.exit.thread ], [ null, %_PyHamt_Eq.exit ]
+38:                                               ; preds = %_PyHamt_Eq.exit.thread23, %_PyHamt_Eq.exit.thread, %_PyHamt_Eq.exit, %3, %9
+  %.011 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ @_Py_NotImplementedStruct, %9 ], [ %spec.select, %_PyHamt_Eq.exit.thread ], [ null, %_PyHamt_Eq.exit ], [ null, %_PyHamt_Eq.exit.thread23 ]
   ret ptr %.011
 }
 

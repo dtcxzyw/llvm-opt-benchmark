@@ -3221,27 +3221,21 @@ define hidden void @_ZN16VM_GetOrSetLocalC2EP10JavaThreadii9BasicType6jvalueb(pt
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br i1 %21, label %26, label %.critedge.i
-
-26:                                               ; preds = %7
-  %27 = load i8, ptr @UseJVMCICompiler, align 1
-  %28 = trunc i8 %27 to i1
-  %29 = load i8, ptr @DoEscapeAnalysis, align 1
-  %30 = trunc i8 %29 to i1
-  %31 = select i1 %28, i1 true, i1 %30
+  %26 = load i8, ptr @UseJVMCICompiler, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = load i8, ptr @DoEscapeAnalysis, align 1
+  %29 = trunc i8 %28 to i1
+  %30 = select i1 %27, i1 true, i1 %29
+  %31 = select i1 %21, i1 %30, i1 false
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %25, align 8
   br i1 %31, label %33, label %_ZN13EscapeBarrierC2EbP10JavaThreadS1_.exit
 
-33:                                               ; preds = %26
+33:                                               ; preds = %7
   tail call void @_ZN13EscapeBarrier20sync_and_suspend_oneEv(ptr noundef nonnull align 8 dereferenceable(17) %20) #17
   br label %_ZN13EscapeBarrierC2EbP10JavaThreadS1_.exit
 
-.critedge.i:                                      ; preds = %7
-  store i8 0, ptr %25, align 8
-  br label %_ZN13EscapeBarrierC2EbP10JavaThreadS1_.exit
-
-_ZN13EscapeBarrierC2EbP10JavaThreadS1_.exit:      ; preds = %26, %33, %.critedge.i
+_ZN13EscapeBarrierC2EbP10JavaThreadS1_.exit:      ; preds = %7, %33
   ret void
 }
 

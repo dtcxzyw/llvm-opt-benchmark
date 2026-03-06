@@ -25153,7 +25153,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK9fm_tactic3imp13can_eliminate
   %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %5
   %12 = load ptr, ptr %11, align 8, !tbaa !71
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit55, label %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i
+  br i1 %13, label %.loopexit, label %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i
 
 _ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i: ; preds = %8
   %14 = getelementptr inbounds i8, ptr %12, i64 -4
@@ -25162,7 +25162,7 @@ _ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i: ; preds = %8
   %17 = shl nuw nsw i64 %16, 3
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 %17
   %.not20.i = icmp eq i32 %15, 0
-  br i1 %.not20.i, label %.loopexit55, label %.lr.ph.i
+  br i1 %.not20.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i, %.thread.i
   %.031 = phi i1 [ %.132, %.thread.i ], [ true, %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i ]
@@ -25183,18 +25183,18 @@ _ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i: ; preds = %8
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !107
-  %.not.i.i56 = icmp eq i8 %29, 0
-  br i1 %.not.i.i56, label %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit, label %.lr.ph
+  %.not.i.i53 = icmp eq i8 %29, 0
+  br i1 %.not.i.i53, label %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.i.i, %.backedge54
-  %30 = phi i32 [ %51, %.backedge54 ], [ %26, %.lr.ph.i.i ]
-  %indvars.iv.i.i58 = phi i64 [ %indvars.iv.i.i.be, %.backedge54 ], [ 0, %.lr.ph.i.i ]
-  %.018.i57 = phi i1 [ %.018.i.be, %.backedge54 ], [ true, %.lr.ph.i.i ]
+.lr.ph:                                           ; preds = %.lr.ph.i.i, %.backedge51
+  %30 = phi i32 [ %51, %.backedge51 ], [ %26, %.lr.ph.i.i ]
+  %indvars.iv.i.i55 = phi i64 [ %indvars.iv.i.i.be, %.backedge51 ], [ 0, %.lr.ph.i.i ]
+  %.018.i54 = phi i1 [ %.018.i.be, %.backedge51 ], [ true, %.lr.ph.i.i ]
   %31 = icmp eq i32 %30, %1
   br i1 %31, label %32, label %_ZNK8rational12is_minus_oneEv.exit.i.i
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %indvars.iv.i.i58
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %indvars.iv.i.i55
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i8, ptr %34, align 4
   %36 = and i8 %35, 1
@@ -25218,12 +25218,12 @@ _ZNK8rational12is_minus_oneEv.exit.sink.split.i.i: ; preds = %32
   br label %_ZNK8rational12is_minus_oneEv.exit.i.i
 
 _ZNK8rational12is_minus_oneEv.exit.i.i:           ; preds = %_ZNK8rational12is_minus_oneEv.exit.sink.split.i.i, %.lr.ph
-  %.1.i = phi i1 [ %.018.i57, %.lr.ph ], [ %49, %_ZNK8rational12is_minus_oneEv.exit.sink.split.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i58, 1
+  %.1.i = phi i1 [ %.018.i54, %.lr.ph ], [ %49, %_ZNK8rational12is_minus_oneEv.exit.sink.split.i.i ]
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i55, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %55, label %.backedge54
+  br i1 %exitcond.not.i.i, label %55, label %.backedge51
 
-.backedge54:                                      ; preds = %_ZNK8rational12is_minus_oneEv.exit.i.i, %_ZNK8rational12is_minus_oneEv.exit.i.i.thread
+.backedge51:                                      ; preds = %_ZNK8rational12is_minus_oneEv.exit.i.i, %_ZNK8rational12is_minus_oneEv.exit.i.i.thread
   %.018.i.be = phi i1 [ %.1.i, %_ZNK8rational12is_minus_oneEv.exit.i.i ], [ false, %_ZNK8rational12is_minus_oneEv.exit.i.i.thread ]
   %indvars.iv.i.i.be = phi i64 [ %indvars.iv.next.i.i, %_ZNK8rational12is_minus_oneEv.exit.i.i ], [ %indvars.iv.next.i.i37, %_ZNK8rational12is_minus_oneEv.exit.i.i.thread ]
   %50 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i.i.be
@@ -25235,9 +25235,9 @@ _ZNK8rational12is_minus_oneEv.exit.i.i:           ; preds = %_ZNK8rational12is_m
   br i1 %.not.i.i, label %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit, label %.lr.ph, !llvm.loop !557
 
 _ZNK8rational12is_minus_oneEv.exit.i.i.thread:    ; preds = %32
-  %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i58, 1
+  %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i55, 1
   %exitcond.not.i.i38 = icmp eq i64 %indvars.iv.next.i.i37, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i38, label %.thread, label %.backedge54
+  br i1 %exitcond.not.i.i38, label %.thread, label %.backedge51
 
 55:                                               ; preds = %_ZNK8rational12is_minus_oneEv.exit.i.i
   br i1 %.1.i, label %.thread.i, label %.thread
@@ -25249,25 +25249,25 @@ _ZNK8rational12is_minus_oneEv.exit.i.i.thread:    ; preds = %32
   %.132 = phi i1 [ %.031, %.lr.ph.i ], [ %.031, %55 ], [ false, %.thread ]
   %56 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %.not.i = icmp eq ptr %56, %18
-  br i1 %.not.i, label %.loopexit55, label %.lr.ph.i
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.loopexit55:                                      ; preds = %.thread.i, %8, %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i
+.loopexit:                                        ; preds = %.thread.i, %8, %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i
   %.233.ph = phi i1 [ true, %8 ], [ true, %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i ], [ %.132, %.thread.i ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %58 = load ptr, ptr %57, align 8, !tbaa !139
   %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %5
   %60 = load ptr, ptr %59, align 8, !tbaa !71
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.loopexit, label %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i6
+  br i1 %61, label %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit25, label %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i6
 
-_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i6: ; preds = %.loopexit55
+_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i6: ; preds = %.loopexit
   %62 = getelementptr inbounds i8, ptr %60, i64 -4
   %63 = load i32, ptr %62, align 4, !tbaa !117
   %64 = zext i32 %63 to i64
   %65 = shl nuw nsw i64 %64, 3
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 %65
   %.not20.i7 = icmp eq i32 %63, 0
-  br i1 %.not20.i7, label %.loopexit, label %.lr.ph.i8
+  br i1 %.not20.i7, label %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit25, label %.lr.ph.i8
 
 .lr.ph.i8:                                        ; preds = %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i6, %.thread.i20
   %.029 = phi i1 [ %.130, %.thread.i20 ], [ true, %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i6 ]
@@ -25288,18 +25288,18 @@ _ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i6: ; preds = %.loopexit5
   %75 = zext i32 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !107
-  %.not.i.i1559 = icmp eq i8 %77, 0
-  br i1 %.not.i.i1559, label %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit, label %.lr.ph62
+  %.not.i.i1556 = icmp eq i8 %77, 0
+  br i1 %.not.i.i1556, label %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit25, label %.lr.ph59
 
-.lr.ph62:                                         ; preds = %.lr.ph.i.i11, %.backedge
+.lr.ph59:                                         ; preds = %.lr.ph.i.i11, %.backedge
   %78 = phi i32 [ %99, %.backedge ], [ %74, %.lr.ph.i.i11 ]
-  %indvars.iv.i.i1461 = phi i64 [ %indvars.iv.i.i14.be, %.backedge ], [ 0, %.lr.ph.i.i11 ]
-  %.018.i1360 = phi i1 [ %.018.i13.be, %.backedge ], [ true, %.lr.ph.i.i11 ]
+  %indvars.iv.i.i1458 = phi i64 [ %indvars.iv.i.i14.be, %.backedge ], [ 0, %.lr.ph.i.i11 ]
+  %.018.i1357 = phi i1 [ %.018.i13.be, %.backedge ], [ true, %.lr.ph.i.i11 ]
   %79 = icmp eq i32 %78, %1
   br i1 %79, label %80, label %_ZNK8rational12is_minus_oneEv.exit.i.i16
 
-80:                                               ; preds = %.lr.ph62
-  %81 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %indvars.iv.i.i1461
+80:                                               ; preds = %.lr.ph59
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %indvars.iv.i.i1458
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i8, ptr %82, align 4
   %84 = and i8 %83, 1
@@ -25322,9 +25322,9 @@ _ZNK8rational12is_minus_oneEv.exit.sink.split.i.i23: ; preds = %80
   %97 = select i1 %94, i1 %96, i1 false
   br label %_ZNK8rational12is_minus_oneEv.exit.i.i16
 
-_ZNK8rational12is_minus_oneEv.exit.i.i16:         ; preds = %_ZNK8rational12is_minus_oneEv.exit.sink.split.i.i23, %.lr.ph62
-  %.1.i17 = phi i1 [ %.018.i1360, %.lr.ph62 ], [ %97, %_ZNK8rational12is_minus_oneEv.exit.sink.split.i.i23 ]
-  %indvars.iv.next.i.i18 = add nuw nsw i64 %indvars.iv.i.i1461, 1
+_ZNK8rational12is_minus_oneEv.exit.i.i16:         ; preds = %_ZNK8rational12is_minus_oneEv.exit.sink.split.i.i23, %.lr.ph59
+  %.1.i17 = phi i1 [ %.018.i1357, %.lr.ph59 ], [ %97, %_ZNK8rational12is_minus_oneEv.exit.sink.split.i.i23 ]
+  %indvars.iv.next.i.i18 = add nuw nsw i64 %indvars.iv.i.i1458, 1
   %exitcond.not.i.i19 = icmp eq i64 %indvars.iv.next.i.i18, %wide.trip.count.i.i12
   br i1 %exitcond.not.i.i19, label %103, label %.backedge
 
@@ -25337,10 +25337,10 @@ _ZNK8rational12is_minus_oneEv.exit.i.i16:         ; preds = %_ZNK8rational12is_m
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !107
   %.not.i.i15 = icmp eq i8 %102, 0
-  br i1 %.not.i.i15, label %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit, label %.lr.ph62, !llvm.loop !557
+  br i1 %.not.i.i15, label %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit25, label %.lr.ph59, !llvm.loop !557
 
 _ZNK8rational12is_minus_oneEv.exit.i.i16.thread:  ; preds = %80
-  %indvars.iv.next.i.i1845 = add nuw nsw i64 %indvars.iv.i.i1461, 1
+  %indvars.iv.next.i.i1845 = add nuw nsw i64 %indvars.iv.i.i1458, 1
   %exitcond.not.i.i1946 = icmp eq i64 %indvars.iv.next.i.i1845, %wide.trip.count.i.i12
   br i1 %exitcond.not.i.i1946, label %.thread48, label %.backedge
 
@@ -25354,15 +25354,17 @@ _ZNK8rational12is_minus_oneEv.exit.i.i16.thread:  ; preds = %80
   %.130 = phi i1 [ %.029, %.lr.ph.i8 ], [ %.029, %103 ], [ false, %.thread48 ]
   %104 = getelementptr inbounds nuw i8, ptr %.021.i9, i64 8
   %.not.i21 = icmp eq ptr %104, %66
-  br i1 %.not.i21, label %.loopexit, label %.lr.ph.i8
+  br i1 %.not.i21, label %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit25, label %.lr.ph.i8
 
-.loopexit:                                        ; preds = %.thread.i20, %.loopexit55, %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i6
-  %.2.ph = phi i1 [ true, %.loopexit55 ], [ true, %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i6 ], [ %.130, %.thread.i20 ]
-  %105 = select i1 %.233.ph, i1 true, i1 %.2.ph
+_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit25: ; preds = %.thread.i20, %.lr.ph.i.i11, %.backedge, %.loopexit, %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i6
+  %.135 = phi i1 [ true, %.loopexit ], [ true, %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i6 ], [ false, %.backedge ], [ true, %.thread.i20 ], [ false, %.lr.ph.i.i11 ]
+  %.2 = phi i1 [ true, %.loopexit ], [ true, %_ZNK6vectorIPN9fm_tactic10constraintELb0EjE3endEv.exit.i6 ], [ %.029, %.backedge ], [ %.130, %.thread.i20 ], [ %.029, %.lr.ph.i.i11 ]
+  %105 = select i1 %.233.ph, i1 true, i1 %.2
+  %106 = select i1 %.135, i1 %105, i1 false
   br label %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit
 
-_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit: ; preds = %.lr.ph.i.i, %.backedge54, %.lr.ph.i.i11, %.backedge, %.loopexit, %2
-  %.0 = phi i1 [ true, %2 ], [ %105, %.loopexit ], [ false, %.backedge54 ], [ false, %.lr.ph.i.i11 ], [ false, %.backedge ], [ false, %.lr.ph.i.i ]
+_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit: ; preds = %.lr.ph.i.i, %.backedge51, %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit25, %2
+  %.0 = phi i1 [ true, %2 ], [ %106, %_ZNK9fm_tactic3imp7analyzeERK10ptr_vectorINS_10constraintEEjRbS6_.exit25 ], [ false, %.backedge51 ], [ false, %.lr.ph.i.i ]
   ret i1 %.0
 }
 

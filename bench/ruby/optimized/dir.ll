@@ -6261,7 +6261,7 @@ define internal range(i32 0, 2) i32 @fnmatch_brace(ptr noundef %0, i64 noundef %
   %7 = load i64, ptr %6, align 8, !tbaa !43
   %8 = tail call ptr @rb_enc_get(i64 noundef %7) #22
   %.not = icmp eq ptr %2, %8
-  br i1 %.not, label %23, label %9
+  br i1 %.not, label %22, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr i8, ptr %2, i64 20
@@ -6288,7 +6288,7 @@ rb_enc_asciicompat.exit30:                        ; preds = %12
 15:                                               ; preds = %rb_enc_asciicompat.exit30
   %16 = tail call i32 @rb_enc_str_asciionly_p(i64 noundef %7) #22
   %.not23 = icmp eq i32 %16, 0
-  br i1 %.not23, label %17, label %23
+  br i1 %.not23, label %17, label %22
 
 17:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -6297,40 +6297,34 @@ rb_enc_asciicompat.exit30:                        ; preds = %12
   %19 = getelementptr i8, ptr %0, i64 %18
   %20 = call i64 @rb_str_coderange_scan_restartable(ptr noundef nonnull %0, ptr noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %4) #22
   %.not24 = icmp eq i64 %20, %18
-  br i1 %.not24, label %21, label %.critedge
-
-21:                                               ; preds = %17
-  %22 = load i32, ptr %4, align 4, !tbaa !58
-  %.not25 = icmp eq i32 %22, 1048576
+  %21 = load i32, ptr %4, align 4
+  %.not25 = icmp eq i32 %21, 1048576
+  %cond = select i1 %.not24, i1 %.not25, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not25, label %23, label %rb_enc_asciicompat.exit.thread
+  br i1 %cond, label %22, label %rb_enc_asciicompat.exit.thread
 
-23:                                               ; preds = %15, %21, %3
-  %24 = inttoptr i64 %7 to ptr
-  %25 = load i64, ptr %24, align 8, !tbaa !61, !noalias !203
-  %26 = and i64 %25, 8192
-  %.not.i.i = icmp eq i64 %26, 0
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %28
+22:                                               ; preds = %15, %17, %3
+  %23 = inttoptr i64 %7 to ptr
+  %24 = load i64, ptr %23, align 8, !tbaa !61, !noalias !203
+  %25 = and i64 %24, 8192
+  %.not.i.i = icmp eq i64 %25, 0
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %27
 
-28:                                               ; preds = %23
-  %.sroa.2.0.copyload.i = load ptr, ptr %27, align 8
+27:                                               ; preds = %22
+  %.sroa.2.0.copyload.i = load ptr, ptr %26, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %23, %28
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %28 ], [ %27, %23 ]
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %30 = load i32, ptr %29, align 8, !tbaa !44
-  %31 = call fastcc i32 @fnmatch(ptr noundef %0, ptr noundef %2, ptr noundef %.sroa.2.0.i, i32 noundef %30)
-  %32 = xor i32 %31, 1
+RSTRING_PTR.exit:                                 ; preds = %22, %27
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %27 ], [ %26, %22 ]
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %29 = load i32, ptr %28, align 8, !tbaa !44
+  %30 = call fastcc i32 @fnmatch(ptr noundef %0, ptr noundef %2, ptr noundef %.sroa.2.0.i, i32 noundef %29)
+  %31 = xor i32 %30, 1
   br label %rb_enc_asciicompat.exit.thread
 
-.critedge:                                        ; preds = %17
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %rb_enc_asciicompat.exit.thread
-
-rb_enc_asciicompat.exit.thread:                   ; preds = %12, %9, %.critedge, %rb_enc_asciicompat.exit30, %rb_enc_asciicompat.exit, %21, %RSTRING_PTR.exit
-  %.0 = phi i32 [ %32, %RSTRING_PTR.exit ], [ 1, %21 ], [ 1, %rb_enc_asciicompat.exit ], [ 1, %rb_enc_asciicompat.exit30 ], [ 1, %.critedge ], [ 1, %9 ], [ 1, %12 ]
+rb_enc_asciicompat.exit.thread:                   ; preds = %12, %9, %rb_enc_asciicompat.exit30, %rb_enc_asciicompat.exit, %17, %RSTRING_PTR.exit
+  %.0 = phi i32 [ %31, %RSTRING_PTR.exit ], [ 1, %17 ], [ 1, %rb_enc_asciicompat.exit ], [ 1, %rb_enc_asciicompat.exit30 ], [ 1, %9 ], [ 1, %12 ]
   ret i32 %.0
 }
 
